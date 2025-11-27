@@ -11,15 +11,13 @@ export default function EdgeSection() {
         <section className="pb-20 px-6 ">
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-16">
-                    <h2 className="text-[#00FFC2] text-xl font-medium mb-4">
-                        Welcome to Edge
-                    </h2>
+                    <h2 className="text-[#00FFC2] text-xl font-medium mb-4">Welcome to Edge</h2>
                     <h3 className="text-white text-4xl md:text-5xl font-bold">
                         In-Person Elite Football Coaching.
                     </h3>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-8">
+                <div className="grid xl:grid-cols-2 gap-8">
                     <motion.div
                         className="bg-[#1A1A1A] rounded-3xl border border-[#00FFC2] overflow-hidden flex flex-col h-[640px]"
                         initial={{ opacity: 0, y: 50 }}
@@ -28,7 +26,7 @@ export default function EdgeSection() {
                         whileHover={{
                             scale: 1.02,
                             boxShadow: "0 0 30px rgba(0, 255, 194, 0.3)",
-                            transition: { duration: 0.3 }
+                            transition: { duration: 0.3 },
                         }}
                         transition={{ duration: 0.6, ease: "easeOut" }}
                     >
@@ -37,8 +35,8 @@ export default function EdgeSection() {
                                 Expert Coaching, Real Results
                             </h4>
                             <p className="text-gray-400 text-lg mb-8 leading-relaxed">
-                                Train with UEFA-qualified coaches who turn the game into clear,
-                                actionable steps that accelerate your development.
+                                Train with UEFA-qualified coaches who turn the game into clear, actionable
+                                steps that accelerate your development.
                             </p>
                             <Link
                                 href="/"
@@ -56,13 +54,8 @@ export default function EdgeSection() {
                                 </svg>
                             </Link>
                         </div>
-                        <div className="relative flex-1">
-                            <Image
-                                src={imgEdgeLanding1}
-                                alt="Stadium"
-                                fill
-                                className="object-cover"
-                            />
+                        <div className="relative flex-1 mt-10 sm:mt-0">
+                            <Image src={imgEdgeLanding1} alt="Stadium" fill className="object-cover" />
                         </div>
                     </motion.div>
 
@@ -74,7 +67,7 @@ export default function EdgeSection() {
                         whileHover={{
                             scale: 1.02,
                             boxShadow: "0 0 30px rgba(0, 255, 194, 0.3)",
-                            transition: { duration: 0.3 }
+                            transition: { duration: 0.3 },
                         }}
                         transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
                     >
@@ -83,9 +76,8 @@ export default function EdgeSection() {
                                 Better Decisions, Every Match
                             </h4>
                             <p className="text-gray-400 text-lg mb-8 leading-relaxed">
-                                Get real-time feedback from your coaches during drills and game
-                                scenarios, helping you correct mistakes faster and build smarter
-                                habits.
+                                Get real-time feedback from your coaches during drills and game scenarios,
+                                helping you correct mistakes faster and build smarter habits.
                             </p>
                             <Link
                                 href="/"
@@ -109,16 +101,10 @@ export default function EdgeSection() {
                                 </svg>
                             </Link>
                         </div>
-                        <div className="relative flex-1">
-                            <Image
-                                src={imgEdgeLanding2}
-                                alt="Stadium"
-                                fill
-                                className="object-cover"
-                            />
+                        <div className="relative flex-1 mt-10 sm:mt-0">
+                            <Image src={imgEdgeLanding2} alt="Stadium" fill className="object-cover" />
                         </div>
                     </motion.div>
-
                 </div>
             </div>
         </section>
