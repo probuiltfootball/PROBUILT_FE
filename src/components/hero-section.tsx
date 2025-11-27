@@ -9,11 +9,17 @@ import img0 from "@/assets/football/horz0.jpg";
 import img1 from "@/assets/football/horz1.jpg";
 import img2 from "@/assets/football/horz2.avif";
 import img3 from "@/assets/football/horz3.avif";
-import img4 from "@/assets/football/vert1.avif";
-import img5 from "@/assets/football/vert2.avif";
-import img6 from "@/assets/football/vert3.avif";
+import img4 from "@/assets/football/horz4.avif";
+import img5 from "@/assets/football/horz5.avif";
+import img6 from "@/assets/football/horz6.avif";
+import img7 from "@/assets/football/vert1.avif";
+import img8 from "@/assets/football/vert2.avif";
+import img9 from "@/assets/football/vert3.avif";
+import img10 from "@/assets/football/vert4.avif";
+import img11 from "@/assets/football/vert5.avif";
+import { motion } from "framer-motion";
 
-const images = [img0, img1, img2, img3, img4, img5, img6];
+const images = [img0, img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11];
 
 export default function HeroSection() {
     const [index, setIndex] = useState(0);
@@ -27,8 +33,8 @@ export default function HeroSection() {
     }, []);
 
     return (
-        <section className="pb-20 ">
-            <div className="HERO relative flex flex-col items-center justify-center w-full text-center px-4 h-[1020px] overflow-hidden rounded-b-3xl border-2 border-t-0 border-[#00FFC220] shadow-2xl">
+        <section className="pb-20">
+            <motion.div className="HERO relative flex flex-col items-center justify-center w-full text-center px-4 h-[1020px] xl:h-[1440px] overflow-hidden rounded-b-3xl border-2 border-t-0 border-[#00FFC220] shadow-2xl">
                 {/* Dark overlay for better text readability */}
                 <div className="absolute inset-0 bg-black/10 z-5" />
 
@@ -49,31 +55,65 @@ export default function HeroSection() {
                 ))}
 
                 {/* Content */}
-                <div className="relative z-10 p-32 flex flex-col items-center">
+                <motion.div
+                    className="relative z-10 flex flex-col mt-auto justify-center items-center mb-32"
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ margin: "-100px" }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    whileHover={{ scale: 1.08 }}
+                >
                     <div className="mb-8">
                         <Image src={SiteLogo} alt="Probuilt Logo" width={80} height={80} />
                     </div>
-
-                    <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight mb-6">
+                    <motion.h1
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ margin: "-100px" }}
+                        transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+                        className="text-5xl md:text-7xl font-bold text-white tracking-tight mb-6"
+                    >
                         Unlock Your <span className="text-[#00FFC2]">Football Potential.</span>
-                    </h1>
+                    </motion.h1>
 
-                    <p className="text-lg md:text-xl text-gray-300 max-w-2xl mb-12">
+                    <motion.p
+                        className="text-lg md:text-xl text-gray-300 max-w-2xl mb-12"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ margin: "-100px" }}
+                        transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
+                    >
                         Unlock your potential with UEFA-licensed coaching — train with Edge or grow
                         with the Academy.
-                    </p>
+                    </motion.p>
 
-                    <div className="flex flex-col sm:flex-row gap-4">
-                        <button className="px-16 py-3 rounded-full bg-[#00FFC2] text-black font-semibold hover:bg-[#00E0AA] transition-colors">
-                            Explore Edge
-                        </button>
+                    <motion.div
+                        className="flex flex-col sm:flex-row gap-4"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ margin: "-100px" }}
+                        transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
+                    >
+                        <motion.div
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            <button className="px-16 py-3 rounded-full bg-[#00FFC2] text-black font-semibold hover:bg-[#00E0AA] transition-colors">
+                                Explore Edge
+                            </button>
 
-                        <button className="px-16 py-3 rounded-full border border-gray-500 text-white font-medium hover:border-white transition-colors">
-                            Explore Hub
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
+                        </motion.div>
+                        <motion.div
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            <button className="px-16 py-3 rounded-full border border-gray-500 text-white font-medium hover:border-white transition-colors">
+                                Explore Hub
+                            </button>
+                        </motion.div>
+                    </motion.div>
+                </motion.div>
+            </motion.div>
+        </section >
     );
 }

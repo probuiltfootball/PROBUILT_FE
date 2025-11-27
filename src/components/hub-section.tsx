@@ -26,13 +26,13 @@ export default function HubSection() {
 
                 {/* Card */}
                 <motion.div
-                    className="bg-[#1A1A1A] rounded-3xl border border-[#2A2A2A] overflow-hidden flex flex-col md:flex-row"
+                    className="bg-[#2E2E2E80] rounded-3xl border border-[#2A2A2A] overflow-hidden flex flex-col md:flex-row"
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ margin: "-100px" }}
                     whileHover={{
-                        scale: 1.01,
-                        borderColor: "rgba(0, 255, 194, 0.2)",
+                        scale: 1.02,
+                        boxShadow: "0 0 30px rgba(0, 255, 194, 0.3)",
                         transition: { duration: 0.3 }
                     }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
