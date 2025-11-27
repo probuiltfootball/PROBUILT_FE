@@ -17,9 +17,6 @@
 /.next/
 /out/
 
-/.kiro/
-/.docs/
-/.vscode/
 
 # production
 /build
@@ -43,3 +40,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+/.kiro/
+/.docs/
+/.vscode/
