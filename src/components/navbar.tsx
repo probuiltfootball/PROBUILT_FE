@@ -5,7 +5,7 @@ import Image from "next/image";
 import NextLink from "next/link";
 import { motion } from "framer-motion";
 
-const Link = NextLink as unknown;
+const Link = NextLink;
 import SiteLogo from "@/assets/svg/site-logo.svg";
 
 export default function Navbar() {
