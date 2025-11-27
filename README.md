@@ -95,6 +95,63 @@ src/
 -   `npm run lint`: Check code quality with ESLint
 -   `npm run format`: Format code with Prettier
 
+
+
+> [!IMPORTANT]
+> ### Thumb Rules for Working on the Frontend Repo
+>
+> 1. **Start work from `develop` only**
+>    Always create your feature branch from the `develop` branch.
+>    Naming format: `feature/your-branch-name`.
+>
+> 2. **Work only inside your feature branch**
+>    Do all your changes inside your own feature branch.
+>
+> 3. **Create a PR back to `develop`**
+>    Once done, open a PR from your feature branch → `develop` and request a review.
+>
+> 4. **No direct PRs to `master`**
+>    Never create a PR from your feature branch directly into `master`.
+>
+> 5. **Do not merge without review**
+>    Never merge your PR into `develop` without getting it reviewed first.
+>
+> 6. **Repository limitations to remember**
+>    This is a free private GitHub organization repo, so we can't enforce branch protections or rulesets officially.
+
+>
+>
+>
+> [!IMPORTANT]
+# "So we all need to follow these rules manually."
+
+>
+>
+>
+
+
+
+## Version Control
+
+ProBuilt uses GitHub for source control, hosted within the private repository `probuilt-platform`. The structure follows a simplified GitFlow model, designed to scale efficiently while remaining clear and manageable for a multi-developer team.
+
+| Branch | Description | Access |
+| :--- | :--- | :--- |
+| **main** | Live production branch. Code here is always deployable. | Tech Lead only |
+| **develop** | Integration branch. Features are merged here once stable. | Core developers |
+| **feature/\*** | Individual feature branches for new development. | All developers |
+| **bugfix/\*** | Temporary branches to address issues and small fixes. | Assigned developer |
+| **release/\*** | Used for pre-production staging and final QA. | Tech Lead / QA |
+
+## Contributing
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/your-feature`).
+3. Make your changes.
+4. Commit your changes (`git commit -m 'Add some feature'`).
+5. Push to the branch (`git push origin feature/your-feature`).
+6. Open a Pull Request.
+
+
 ## 🎨 Design System
 
 - **Primary Colors**: Dark theme (#000000, #2E2E2E), Accent (#00FFC2)
@@ -103,33 +160,6 @@ src/
 - **Animations**: Framer Motion for interactive elements
 - **CSS Variables**: Custom theme variables in `globals.css`
 - **Responsive Breakpoints**: Mobile-first design with md, lg breakpoints
-
-## 🏗️ Key Components
-
-### Hero Section
-- Rotating image carousel with smooth fade transitions
-- 5-second interval between images
-- Dark overlay for text readability
-- Responsive height (1020px on desktop)
-
-### Navigation Bar
-- Fixed top navigation with logo
-- Quick links (Hub, Edge, Community, PB Points)
-- Register and Login buttons
-- Responsive mobile menu
-
-### Footer
-- 4-column layout (Brand, Quick Links, Company, Connect)
-- Social media links (Facebook, Instagram, LinkedIn, X, WhatsApp)
-- Copyright and legal links
-- Fully responsive design
-
-### Background Provider
-- Global fixed background image carousel
-- Rotates through 7 football images
-- Positioned from bottom to top
-- No repeat, covers entire viewport
-- Stays behind all content with z-index management
 
 ## 🚀 Ready for Development
 
