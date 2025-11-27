@@ -9,7 +9,7 @@ export function BackgroundProvider() {
 
 
     return (
-        <div className="fixed inset-0 -z-50 overflow-hidden pointer-events-none  bg-[#00000090]">
+        <div className="fixed inset-0 -z-50 overflow-hidden pointer-events-none  bg-black">
             <Image
                 src={bg}
                 alt="Football ground"

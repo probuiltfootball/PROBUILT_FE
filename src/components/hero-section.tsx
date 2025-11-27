@@ -27,8 +27,8 @@ export default function HeroSection() {
     }, []);
 
     return (
-        <section className="pb-20">
-            <div className="HERO relative flex flex-col items-center justify-center w-full text-center px-4 h-[1020px] overflow-hidden rounded-b-3xl">
+        <section className="pb-20 ">
+            <div className="HERO relative flex flex-col items-center justify-center w-full text-center px-4 h-[1020px] overflow-hidden rounded-b-3xl border-2 border-t-0 border-[#00FFC220] shadow-2xl">
                 {/* Dark overlay for better text readability */}
                 <div className="absolute inset-0 bg-black/10 z-5" />
 
