@@ -55,7 +55,7 @@ export default function TestimonialsSection() {
                     {testimonials.map((testimonial, index) => (
                         <motion.div
                             key={index}
-                            className="bg-[#1A1A1A] border-2 border-[#00FFC2] rounded-2xl p-8 flex flex-col"
+                            className="bg-[#2E2E2E80] border border-[#00FFC270] rounded-2xl p-8 flex flex-col"
                             initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ margin: "-100px" }}

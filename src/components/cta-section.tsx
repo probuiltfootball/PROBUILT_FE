@@ -19,7 +19,7 @@ export default function CtaSection() {
     return (
         <section className="pb-20 px-6">
             <motion.div
-                className="max-w-[1280px] bg-[#3A3A3A] rounded-3xl py-12 mx-auto"
+                className="max-w-[1280px] bg-[#00000080] rounded-3xl py-12 mx-auto border border-[#00FFC220]"
                 initial={{ y: 0 }}
                 animate={{
                     y: scrollY > 2000 ? Math.min(scrollY * 0.05, 30) : 0,
@@ -35,6 +35,7 @@ export default function CtaSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ margin: "-100px" }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
+                    whileHover={{ scale: 1.08 }}
                 >
                     {/* Heading */}
                     <motion.h2
