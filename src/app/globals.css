@@ -30,7 +30,7 @@ body {
   background-color: rgb(var(--background));
   color: rgb(var(--foreground));
   font-family:
-    var(--font-geist-sans),
+    var(--font-manrope),
     "Inter",
     system-ui,
     -apple-system,
@@ -46,4 +46,14 @@ body {
     linear-gradient(135deg, rgb(var(--foreground) / 0.04), rgb(var(--foreground) / 0.08)),
     rgb(var(--background));
   box-shadow: 0 15px 35px rgb(15 23 42 / 0.1);
+}
+
+/* Right side slant only */
+.clip-right-only {
+  clip-path: polygon(0% 0%, 100% 5%, 100% 95%, 0% 100%);
+}
+
+/* Left side slant only */
+.clip-left-only {
+  clip-path: polygon(0% 5%, 100% 0%, 100% 100%, 0% 95%);
 }
