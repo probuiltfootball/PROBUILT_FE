@@ -5,7 +5,7 @@ import Image from "next/image";
 import NextLink from "next/link";
 import { motion } from "framer-motion";
 
-const Link = NextLink as any;
+const Link = NextLink as unknown;
 import SiteLogo from "@/assets/svg/site-logo.svg";
 
 export default function Navbar() {
@@ -49,55 +49,54 @@ export default function Navbar() {
                 ease: "easeInOut",
             }}
         >
-
             {/* Logo */}
             <div className="flex items-center gap-2 uppercase">
                 <Link href="/">
                     <Image src={SiteLogo} alt="Probuilt Logo" width={32} height={32} />
                 </Link>
                 <h2 className="text-xl font-bold text-white tracking-wider">
-                    Probuilt <span className="text-[#00FFC2]">Academy</span>
+                    Probuilt <span className="text-[#00FFC2]">Football</span>
                 </h2>
             </div>
 
             {/* Nav Links */}
             <div className="hidden md:flex items-center gap-8">
                 <Link
-                    href="/hub"
+                    href="/"
                     className="relative text-gray-100 font-medium text-md hover:text-[#00FFC2] transition-colors px-4 py-2
-                    after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[4px]
-                    after:w-0 after:bg-[#00FFC2] after:transition-all after:duration-300
-                    hover:after:w-full"
+          after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:h-[4px]
+          after:w-0 after:bg-[#00FFC2] after:transition-all after:duration-300 after:-translate-x-1/2
+          hover:after:w-full"
                 >
                     Hub
                 </Link>
 
                 <Link
-                    href="/edge"
+                    href="/"
                     className="relative text-gray-100 font-medium text-md hover:text-[#00FFC2] transition-colors px-4 py-2
-                    after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[4px]
-                    after:w-0 after:bg-[#00FFC2] after:transition-all after:duration-300
-                    hover:after:w-full"
+          after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:h-[4px]
+          after:w-0 after:bg-[#00FFC2] after:transition-all after:duration-300 after:-translate-x-1/2
+          hover:after:w-full"
                 >
                     Edge
                 </Link>
 
                 <Link
-                    href="/community"
+                    href="/"
                     className="relative text-gray-100 font-medium text-md hover:text-[#00FFC2] transition-colors px-4 py-2
-                    after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[4px]
-                    after:w-0 after:bg-[#00FFC2] after:transition-all after:duration-300
-                    hover:after:w-full"
+          after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:h-[4px]
+          after:w-0 after:bg-[#00FFC2] after:transition-all after:duration-300 after:-translate-x-1/2
+          hover:after:w-full"
                 >
                     Community
                 </Link>
 
                 <Link
-                    href="/pb-points"
+                    href="/"
                     className="relative text-gray-100 font-medium text-md hover:text-[#00FFC2] transition-colors px-4 py-2
-                    after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[4px]
-                    after:w-0 after:bg-[#00FFC2] after:transition-all after:duration-300
-                    hover:after:w-full"
+          after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:h-[4px]
+          after:w-0 after:bg-[#00FFC2] after:transition-all after:duration-300 after:-translate-x-1/2
+          hover:after:w-full"
                 >
                     PB Points
                 </Link>
@@ -113,7 +112,6 @@ export default function Navbar() {
                     Log in
                 </button>
             </div>
-
         </motion.nav>
     );
 }

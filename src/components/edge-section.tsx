@@ -21,7 +21,7 @@ export default function EdgeSection() {
 
                 <div className="grid md:grid-cols-2 gap-8">
                     <motion.div
-                        className="bg-[#1A1A1A] rounded-3xl border border-[#00FFC2] overflow-hidden flex flex-col h-[640px]"
+                        className="bg-[#2E2E2E80] rounded-3xl border border-[#00FFC270] overflow-hidden flex flex-col h-[640px]"
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ margin: "-100px" }}
@@ -67,7 +67,7 @@ export default function EdgeSection() {
                     </motion.div>
 
                     <motion.div
-                        className="bg-[#1A1A1A] rounded-3xl border border-[#00FFC2] overflow-hidden flex flex-col h-[640px]"
+                        className="bg-[#2E2E2E80] rounded-3xl border border-[#00FFC270] overflow-hidden flex flex-col h-[640px]"
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ margin: "-100px" }}
