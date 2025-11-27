@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PROBUILT Frontend Starter
 
-## Getting Started
+This repository is an opinionated Next.js App Router starter template, pre-configured with the specific tooling requested for the PROBUILT frontend. It provides a solid foundation for building modern, high-performance web applications.
 
-First, run the development server:
+## 🚀 Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This project leverages a modern stack focused on performance, developer experience, and scalability:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+-   **[Next.js 16](https://nextjs.org/)**: App Router, Server Components, and the latest React features.
+-   **[TypeScript](https://www.typescriptlang.org/)**: Static typing for better code quality and developer tooling.
+-   **[Tailwind CSS 4](https://tailwindcss.com/)**: Utility-first CSS framework with the new `@tailwindcss/postcss` pipeline.
+-   **[Redux Toolkit](https://redux-toolkit.js.org/)**: Efficient global state management.
+-   **[React Redux](https://react-redux.js.org/)**: Official React bindings for Redux.
+-   **[next-themes](https://github.com/pacocoursey/next-themes)**: Perfect dark mode implementation.
+-   **[Framer Motion](https://www.framer.com/motion/)**: Production-ready animation library for React.
+-   **[React Icons](https://react-icons.github.io/react-icons/)**: Popular icons as React components.
+-   **[ESLint](https://eslint.org/)**: Pluggable JavaScript linter (Flat Config).
+-   **[Prettier](https://prettier.io/)**: Opinionated code formatter.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ✨ Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+-   **App Router Ready**: Built from the ground up using the Next.js App Router.
+-   **Dark Mode**: Integrated theme switching with `next-themes`, preventing flash of incorrect theme.
+-   **State Management**: Redux Toolkit store setup with example slices.
+-   **Animations**: Hero section and interactions powered by Framer Motion.
+-   **Code Quality**: Pre-configured ESLint and Prettier for consistent code style.
+-   **Responsive Design**: Mobile-first approach using Tailwind CSS.
 
-## Learn More
+## 🛠️ Getting Started
 
-To learn more about Next.js, take a look at the following resources:
+Follow these steps to get the project running locally:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1.  **Install dependencies:**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+    ```bash
+    npm install
+    ```
 
-## Deploy on Vercel
+2.  **Start the development server:**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+    ```bash
+    npm run dev
+    ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3.  **Open your browser:**
+
+    Visit [http://localhost:3000](http://localhost:3000) to see the application.
+
+## 📂 Project Structure
+
+-   `src/app`: Next.js App Router entry points (layouts, pages, global styles).
+-   `src/components`: Reusable UI components (Hero, Counter, ThemeToggle, etc.).
+-   `src/lib`: Redux Toolkit store configuration and slices.
+-   `public`: Static assets.
+
+## 📜 Scripts
+
+-   `npm run dev`: Starts the development server with Turbopack.
+-   `npm run build`: Creates an optimized production build.
+-   `npm run start`: Runs the built application in production mode.
+-   `npm run lint`: Runs ESLint to check for code quality issues.
+-   `npm run format`: Formats code using Prettier.
