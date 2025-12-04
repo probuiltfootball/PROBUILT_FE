@@ -12,8 +12,8 @@ export default function Home() {
     <main className="flex flex-col ">
       <Navbar />
       <HeroSection />
-      <EdgeSection />
       <HubSection />
+      <EdgeSection />
       <TeamSection />
       <TestimonialsSection />
       <CtaSection />
