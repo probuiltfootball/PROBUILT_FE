@@ -2,12 +2,13 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import edge_image from "@/assets/figma/edge_landing_page.png";
-import tag from "@/assets/figma/Tags/most_popular.png";
+import session_image from "@/assets/figma/placeholder.png";
+import tag from "@/assets/figma/Tags/probuilt_plans.png";
 import checkmark from "@/assets/figma/Social Media Icon Square/Check_Circle.png";
 import { Button } from "./ui/button";
+import { s } from "framer-motion/client";
 
-export default function EdgeSection() {
+export default function UpcomingSessions() {
   return (
     <section className="my-16 mx-20 text-(--secondary)">
       <motion.div
@@ -18,11 +19,10 @@ export default function EdgeSection() {
         transition={{ duration: 0.5, ease: "easeOut" }}
       >
         <h2 className="text-(--secondary) text-4xl font-medium mb-3">
-          Edge: Train 1:1 With Elite Coaches
+          The Right Plan Gets You Further
         </h2>
         <h3 className="text-(--accent) text-xl leading-tight">
-          A personalised, UEFA-coach-built plan tailored to your position, strengths, and
-          long-term ambition.
+          Choose how you want to develop your football skills.
         </h3>
       </motion.div>
 
@@ -30,8 +30,8 @@ export default function EdgeSection() {
       <div className="flex flex-row items-center gap-15 bg-[#27272E] rounded-[30px] p-[85px]">
         <div>
           <Image
-            src={edge_image}
-            alt="Edge Landing 1"
+            src={session_image}
+            alt="Session Image"
             className="rounded-xl object-fill"
           />
         </div>
@@ -47,25 +47,19 @@ export default function EdgeSection() {
               ease: "easeInOut",
             }}
           />
-          <h2 className="text-4xl">
-            Train Smarter With Expert Coaching & Match Insights
-          </h2>
-          <ul className="space-y-5 grid grid-cols-2">
-            <li className="flex">
+          <h2 className="text-4xl">Compare in-person coaching and digital training.</h2>
+          <ul className="space-y-5 flex flex-col">
+            <li className="flex items-center">
               <Image src={checkmark} alt="checkmark" className="w-5 h-5 mr-2" />
-              <span>UEFA-Level Coaching</span>
+              <span>1:1 Coaching</span>
             </li>
-            <li className="flex">
+            <li className="flex items-center">
               <Image src={checkmark} alt="checkmark" className="w-5 h-5 mr-2" />
-              <span>Match Analysis</span>
+              <span>Match Insights</span>
             </li>
-            <li className="flex">
+            <li className="flex items-center">
               <Image src={checkmark} alt="checkmark" className="w-5 h-5 mr-2" />
-              <span>Personal Plans</span>
-            </li>
-            <li className="flex">
-              <Image src={checkmark} alt="checkmark" className="w-5 h-5 mr-2" />
-              <span>Fits Your Schedule</span>
+              <span>Personalised Plan</span>
             </li>
           </ul>
           <motion.div
@@ -77,12 +71,12 @@ export default function EdgeSection() {
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button variant="primary" size="lg" className="flex-1">
-                Start Edge
+                Compare Plans
               </Button>
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button variant="secondary" size="lg" className="flex-1">
-                Learn More
+                Talk to a Coach
               </Button>
             </motion.div>
           </motion.div>

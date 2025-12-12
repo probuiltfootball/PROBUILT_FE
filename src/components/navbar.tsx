@@ -6,60 +6,26 @@ import NextLink from "next/link";
 import { motion } from "framer-motion";
 
 const Link = NextLink;
-import SiteLogo from "@/assets/svg/site-logo.svg";
+import SiteLogo from "@/assets/figma/logo2.png";
 import { FaTimes, FaBars } from "react-icons/fa";
+import { Button } from "./ui/button";
 
 export default function Navbar() {
-  const [isScrolling, setIsScrolling] = useState(false);
-  const [scrollDirection, setScrollDirection] = useState("up");
-  const [lastScrollY, setLastScrollY] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      if (currentScrollY > 100) {
-        setIsScrolling(true);
-      } else {
-        setIsScrolling(false);
-      }
-
-      if (currentScrollY > lastScrollY) {
-        setScrollDirection("down");
-      } else {
-        setScrollDirection("up");
-      }
-
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
-
   return (
-    <motion.nav
-      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between p-6 bg-[#2E2E2E90] backdrop-blur-[10px] border border-[#00FFC230] shadow-2xl mx-[1%] mt-[10px] rounded-full"
-      initial={{ y: -100, opacity: 1 }}
-      animate={{
-        y: scrollDirection === "down" && isScrolling ? 10 : 20,
-        opacity: scrollDirection === "down" && isScrolling ? 0.9 : 1,
-      }}
-      transition={{
-        duration: 0.4,
-        ease: "easeInOut",
-      }}
-    >
+    <motion.nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between bg-(--primary) px-20">
       {/* Logo */}
-      <div className="hidden md:flex md:items-center gap-2 ml-4">
+      <motion.div
+        className="hidden md:flex md:items-center"
+        whileHover={{ scale: 1.2 }}
+        whileTap={{ scale: 0.98 }}
+        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      >
         <Link href="/">
-          <Image src={SiteLogo} alt="Probuilt Logo" width={35} height={35} />
+          <Image src={SiteLogo} alt="Probuilt Logo" width={147} height={147} />
         </Link>
-        <h2 className="text-xs md:text-xl font-bold text-white tracking-wider whitespace-nowrap">
-          Probuilt <span className="text-[#00FFC2]">Football</span>
-        </h2>
-      </div>
+      </motion.div>
 
       {/* Nav Links */}
       <div className="hidden md:flex mr-auto px-8">
@@ -104,25 +70,39 @@ export default function Navbar() {
         </Link>
       </div>
 
-      <div className="flex gap-4 justify-center sm:justify-end items-center flex-1">
+      <motion.div
+        className="flex gap-4 justify-center sm:justify-end items-center flex-1"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ margin: "-100px" }}
+        transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
+      >
         {/* CTA Buttons */}
-        <div className="flex items-center gap-4">
-          <button className="px-6 py-2 rounded-full border border-gray-500 text-white text-md font-medium hover:border-white transition-colors">
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="flex gap-4"
+        >
+          <Button variant="primary" size="md">
             Register
-          </button>
+          </Button>
 
-          <button className="px-6 py-2 rounded-full bg-[#00FFC2] text-black text-md font-bold hover:bg-[#00E0AA] transition-colors text-nowrap">
-            Log in
-          </button>
-        </div>
+          <Button variant="secondary" size="md">
+            Log In
+          </Button>
+        </motion.div>
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden flex items-center">
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="md:hidden flex items-center"
+        >
           <button className="text-white" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
           </button>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {isOpen && (
         <motion.div
