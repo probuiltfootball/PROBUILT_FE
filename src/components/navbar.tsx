@@ -7,8 +7,9 @@ import { useAppSelector } from "@/lib/store/hooks";
 import UserMenu from "@/components/shared/UserMenu";
 
 const Link = NextLink;
-import SiteLogo from "@/assets/svg/site-logo.svg";
+import SiteLogo from "@/assets/figma/logo2.png";
 import { FaTimes, FaBars } from "react-icons/fa";
+import { Button } from "./ui/button";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -81,6 +82,18 @@ export default function Navbar() {
             </span>
           </Link>
         </div>
+    <motion.nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between bg-(--primary) px-20">
+      {/* Logo */}
+      <motion.div
+        className="hidden md:flex md:items-center"
+        whileHover={{ scale: 1.2 }}
+        whileTap={{ scale: 0.98 }}
+        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      >
+        <Link href="/">
+          <Image src={SiteLogo} alt="Probuilt Logo" width={147} height={147} />
+        </Link>
+      </motion.div>
 
         {/* Nav Links */}
         <div className="hidden md:flex items-center gap-6 flex-1 justify-center">
@@ -149,6 +162,22 @@ export default function Navbar() {
               >
                 Register
               </Link>
+      <motion.div
+        className="flex gap-4 justify-center sm:justify-end items-center flex-1"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ margin: "-100px" }}
+        transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
+      >
+        {/* CTA Buttons */}
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="flex gap-4"
+        >
+          <Button variant="primary" size="md">
+            Register
+          </Button>
 
               <Link
                 href="/login"
@@ -158,6 +187,10 @@ export default function Navbar() {
               </Link>
             </>
           )}
+          <Button variant="secondary" size="md">
+            Log In
+          </Button>
+        </motion.div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
@@ -167,6 +200,18 @@ export default function Navbar() {
           </div>
         </div>
       </div>
+        {/* Mobile Menu Button */}
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="md:hidden flex items-center"
+        >
+          <button className="text-white" onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+          </button>
+        </motion.div>
+      </motion.div>
+
       {isOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-black border-b border-gray-800 p-4 z-40 shadow-lg">
           <div className="max-w-[1280px] mx-auto">

@@ -6,17 +6,26 @@ import TeamSection from "@/components/team-section";
 import TestimonialsSection from "@/components/testimonials-section";
 import CtaSection from "@/components/cta-section";
 import { Footer } from "@/components/footer";
+import { Footer } from "@/components/footerv2";
+import { Divider } from "@/components/divider";
+import UpcomingSessions from "@/components/upcoming-sessions";
 
 export default function Home() {
   return (
     <main className="flex flex-col">
+    <main className="flex flex-col">
       <Navbar />
       <HeroSection />
+      <Divider />
       <HubSection />
+      <Divider />
       <EdgeSection />
-      <TeamSection />
+      <Divider />
       <TestimonialsSection />
-      <CtaSection />
+      <Divider />
+      <TeamSection />
+      <Divider />
+      <UpcomingSessions />
       <Footer />
     </main>
   );

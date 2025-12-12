@@ -18,19 +18,16 @@ import img8 from "@/assets/football/vert2.avif";
 import img9 from "@/assets/football/vert3.avif";
 import img10 from "@/assets/football/vert4.avif";
 import img11 from "@/assets/football/vert5.avif";
+import SiteLogo from "@/assets/figma/logo1.png";
+import herobg from "@/assets/football/horz4.avif";
 
-const images = [img0, img1, img2, img3, img4, img5];
+import { motion } from "framer-motion";
+import { Button } from "./ui/button";
+
+// const images = [img0, img1, img2, img3, img4, img5];
 
 export default function HeroSection() {
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % images.length);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, []);
+  // const [index, setIndex] = useState(0);
 
   return (
     <section className="pb-20">
@@ -53,39 +50,43 @@ export default function HeroSection() {
                     `}
           />
         ))}
+    <motion.div className="relative flex justify-center text-center rounded-4xl mt-36 mb-16 mx-20 h-[720px]">
+      <Image
+        src={herobg}
+        alt="Football background"
+        fill
+        className="object-cover object-bottom rounded-4xl"
+      />
 
-        {/* Content */}
-        <motion.div
-          className="relative z-10 flex flex-col mt-auto justify-center items-center mb-32"
-          initial={{ opacity: 0, y: 50 }}
+      {/* Content */}
+      <motion.div
+        className="relative flex flex-col justify-center items-center"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ margin: "-100px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        whileHover={{ scale: 1.08 }}
+      >
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ margin: "-100px" }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          whileHover={{ scale: 1.08 }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+          className="text-16 md:text-7xl font-bold text-white tracking-tight mb-3"
         >
-          <div className="mb-8">
-            <Image src={SiteLogo} alt="Probuilt Logo" width={80} height={80} />
-          </div>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ margin: "-100px" }}
-            transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
-            className="text-5xl md:text-7xl font-bold text-white tracking-tight mb-6"
-          >
-            Unlock Your <span className="text-[#00FFC2]">Football Potential.</span>
-          </motion.h1>
+          Refine Your Game With Precision
+        </motion.h1>
 
-          <motion.p
-            className="text-lg md:text-xl text-gray-300 max-w-2xl mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ margin: "-100px" }}
-            transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
-          >
-            Unlock your potential with UEFA-licensed coaching — train with Edge or grow
-            with the Academy.
-          </motion.p>
+        <motion.p
+          className="text-lg md:text-xl text-gray-300 max-w-3xl mb-7"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ margin: "-100px" }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
+        >
+          Elite coaching and digital training tools to develop smarter, faster
+          footballers.
+        </motion.p>
 
           <motion.div
             className="flex flex-col sm:flex-row gap-4"
@@ -104,9 +105,25 @@ export default function HeroSection() {
                 Get Started
               </Link>
             </motion.div>
+        <motion.div
+          className="flex flex-col sm:flex-row gap-4"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ margin: "-100px" }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
+        >
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Button variant="primary" size="lg" className="flex-1">
+              Explore Hub
+            </Button>
+          </motion.div>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Button variant="secondary" size="lg" className="flex-1">
+              Explore Edge
+            </Button>
           </motion.div>
         </motion.div>
       </motion.div>
-    </section>
+    </motion.div>
   );
 }
