@@ -1,7 +1,7 @@
 import { createServerClient } from '@supabase/ssr';
 import { NextResponse, type NextRequest } from 'next/server';
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   // Check if Supabase is configured
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -50,7 +50,7 @@ export async function middleware(request: NextRequest) {
     }
   } catch (error) {
     // If there's an error getting user, continue without auth check
-    console.error('Middleware auth error:', error);
+    console.error('Proxy auth error:', error);
   }
 
   // Protect dashboard routes
@@ -103,7 +103,7 @@ export async function middleware(request: NextRequest) {
             }
           } catch (planError) {
             // If we can't check plan, allow access (fallback)
-            console.error('Middleware plan check error:', planError);
+            console.error('Proxy plan check error:', planError);
           }
         }
 
@@ -116,7 +116,7 @@ export async function middleware(request: NextRequest) {
         }
       } catch (error) {
         // If error, redirect to default
-        console.error('Middleware dashboard redirect error:', error);
+        console.error('Proxy dashboard redirect error:', error);
       }
     }
   }
@@ -164,7 +164,7 @@ export async function middleware(request: NextRequest) {
             }
           } catch (planError) {
             // If we can't check plan, redirect to dashboard (fallback)
-            console.error('Middleware plan check error:', planError);
+            console.error('Proxy plan check error:', planError);
           }
         }
 
@@ -176,7 +176,7 @@ export async function middleware(request: NextRequest) {
         return NextResponse.redirect(new URL('/dashboard', request.url));
       } catch (error) {
         // If there's an error, just redirect to dashboard
-        console.error('Middleware profile error:', error);
+        console.error('Proxy profile error:', error);
         return NextResponse.redirect(new URL('/dashboard', request.url));
       }
     }
@@ -201,7 +201,7 @@ export async function middleware(request: NextRequest) {
         return NextResponse.redirect(new URL('/dashboard', request.url));
       } catch (error) {
         // If error, redirect to dashboard
-        console.error('Middleware membership redirect error:', error);
+        console.error('Proxy membership redirect error:', error);
         return NextResponse.redirect(new URL('/dashboard', request.url));
       }
     }
@@ -249,7 +249,7 @@ export async function middleware(request: NextRequest) {
       }
     } catch (error) {
       // If error checking plan, allow access (fallback)
-      console.error('Middleware checkout plan check error:', error);
+      console.error('Proxy checkout plan check error:', error);
     }
   }
 
