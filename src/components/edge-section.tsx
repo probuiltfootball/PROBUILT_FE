@@ -39,10 +39,10 @@ export default function EdgeSection() {
                 steps that accelerate your development.
               </p>
               <Link
-                href="/"
+                href="/membership"
                 className="text-[#00FFC2] text-lg font-medium flex items-center gap-2 hover:gap-3 transition-all"
               >
-                Join Edge
+                View Plans
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <path
                     d="M5 12H19M19 12L12 5M19 12L12 19"

@@ -6,27 +6,37 @@ import {
   FaFacebook,
   FaInstagram,
   FaLinkedin,
-  FaXTwitter,
-  FaWhatsapp,
+  FaYoutube,
 } from "react-icons/fa6";
 import SiteLogo from "@/assets/svg/site-logo.svg";
 
 const Link = NextLink as any;
 
 const footerLinks = {
-  quickLinks: [
-    { label: "Services", href: "/services" },
-    { label: "Courses", href: "/courses" },
-    { label: "Coaching", href: "/coaching" },
-    { label: "Training", href: "/training" },
-    { label: "FAQ", href: "/faq" },
+  product: [
+    { label: "Hub", href: "/hub" },
+    { label: "Edge", href: "/edge" },
+    { label: "Community", href: "/community" },
+    { label: "PB Points", href: "/pb-points" },
+    { label: "Reviews", href: "/reviews" },
   ],
   company: [
-    { label: "About Us", href: "/about" },
-    { label: "Contact", href: "/contact" },
-    { label: "Team", href: "/team" },
+    { label: "About", href: "/about" },
+    { label: "Contact us", href: "/contact" },
     { label: "Careers", href: "/careers" },
+    { label: "Culture", href: "/culture" },
     { label: "Blog", href: "/blog" },
+  ],
+  support: [
+    { label: "Getting started", href: "/getting-started" },
+    { label: "Help centre", href: "/help" },
+    { label: "FAQs", href: "/faq" },
+    { label: "Report a bug", href: "/report-bug" },
+    { label: "Chat support", href: "/support" },
+  ],
+  downloads: [
+    { label: "iOS", href: "/download/ios" },
+    { label: "Android", href: "/download/android" },
   ],
 };
 
@@ -34,122 +44,157 @@ const socialLinks = [
   { icon: FaFacebook, href: "https://facebook.com", label: "Facebook" },
   { icon: FaInstagram, href: "https://instagram.com", label: "Instagram" },
   { icon: FaLinkedin, href: "https://linkedin.com", label: "LinkedIn" },
-  { icon: FaXTwitter, href: "https://twitter.com", label: "X" },
-  { icon: FaWhatsapp, href: "https://whatsapp.com", label: "WhatsApp" },
+  { icon: FaYoutube, href: "https://youtube.com", label: "YouTube" },
 ];
 
 export function Footer() {
   return (
-    <footer className="bg-black border-t border-white/10 p-6 text-white">
-      <div className="max-w-7xl mx-auto px-6 py-16">
+    <footer className="bg-black text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
         {/* Main Footer Content */}
-        <div className=" p-6 md:p-8 sm:p-10 flex flex-col md:flex-row lg:flex-row-reverse gap-8">
-          <div className="mx-auto grid grid-row-2 sm:flex sm:gap-4">
-            <div className="flex gap-18 md:gap-6">
-              {/* Quick Links */}
-              <div>
-                <h3 className=" font-semibold mb-6 md:mb-4 md:text-sm">Quick Links</h3>
-                <ul className="space-y-3">
-                  {footerLinks.quickLinks.map((link) => (
-                    <li key={link.href}>
-                      <Link
-                        href={link.href}
-                        className="text-gray-400 hover:text-[#00FFC2] transition-colors text-sm"
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Company */}
-              <div>
-                <h3 className="font-semibold mb-6 md:text-sm md:mb-4">Company</h3>
-                <ul className="space-y-3 text-sm">
-                  {footerLinks.company.map((link) => (
-                    <li key={link.href}>
-                      <Link
-                        href={link.href}
-                        className="text-gray-400 hover:text-[#00FFC2] transition-colors text-sm"
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-12 mb-8">
+          {/* Left Section - Logo and Social Media */}
+          <div className="lg:col-span-2 space-y-6">
+            {/* Logo */}
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 border-2 border-[#00FFC2] rounded flex items-center justify-center p-2">
+                <Image
+                  src={SiteLogo}
+                  alt="ProBuilt Logo"
+                  width={32}
+                  height={32}
+                  className="object-contain"
+                />
               </div>
             </div>
 
-            {/* Connect */}
-            <div className="mt-8 sm:mt-0 sm:ml-8">
-              <h3 className="hidden sm:block mb-6 font-bold text-semibold sm:mb-4">
-                Connect
-              </h3>
-              <div className="grid grid-cols-2 sm:grid-cols-1 space-y-4">
-                {socialLinks.map((social) => {
-                  const Icon = social.icon;
-                  return (
-                    <a
-                      key={social.label}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-[#00FFC2] transition-colors flex flex-row items-center space-x-2 gap-3 text-sm"
-                    >
-                      <Icon className="text-sm" />
-                      {social.label}
-                    </a>
-                  );
-                })}
-              </div>
+            {/* Placeholder Text */}
+            <div className="space-y-1">
+              <p className="text-white text-sm">
+                Lorem ipsum dolor sit amet
+              </p>
+              <p className="text-white text-sm">
+                consectetur adipiscing elit aliquam
+              </p>
+            </div>
+
+            {/* Social Media Icons */}
+            <div className="flex gap-3">
+              {socialLinks.map((social) => {
+                const Icon = social.icon;
+                return (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 bg-[#00FFC2] rounded flex items-center justify-center hover:bg-[#00E0AA] transition-colors"
+                    aria-label={social.label}
+                  >
+                    <Icon className="text-white text-lg" />
+                  </a>
+                );
+              })}
             </div>
           </div>
-          {/* Brand Section */}
-          <div className="flex gap-4 flex-col md:flex-col-reverse md:ml-10 md:mb-auto lg:mr-auto">
-            <p className="text-sm leading-relaxed lg:max-w-xs">
-              Improve your triathlon performance with personalised training plans guided
-              by an experienced coach committed to your success.
-            </p>
-            <div className="flex gap-8 justify-center">
-              <Link
-                href="/"
-                className="mb-6 hidden text-2xl font-bold tracking-tighter lg:flex items-center gap-3 uppercase"
-              >
-                <Image src={SiteLogo} alt="PROBUILT Logo" width={30} height={30} />
-                ProBuilt
-              </Link>
 
-              <button className="w-full px-6 py-2 rounded-full border border-gray-500 text-white text-md font-medium hover:border-white transition-colors">
-                CTA
-              </button>
+          {/* Product Column */}
+          <div>
+            <h3 className="text-[#00FFC2] font-semibold mb-4 text-base">
+              Product
+            </h3>
+            <ul className="space-y-3">
+              {footerLinks.product.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-white hover:text-[#00FFC2] transition-colors text-sm"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-              <button className="w-full px-6 py-2 rounded-full bg-[#00FFC2] text-black text-md font-bold hover:bg-[#00E0AA] transition-colors text-nowrap">
-                Login
-              </button>
-            </div>
+          {/* Company Column */}
+          <div>
+            <h3 className="text-[#00FFC2] font-semibold mb-4 text-base">
+              Company
+            </h3>
+            <ul className="space-y-3">
+              {footerLinks.company.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-white hover:text-[#00FFC2] transition-colors text-sm"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Support Column */}
+          <div>
+            <h3 className="text-[#00FFC2] font-semibold mb-4 text-base">
+              Support
+            </h3>
+            <ul className="space-y-3">
+              {footerLinks.support.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-white hover:text-[#00FFC2] transition-colors text-sm"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Downloads Column */}
+          <div>
+            <h3 className="text-[#00FFC2] font-semibold mb-4 text-base">
+              Downloads
+            </h3>
+            <ul className="space-y-3">
+              {footerLinks.downloads.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-white hover:text-[#00FFC2] transition-colors text-sm"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-white/10 pt-8">
-          {/* Bottom Footer */}
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-500 text-sm">© 2024 PROBUILT. All rights reserved.</p>
-            <div className="flex gap-6">
+        {/* Divider Line */}
+        <div className="border-t border-[#00FFC2] pt-8 mt-8">
+          {/* Bottom Footer - Copyright */}
+          <div className="text-center">
+            <p className="text-white text-sm">
+              Copyright © 2025 | All Rights Reserved |{" "}
+              <Link
+                href="/terms"
+                className="text-white hover:text-[#00FFC2] transition-colors"
+              >
+                Terms and Conditions
+              </Link>
+              {" | "}
               <Link
                 href="/privacy"
-                className="text-gray-500 hover:text-gray-300 text-sm transition-colors"
+                className="text-white hover:text-[#00FFC2] transition-colors"
               >
                 Privacy Policy
               </Link>
-              <Link
-                href="/terms"
-                className="text-gray-500 hover:text-gray-300 text-sm transition-colors"
-              >
-                Terms of Service
-              </Link>
-            </div>
+            </p>
           </div>
         </div>
       </div>
