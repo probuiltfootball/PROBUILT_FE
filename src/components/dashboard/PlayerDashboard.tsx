@@ -90,7 +90,7 @@ export default function PlayerDashboard() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Welcome Section */}
-      {!!process.env.NEXT_PUBLIC_DEBUG_INFO && <pre className="text-red-500 bg-amber-200 mb-10">{JSON.stringify(profile, null, 2)}</pre>}
+      {process.env.NEXT_PUBLIC_DEBUG_INFO === 'true' && <pre className="text-red-500 bg-amber-200 mb-10">{JSON.stringify(profile, null, 2)}</pre>}
       <div className="mb-8">
         <h2 className="text-3xl font-bold text-white mb-2">
           Welcome back, {profile?.full_name || 'Player'}!
