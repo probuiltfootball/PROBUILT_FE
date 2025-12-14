@@ -66,7 +66,7 @@ export default function DashboardPlans({ activePlan, currentPlanName }: Dashboar
   const plansToDisplay = getPlansToDisplay();
 
   const getPlanDisplayInfo = (plan: SubscriptionPlan) => {
-    const isCurrentPlan = currentPlanName === plan.name && activePlan && !activePlan.plan_expired;
+    const isCurrentPlan = !!(currentPlanName === plan.name && activePlan && !activePlan.plan_expired);
     const planTiers: Record<string, number> = { trial: 1, hub: 2, edge: 3 };
     const currentTier = currentPlanName ? planTiers[currentPlanName] : 0;
     const planTier = planTiers[plan.name] || 0;
@@ -221,7 +221,7 @@ export default function DashboardPlans({ activePlan, currentPlanName }: Dashboar
                 {/* CTA Button */}
                 <button
                   onClick={() => !isCurrent && handleSubscribe(plan.name)}
-                  disabled={isCurrent}
+                  disabled={!!isCurrent}
                   className={`w-full py-3 rounded-lg font-semibold text-base transition-all duration-300 ${isCurrent
                       ? 'bg-gray-600 text-gray-300 cursor-not-allowed'
                       : isPopular

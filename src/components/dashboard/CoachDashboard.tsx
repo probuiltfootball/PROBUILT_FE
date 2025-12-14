@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 export default function CoachDashboard() {
-  const { profile, coachProfile, activePlan } = useAppSelector((state) => state.auth);
+  const { profile, coachProfile } = useAppSelector((state) => state.auth);
   const pathname = usePathname();
   const basePath = '/dashboard/coach';
 

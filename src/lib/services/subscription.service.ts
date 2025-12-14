@@ -52,6 +52,27 @@ export class SubscriptionService {
   }
 
   /**
+   * Get a specific subscription plan by ID
+   */
+  static async getPlanById(planId: string): Promise<SubscriptionPlan | null> {
+    const { data, error } = await (supabase as any)
+      .from('subscription_plans')
+      .select('*')
+      .eq('id', planId)
+      .eq('is_active', true)
+      .single();
+
+    if (error) {
+      if (error.code === 'PGRST116') {
+        return null; // Not found
+      }
+      throw new Error(`Failed to fetch plan: ${error.message}`);
+    }
+
+    return data;
+  }
+
+  /**
    * Get user's current subscription
    */
   static async getUserSubscription(userId: string): Promise<UserSubscription | null> {
@@ -293,7 +314,9 @@ export class SubscriptionService {
     }
 
     // Log subscription history
-    await this.logSubscriptionHistory(userId, subscription.plan_id, 'cancelled');
+    if (subscription.plan_id) {
+      await this.logSubscriptionHistory(userId, subscription.plan_id, 'cancelled');
+    }
 
     return data;
   }

@@ -200,7 +200,7 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.user = action.payload.user;
         state.session = action.payload.session;
-        state.profile = action.payload.profile;
+        state.profile = action.payload.profile ?? null;
         state.isAuthenticated = !!action.payload.user;
       })
       .addCase(signUp.rejected, (state, action) => {
@@ -218,9 +218,9 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.user = action.payload.user;
         state.session = action.payload.session;
-        state.profile = action.payload.profile;
-        state.playerProfile = action.payload.playerProfile;
-        state.coachProfile = action.payload.coachProfile;
+        state.profile = action.payload.profile ?? null;
+        state.playerProfile = action.payload.playerProfile ?? null;
+        state.coachProfile = action.payload.coachProfile ?? null;
         state.isAuthenticated = true;
       })
       .addCase(signIn.rejected, (state, action) => {
@@ -258,9 +258,9 @@ const authSlice = createSlice({
         if (action.payload) {
           state.user = action.payload.user;
           state.session = action.payload.session;
-          state.profile = action.payload.profile;
-          state.playerProfile = action.payload.playerProfile;
-          state.coachProfile = action.payload.coachProfile;
+          state.profile = action.payload.profile ?? null;
+          state.playerProfile = action.payload.playerProfile ?? null;
+          state.coachProfile = action.payload.coachProfile ?? null;
           state.isAuthenticated = true;
         } else {
           state.user = null;
@@ -284,9 +284,9 @@ const authSlice = createSlice({
       })
       .addCase(loadProfile.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.profile = action.payload.profile;
-        state.playerProfile = action.payload.playerProfile;
-        state.coachProfile = action.payload.coachProfile;
+        state.profile = action.payload.profile ?? null;
+        state.playerProfile = action.payload.playerProfile ?? null;
+        state.coachProfile = action.payload.coachProfile ?? null;
       })
       .addCase(loadProfile.rejected, (state, action) => {
         state.isLoading = false;
