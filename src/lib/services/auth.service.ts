@@ -13,8 +13,10 @@ import type {
 import { SubscriptionService } from './subscription.service';
 import { SubscriptionEdgeService } from './subscription-edge.service';
 
-// Create typed supabase client
-const supabase = createClient() as ReturnType<typeof createClient>;
+// Lazy Supabase client creation - only create when needed, not at module level
+function getSupabaseClient() {
+  return createClient() as ReturnType<typeof createClient>;
+}
 
 export class AuthService {
   /**
@@ -26,6 +28,7 @@ export class AuthService {
 
     // Create auth user
     // All users get 14-day free trial automatically (one per unique email)
+    const supabase = getSupabaseClient();
     const { data: authData, error: authError } = await supabase.auth.signUp({
       email,
       password,
@@ -59,6 +62,7 @@ export class AuthService {
     }
 
     // If we have a session, set it on the client so RLS policies work
+    // supabase already defined above
     await supabase.auth.setSession(authData.session);
 
     // Wait a moment for the database trigger to create the profile
@@ -72,6 +76,7 @@ export class AuthService {
     // First, try to fetch the profile
     // Note: This will only work if we have a session (email confirmation disabled)
     // If email confirmation is required, profile will be fetched after email verification
+    // supabase already defined at the start of signUp method
     const { data: existingProfile, error: fetchError } = await (supabase as any)
       .from('user_profiles')
       .select('*')
@@ -225,6 +230,7 @@ export class AuthService {
     if (authData.session) {
       try {
         // Check if user exists in users table, if not create it
+        // supabase already defined above
         const { data: existingUser, error: userCheckError } = await (supabase as any)
           .from('users')
           .select('id')
@@ -289,6 +295,7 @@ export class AuthService {
    * Resend confirmation email
    */
   static async resendConfirmationEmail(email: string) {
+    const supabase = getSupabaseClient();
     const { error } = await supabase.auth.resend({
       type: 'signup',
       email,
@@ -308,7 +315,7 @@ export class AuthService {
    */
   static async signIn(data: SignInData) {
     const { email, password } = data;
-
+    const supabase = getSupabaseClient();
     const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
       email,
       password,
@@ -334,6 +341,7 @@ export class AuthService {
 
       // Ensure user exists in users table
       try {
+        // supabase already defined above in signIn method
         const { data: existingUser } = await (supabase as any)
           .from('users')
           .select('id')
@@ -386,6 +394,7 @@ export class AuthService {
    * Sign out
    */
   static async signOut() {
+    const supabase = getSupabaseClient();
     const { error } = await supabase.auth.signOut();
     if (error) {
       throw new Error(error.message);
@@ -396,6 +405,7 @@ export class AuthService {
    * Get current user
    */
   static async getUser() {
+    const supabase = getSupabaseClient();
     const { data: { user } } = await supabase.auth.getUser();
     return user;
   }
@@ -409,12 +419,14 @@ export class AuthService {
     if (useEdgeFunction) {
       try {
         // Use getUser() to securely verify authentication
+        const supabase = getSupabaseClient();
         const { data: { user } } = await supabase.auth.getUser();
         if (!user) {
           throw new Error('No authenticated user found');
         }
 
         // Get session for access token after verifying user
+        // supabase already defined above
         const { data: { session } } = await supabase.auth.getSession();
         if (!session) {
           throw new Error('No session found');
@@ -474,6 +486,7 @@ export class AuthService {
    */
   private static async getUserProfileFromDatabase(userId: string): Promise<UserProfile> {
     // Get profile from user_profiles table
+    const supabase = getSupabaseClient();
     const { data, error } = await (supabase as any)
       .from('user_profiles')
       .select('*')
@@ -485,6 +498,7 @@ export class AuthService {
     }
 
     // Get email from users table (auth.users)
+    // supabase already defined above
     const { data: userData } = await (supabase as any)
       .from('users')
       .select('email, user_type')
@@ -517,6 +531,7 @@ export class AuthService {
    * Get player profile
    */
   static async getPlayerProfile(userId: string): Promise<PlayerProfile | null> {
+    const supabase = getSupabaseClient();
     const { data, error } = await (supabase as any)
       .from('player_profiles')
       .select('*')
@@ -537,6 +552,7 @@ export class AuthService {
    * Get coach profile
    */
   static async getCoachProfile(userId: string): Promise<CoachProfile | null> {
+    const supabase = getSupabaseClient();
     const { data, error } = await (supabase as any)
       .from('coach_profiles')
       .select('*')
@@ -560,6 +576,7 @@ export class AuthService {
     userId: string,
     data: ProfileUpdateData
   ): Promise<UserProfile> {
+    const supabase = getSupabaseClient();
     const { data: updatedProfile, error } = await (supabase as any)
       .from('user_profiles')
       .update({
@@ -585,6 +602,7 @@ export class AuthService {
     userId: string,
     data: PlayerProfileUpdateData
   ): Promise<PlayerProfile> {
+    const supabase = getSupabaseClient();
     const { data: updatedProfile, error } = await (supabase as any)
       .from('player_profiles')
       .update(data)
@@ -606,6 +624,7 @@ export class AuthService {
     userId: string,
     data: CoachProfileUpdateData
   ): Promise<CoachProfile> {
+    const supabase = getSupabaseClient();
     const { data: updatedProfile, error } = await (supabase as any)
       .from('coach_profiles')
       .update(data)
@@ -625,6 +644,7 @@ export class AuthService {
    * Uses getUser() to securely verify authentication
    */
   static async checkAuth() {
+    const supabase = getSupabaseClient();
     const { data: { user } } = await supabase.auth.getUser();
     return !!user;
   }
@@ -635,11 +655,13 @@ export class AuthService {
    */
   static async getSession() {
     // Verify user first for security
+    const supabase = getSupabaseClient();
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) {
       return null;
     }
-    // Get session for access token after verification
+    // Get session for access token after verification  
+    // supabase already defined above
     const { data: { session } } = await supabase.auth.getSession();
     return session;
   }

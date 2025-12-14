@@ -2,7 +2,10 @@ import { createClient } from '@/lib/supabase/client';
 import type { ActivePlan } from '@/types/subscription.types';
 import type { BillingPeriod } from '@/lib/utils/subscription-dates';
 
-const supabase = createClient() as ReturnType<typeof createClient>;
+// Lazy Supabase client creation - only create when needed, not at module level
+function getSupabaseClient() {
+  return createClient() as ReturnType<typeof createClient>;
+}
 
 /**
  * New Subscription Service using Edge Functions
@@ -20,6 +23,7 @@ export class SubscriptionEdgeService {
    */
   static async getActivePlan(): Promise<ActivePlan> {
     // Use getUser() to securely verify authentication
+    const supabase = getSupabaseClient();
     const {
       data: { user },
     } = await supabase.auth.getUser();
@@ -38,6 +42,7 @@ export class SubscriptionEdgeService {
     }
 
     // Get session for access token after verifying user
+    // supabase already defined above
     const {
       data: { session },
     } = await supabase.auth.getSession();
@@ -122,6 +127,7 @@ export class SubscriptionEdgeService {
     };
   }> {
     // Use getUser() to securely verify authentication
+    const supabase = getSupabaseClient();
     const {
       data: { user },
     } = await supabase.auth.getUser();
@@ -131,6 +137,7 @@ export class SubscriptionEdgeService {
     }
 
     // Get session for access token after verifying user
+    // supabase already defined above
     const {
       data: { session },
     } = await supabase.auth.getSession();
@@ -184,6 +191,7 @@ export class SubscriptionEdgeService {
     reason: string;
   }> {
     // Use getUser() to securely verify authentication
+    const supabase = getSupabaseClient();
     const {
       data: { user },
     } = await supabase.auth.getUser();
@@ -229,6 +237,7 @@ export class SubscriptionEdgeService {
     showEdge: boolean;
   }> {
     // Use getUser() to securely verify authentication
+    const supabase = getSupabaseClient();
     const {
       data: { user },
     } = await supabase.auth.getUser();
