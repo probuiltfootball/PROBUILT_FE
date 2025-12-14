@@ -10,7 +10,10 @@ import type {
 } from '@/types/content.types';
 import { SubscriptionEdgeService } from './subscription-edge.service';
 
-const supabase = createClient() as ReturnType<typeof createClient>;
+// Lazy Supabase client creation - only create when needed, not at module level
+function getSupabaseClient() {
+  return createClient() as ReturnType<typeof createClient>;
+}
 
 export class ContentService {
   /**
@@ -77,6 +80,7 @@ export class ContentService {
 
     // Special check for hub_elite: must complete hub_starter first
     if (requiredLevel === 'hub_elite' && hasAccess) {
+      const supabase = getSupabaseClient();
       const { data: starterProgress } = await (supabase as any)
         .from('user_level_progress')
         .select('is_completed')
@@ -115,6 +119,7 @@ export class ContentService {
     const userLevel = await this.getUserContentLevel(userId);
 
     // Get sections user has access to
+    const supabase = getSupabaseClient();
     const { data, error } = await (supabase as any)
       .from('content_sections')
       .select(`
@@ -154,6 +159,7 @@ export class ContentService {
     // Check if hub_starter is completed (for hub_elite access)
     let hubStarterCompleted = false;
     if (userId) {
+      const supabase = getSupabaseClient();
       const { data: starterProgress } = await (supabase as any)
         .from('user_level_progress')
         .select('is_completed')
@@ -247,6 +253,7 @@ export class ContentService {
   ): Promise<ContentItem[]> {
     const userLevel = await this.getUserContentLevel(userId);
 
+    const supabase = getSupabaseClient();
     let query = (supabase as any)
       .from('content_items')
       .select('*')
@@ -287,6 +294,7 @@ export class ContentService {
     // Load user progress if userId provided
     if (userId && filtered.length > 0) {
       const itemIds = filtered.map((item: ContentItem) => item.id);
+      const supabase = getSupabaseClient();
       const { data: progressData } = await (supabase as any)
         .from('user_content_progress')
         .select('*')
@@ -313,6 +321,7 @@ export class ContentService {
     itemId: string,
     userId: string | null
   ): Promise<ContentItem | null> {
+    const supabase = getSupabaseClient();
     const { data, error } = await (supabase as any)
       .from('content_items')
       .select('*')
@@ -334,6 +343,7 @@ export class ContentService {
 
     // Load progress if userId provided
     if (userId) {
+      const supabase = getSupabaseClient();
       const { data: progressData } = await (supabase as any)
         .from('user_content_progress')
         .select('*')
@@ -368,6 +378,7 @@ export class ContentService {
       updateData.completed_at = new Date().toISOString();
     }
 
+    const supabase = getSupabaseClient();
     const { data, error } = await (supabase as any)
       .from('user_content_progress')
       .upsert(
@@ -399,6 +410,7 @@ export class ContentService {
     in_progress: number;
     not_started: number;
   }> {
+    const supabase = getSupabaseClient();
     const { data, error } = await (supabase as any)
       .from('user_content_progress')
       .select('is_completed, progress_percentage')

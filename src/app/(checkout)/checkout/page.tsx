@@ -6,6 +6,9 @@ import { Footer } from "@/components/footer";
 import LoadingSpinner from "@/components/shared/LoadingSpinner";
 import CheckoutPageContent from "@/components/checkout/CheckoutPageContent";
 
+// Force dynamic rendering to prevent static generation
+export const dynamic = 'force-dynamic';
+
 export default function CheckoutPage() {
   return (
     <main className="flex flex-col min-h-screen">

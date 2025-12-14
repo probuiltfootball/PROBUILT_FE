@@ -1,7 +1,10 @@
 import { createClient } from '@/lib/supabase/client';
 import type { ContentLevel } from '@/types/content.types';
 
-const supabase = createClient() as ReturnType<typeof createClient>;
+// Lazy Supabase client creation - only create when needed, not at module level
+function getSupabaseClient() {
+  return createClient() as ReturnType<typeof createClient>;
+}
 
 export class LevelProgressionService {
   /**
@@ -9,6 +12,7 @@ export class LevelProgressionService {
    */
   static async initializeLevelProgress(userId: string, level: 'hub_starter' | 'hub_elite') {
     // Get total content count for this level
+    const supabase = getSupabaseClient();
     const { count } = await (supabase as any)
       .from('content_items')
       .select('*', { count: 'exact', head: true })
@@ -46,12 +50,13 @@ export class LevelProgressionService {
     }
 
     // Get completed content count for this level
+    const supabase = getSupabaseClient();
     const { count: completedCount } = await (supabase as any)
       .from('user_content_progress')
       .select('*', { count: 'exact', head: true })
       .eq('user_id', userId)
       .eq('is_completed', true)
-      .in('content_item_id', 
+      .in('content_item_id',
         (supabase as any)
           .from('content_items')
           .select('id')
@@ -105,6 +110,7 @@ export class LevelProgressionService {
     }
 
     // Check subscription
+    const supabase = getSupabaseClient();
     const { data: subscription } = await (supabase as any)
       .from('user_subscriptions')
       .select(`
@@ -158,6 +164,7 @@ export class LevelProgressionService {
    * Get user's level progress
    */
   static async getUserLevelProgress(userId: string) {
+    const supabase = getSupabaseClient();
     const { data, error } = await (supabase as any)
       .from('user_level_progress')
       .select('*')
@@ -179,6 +186,7 @@ export class LevelProgressionService {
     contentItemId: string
   ) {
     // Update content progress
+    const supabase = getSupabaseClient();
     const { error: progressError } = await (supabase as any)
       .from('user_content_progress')
       .upsert({

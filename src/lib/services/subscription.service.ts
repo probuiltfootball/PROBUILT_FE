@@ -10,13 +10,17 @@ import type {
 } from '@/types/subscription.types';
 import { calculateEndDateFromNow } from '@/lib/utils/subscription-dates';
 
-const supabase = createClient() as ReturnType<typeof createClient>;
+// Lazy Supabase client creation - only create when needed, not at module level
+function getSupabaseClient() {
+  return createClient() as ReturnType<typeof createClient>;
+}
 
 export class SubscriptionService {
   /**
    * Get all active subscription plans
    */
   static async getPlans(): Promise<SubscriptionPlan[]> {
+    const supabase = getSupabaseClient();
     const { data, error } = await (supabase as any)
       .from('subscription_plans')
       .select('*')
@@ -34,6 +38,7 @@ export class SubscriptionService {
    * Get a specific subscription plan by name
    */
   static async getPlanByName(name: SubscriptionPlanName): Promise<SubscriptionPlan | null> {
+    const supabase = getSupabaseClient();
     const { data, error } = await (supabase as any)
       .from('subscription_plans')
       .select('*')
@@ -55,6 +60,7 @@ export class SubscriptionService {
    * Get a specific subscription plan by ID
    */
   static async getPlanById(planId: string): Promise<SubscriptionPlan | null> {
+    const supabase = getSupabaseClient();
     const { data, error } = await (supabase as any)
       .from('subscription_plans')
       .select('*')
@@ -77,6 +83,7 @@ export class SubscriptionService {
    */
   static async getUserSubscription(userId: string): Promise<UserSubscription | null> {
     try {
+      const supabase = getSupabaseClient();
       const { data, error } = await (supabase as any)
         .from('user_subscriptions')
         .select(`
@@ -92,6 +99,7 @@ export class SubscriptionService {
         }
         // If relationship error, try without the join
         if (error.message?.includes('relationship')) {
+          // supabase already defined above
           const { data: subData, error: subError } = await (supabase as any)
             .from('user_subscriptions')
             .select('*')
@@ -108,6 +116,7 @@ export class SubscriptionService {
 
           // Fetch plan separately if subscription exists
           if (subData && subData.plan_id) {
+            // supabase already defined above
             const { data: planData } = await (supabase as any)
               .from('subscription_plans')
               .select('*')
@@ -181,6 +190,7 @@ export class SubscriptionService {
     const trialEnd = new Date();
     trialEnd.setDate(trialEnd.getDate() + trialDays);
 
+    const supabase = getSupabaseClient();
     const { data, error } = await (supabase as any)
       .from('user_subscriptions')
       .insert({
@@ -224,6 +234,7 @@ export class SubscriptionService {
       const plan = await this.getPlanById(planId);
       const billingPeriod = plan?.billing_period || 'monthly';
       
+      const supabase = getSupabaseClient();
       const { data, error } = await (supabase as any)
         .from('user_subscriptions')
         .update({
@@ -258,6 +269,7 @@ export class SubscriptionService {
       const plan = await this.getPlanById(planId);
       const billingPeriod = plan?.billing_period || 'monthly';
       
+      const supabase = getSupabaseClient();
       const { data, error } = await (supabase as any)
         .from('user_subscriptions')
         .insert({
@@ -295,6 +307,7 @@ export class SubscriptionService {
       throw new Error('No subscription found');
     }
 
+    const supabase = getSupabaseClient();
     const { data, error } = await (supabase as any)
       .from('user_subscriptions')
       .update({
@@ -325,6 +338,7 @@ export class SubscriptionService {
    * Get subscription history
    */
   static async getSubscriptionHistory(userId: string): Promise<SubscriptionHistory[]> {
+    const supabase = getSupabaseClient();
     const { data, error } = await (supabase as any)
       .from('subscription_history')
       .select('*')
@@ -348,6 +362,7 @@ export class SubscriptionService {
     previousPlanId?: string,
     metadata?: Record<string, any>
   ): Promise<void> {
+    const supabase = getSupabaseClient();
     await (supabase as any)
       .from('subscription_history')
       .insert({
