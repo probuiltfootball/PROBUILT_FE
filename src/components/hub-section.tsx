@@ -87,10 +87,10 @@ export default function HubSection() {
                                 whileTap={{ scale: 0.95 }}
                             >
                                 <Link
-                                    href="/"
+                                    href="/membership"
                                     className="bg-[#00FFC2] hover:bg-[#00E0AA] transition-colors text-black px-20 py-2 rounded-full hover:opacity-90 transition inline-block"
                                 >
-                                    Join Hub
+                                    View Plans
                                 </Link>
                             </motion.div>
                             <motion.div
@@ -98,10 +98,10 @@ export default function HubSection() {
                                 whileTap={{ scale: 0.95 }}
                             >
                                 <Link
-                                    href="/"
+                                    href="/membership"
                                     className="border border-gray-500 text-white px-20 py-2 rounded-full hover:bg-gray-800 transition inline-block"
                                 >
-                                    Learn More
+                                    Get Started
                                 </Link>
                             </motion.div>
                         </motion.div>

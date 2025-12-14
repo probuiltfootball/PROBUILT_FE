@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import NextLink from "next/link";
+import { useAppSelector } from "@/lib/store/hooks";
 import {
   FaFacebook,
   FaInstagram,
@@ -39,6 +40,8 @@ const socialLinks = [
 ];
 
 export function Footer() {
+  const { isAuthenticated } = useAppSelector((state) => state.auth);
+
   return (
     <footer className="bg-black border-t border-white/10 p-8 sm:p-10 md:p-20 text-white">
       <div className="bg-[#2e2e2e] rounded-3xl py-4 md:py-8 sm:py-6 px-2 md:px-6 sm:px-4 border-2 border-[#00FFC2] flex flex-col gap-8 items-center">
@@ -121,13 +124,37 @@ export function Footer() {
               </Link>
 
               <div className="flex items-center gap-2 justify-between w-full">
-                <button className="flex-1 min-w-0 px-6 py-2 rounded-full border border-gray-500 text-white text-md font-medium hover:border-white transition-colors">
-                  CTA
-                </button>
-
-                <button className="flex-1 min-w-0 px-6 py-2 rounded-full bg-[#00FFC2] text-black text-md font-bold hover:bg-[#00E0AA] transition-colors">
-                  Login
-                </button>
+                {isAuthenticated ? (
+                  <>
+                    <Link
+                      href="/membership"
+                      className="flex-1 min-w-0 px-6 py-2 rounded-full border border-gray-500 text-white text-md font-medium hover:border-white transition-colors text-center"
+                    >
+                      View Plans
+                    </Link>
+                    <Link
+                      href="/dashboard"
+                      className="flex-1 min-w-0 px-6 py-2 rounded-full bg-[#00FFC2] text-black text-md font-bold hover:bg-[#00E0AA] transition-colors text-center"
+                    >
+                      Dashboard
+                    </Link>
+                  </>
+                ) : (
+                  <>
+                    <Link
+                      href="/membership"
+                      className="flex-1 min-w-0 px-6 py-2 rounded-full border border-gray-500 text-white text-md font-medium hover:border-white transition-colors text-center"
+                    >
+                      View Plans
+                    </Link>
+                    <Link
+                      href="/login"
+                      className="flex-1 min-w-0 px-6 py-2 rounded-full bg-[#00FFC2] text-black text-md font-bold hover:bg-[#00E0AA] transition-colors text-center"
+                    >
+                      Login
+                    </Link>
+                  </>
+                )}
               </div>
             </div>
           </div>
