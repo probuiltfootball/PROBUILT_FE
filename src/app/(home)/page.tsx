@@ -15,11 +15,18 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <Divider />
+      <Divider />
       <HubSection />
+      <Divider />
       <Divider />
       <EdgeSection />
       <Divider />
+      <Divider />
       <TestimonialsSection />
+      <Divider />
+      <TeamSection />
+      <Divider />
+      <UpcomingSessions />
       <Divider />
       <TeamSection />
       <Divider />

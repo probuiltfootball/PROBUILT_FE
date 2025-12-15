@@ -2,16 +2,13 @@
 
 import Image, { StaticImageData } from "next/image";
 import NextLink from "next/link";
-
 import SiteLogo from "@/assets/figma/logo1.png";
 import FaceBook from "@/assets/figma/Social Media Icon Square/Facebook.png";
 import YouTube from "@/assets/figma/Social Media Icon Square/YouTube.png";
 import Instagram from "@/assets/figma/Social Media Icon Square/Instagram.png";
 import LinkedIn from "@/assets/figma/Social Media Icon Square/LinkedIn.png";
-import { useAppDispatch, useAppSelector } from '@/lib/store/hooks';
-
+import { useAppSelector } from '@/lib/store/hooks';
 import { Divider } from "./divider";
-import { label, sup } from "framer-motion/client";
 import { motion } from "framer-motion";
 
 const Link = NextLink as any;
@@ -100,7 +97,7 @@ export function Footer() {
           {/* Products */}
           <div>
             <motion.h3
-              className="font-semibold text-[22px] text-(--accent) mb-[30px] hover:text-2xl"
+              className="font-semibold text-[22px] mb-[30px] hover:text-2xl"
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.98 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -124,7 +121,7 @@ export function Footer() {
           {/* Company */}
           <div>
             <motion.h3
-              className="font-semibold text-[22px] text-(--accent) mb-[30px] hover:text-2xl"
+              className="font-semibold text-[22px] mb-[30px] hover:text-2xl"
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.98 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -147,7 +144,7 @@ export function Footer() {
           {/* Support */}
           <div>
             <motion.h3
-              className="font-semibold text-[22px] text-(--accent) mb-[30px] hover:text-2xl"
+              className="font-semibold text-[22px] mb-[30px] hover:text-2xl"
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.98 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -171,7 +168,7 @@ export function Footer() {
           {/* Downloads */}
           <div>
             <motion.h3
-              className="font-semibold text-[22px] text-(--accent) mb-[30px] hover:text-2xl"
+              className="font-semibold text-[22px] mb-[30px] hover:text-2xl"
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.98 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}

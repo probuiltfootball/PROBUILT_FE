@@ -1,17 +1,10 @@
 "use client";
-import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion"; import SiteLogo from "@/assets/figma/logo1.png";
 import herobg from "@/assets/football/horz4.avif";
 
-import { Button } from "./ui/button";
-
-// const images = [img0, img1, img2, img3, img4, img5];
-
 export default function HeroSection() {
-  // const [index, setIndex] = useState(0);
-
   return (
     <motion.div className="relative flex justify-center text-center rounded-4xl mt-36 mb-16 mx-20 h-[720px]">
       <Image

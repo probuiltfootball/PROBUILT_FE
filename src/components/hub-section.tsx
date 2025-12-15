@@ -1,15 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
-import imgHubLanding from "@/assets/jpeg/img-hub-landing.jpg";
 import Apple from "@/assets/figma/Social Media Icon Square/Apple.png";
 import Android from "@/assets/figma/Social Media Icon Square/Android.png";
 import { Button } from "./ui/button";
+
 export default function HubSection() {
   return (
-    <motion.div className="mt-12 mb-16 mx-20 h-[647px] text-(--secondary)">
+    <motion.div className="mt-12 mb-16 mx-20 h-[647px]">
       <motion.div
         className="text-center mb-7"
         initial={{ opacity: 0, y: 30 }}
@@ -17,10 +16,10 @@ export default function HubSection() {
         viewport={{ margin: "-100px" }}
         transition={{ duration: 0.5, ease: "easeOut" }}
       >
-        <h2 className="text-(--secondary) text-4xl font-medium mb-3">
+        <h2 className="text-4xl font-medium mb-3">
           Hub: Your Digital Football Training Hub
         </h2>
-        <h3 className="text-(--accent) text-xl leading-tight">
+        <h3 className="text-xl leading-tight">
           Flexible digital training with structured programs you can follow anywhere.
         </h3>
       </motion.div>
@@ -28,7 +27,7 @@ export default function HubSection() {
       {/* Card */}
       <motion.div className="flex flex-row justify-center items-center gap-10">
         <motion.div
-          className="border-2 border-(--accent) rounded-3xl flex-1 bg-[#27272E] pt-[130px] pb-[139px] pl-[70px] pr-[103px]"
+          className="border-2 rounded-3xl flex-1 bg-[#27272E] pt-[130px] pb-[139px] pl-[70px] pr-[103px]"
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.98 }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -43,7 +42,7 @@ export default function HubSection() {
             <Button
               variant="primary"
               size="lg"
-              className="text-(--primary) flex items-center justify-center"
+              className="flex items-center justify-center"
             >
               <Image src={Apple} alt="Apple Icon" className="mr-2 w-5 h-5" />
               Download for iOS
@@ -51,7 +50,7 @@ export default function HubSection() {
           </motion.div>
         </motion.div>
         <motion.div
-          className="border-2 border-(--accent) rounded-3xl flex-1 bg-[#27272E] pt-[130px] pb-[139px] pl-[70px] pr-[103px]"
+          className="border-2 rounded-3xl flex-1 bg-[#27272E] pt-[130px] pb-[139px] pl-[70px] pr-[103px]"
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.98 }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}

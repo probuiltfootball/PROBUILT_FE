@@ -9,7 +9,7 @@ import { Button } from "./ui/button";
 
 export default function EdgeSection() {
   return (
-    <section className="my-16 mx-20 text-(--secondary)">
+    <section className="my-16 mx-20">
       <motion.div
         className="text-center mb-7"
         initial={{ opacity: 0, y: 30 }}
@@ -17,10 +17,10 @@ export default function EdgeSection() {
         viewport={{ margin: "-100px" }}
         transition={{ duration: 0.5, ease: "easeOut" }}
       >
-        <h2 className="text-(--secondary) text-4xl font-medium mb-3">
+        <h2 className="text-4xl font-medium mb-3">
           Edge: Train 1:1 With Elite Coaches
         </h2>
-        <h3 className="text-(--accent) text-xl leading-tight">
+        <h3 className="text-xl leading-tight">
           A personalised, UEFA-coach-built plan tailored to your position, strengths, and
           long-term ambition.
         </h3>
@@ -40,10 +40,10 @@ export default function EdgeSection() {
             src={tag.src}
             alt="most popular tag"
             className="w-[178px]"
-            animate={{ scale: [1, 1.05, 1] }} // zoom in → zoom out → repeat
+            animate={{ scale: [1, 1.05, 1] }}
             transition={{
-              duration: 1.6, // speed of the pulse
-              repeat: Infinity, // loop forever
+              duration: 1.6,
+              repeat: Infinity,
               ease: "easeInOut",
             }}
           />
