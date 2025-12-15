@@ -8,6 +8,7 @@ import FaceBook from "@/assets/figma/Social Media Icon Square/Facebook.png";
 import YouTube from "@/assets/figma/Social Media Icon Square/YouTube.png";
 import Instagram from "@/assets/figma/Social Media Icon Square/Instagram.png";
 import LinkedIn from "@/assets/figma/Social Media Icon Square/LinkedIn.png";
+import { useAppDispatch, useAppSelector } from '@/lib/store/hooks';
 
 import { Divider } from "./divider";
 import { label, sup } from "framer-motion/client";
@@ -56,6 +57,8 @@ const footerLinks = {
 };
 
 export function Footer() {
+  const { isAuthenticated } = useAppSelector((state) => state.auth);
+
   return (
     <footer className="bg-black mt-9 text-white flex flex-col gap-8 items-center pt-[70px] pb-8 px-[68px]">
       {/* Main Footer Content */}

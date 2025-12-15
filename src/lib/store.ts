@@ -1,12 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-
-
+import authReducer from "./store/slices/auth.slice";
 
 export const makeStore = () =>
   configureStore({
     reducer: {
-      // Placeholder reducer to prevent "Store does not have a valid reducer" error
-      _placeholder: (state = {}) => state,
+      auth: authReducer,
     },
     devTools: process.env.NODE_ENV !== "production",
   });

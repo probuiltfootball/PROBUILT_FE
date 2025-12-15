@@ -68,21 +68,27 @@ export default function CtaSection() {
             viewport={{ margin: "-100px" }}
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
           >
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
               <Link
-                href="/edge"
+                href="/membership"
                 className="inline-block px-12 py-3 rounded-full bg-[#00FFC2] text-black font-semibold hover:bg-[#00E0AA] transition-colors"
               >
-                Start Edge
+                View Plans
               </Link>
             </motion.div>
 
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
               <Link
-                href="/hub"
+                href="/membership"
                 className="inline-block px-12 py-3 rounded-full border border-gray-500 text-white font-medium hover:border-white transition-colors"
               >
-                Start Hub
+                Get Started
               </Link>
             </motion.div>
           </motion.div>

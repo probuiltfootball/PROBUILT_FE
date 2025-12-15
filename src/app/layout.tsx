@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/lib/providers/theme-provider";
 import { StoreProvider } from "@/lib/providers/store-provider";
 import { BackgroundProvider } from "@/lib/providers/background-provider";
+import DebugPanel from "@/components/shared/DebugPanel";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -25,7 +26,10 @@ export default function RootLayout({
       <body className={`${manrope.variable} antialiased`}>
         {/* <BackgroundProvider /> */}
         <ThemeProvider>
-          <StoreProvider>{children}</StoreProvider>
+          <StoreProvider>
+            {children}
+            <DebugPanel />
+          </StoreProvider>
         </ThemeProvider>
       </body>
     </html>

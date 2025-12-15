@@ -1,10 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import SiteLogo from "@/assets/figma/logo1.png";
+import Link from "next/link";
+import { motion } from "framer-motion"; import SiteLogo from "@/assets/figma/logo1.png";
 import herobg from "@/assets/football/horz4.avif";
 
-import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 
 // const images = [img0, img1, img2, img3, img4, img5];
@@ -59,14 +59,14 @@ export default function HeroSection() {
           transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
         >
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Button variant="primary" size="lg" className="flex-1">
-              Explore Hub
-            </Button>
+            <Link href="/membership" className="px-16 py-3 rounded-full bg-[#00FFC2] text-black font-semibold hover:bg-[#00E0AA] transition-colors inline-block">
+              View Plans
+            </Link>
           </motion.div>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Button variant="secondary" size="lg" className="flex-1">
-              Explore Edge
-            </Button>
+            <Link href="/membership" className="px-16 py-3 rounded-full border border-gray-500 text-white font-medium hover:border-white transition-colors inline-block">
+              Get Started
+            </Link>
           </motion.div>
         </motion.div>
       </motion.div>
