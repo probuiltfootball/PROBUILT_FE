@@ -7,6 +7,8 @@ import { useAppSelector } from "@/lib/store/hooks";
 import UserMenu from "@/components/shared/UserMenu";
 import SiteLogo from "@/assets/figma/logo2.png";
 import { FaTimes, FaBars } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { Button } from "./ui/button";
 
 const Link = NextLink;
 
@@ -17,16 +19,19 @@ export default function Navbar() {
   // Get subscription plan from profile (preferred) or fallback to user_metadata
   // Profile subscription is available from user-profile Edge Function
   const subscription = profile?.subscription;
-  const userRole = profile?.role || user?.user_metadata?.role || 'player';
+  const userRole = profile?.role || user?.user_metadata?.role || "player";
 
   // Fallback: If profile subscription not available, check user_metadata (legacy)
   // Get plan from metadata (already normalized to 'trial' in signup)
   const metadataPlan = user?.user_metadata?.plan;
-  const normalizedMetadataPlan = metadataPlan === 'free_trial' ? 'trial' : metadataPlan; // Backward compatibility
+  const normalizedMetadataPlan = metadataPlan === "free_trial" ? "trial" : metadataPlan; // Backward compatibility
 
   // Use profile subscription if available, otherwise fallback to metadata
   // For metadata fallback, assume not expired (since we don't have expiry info)
-  const plan = subscription?.plan || (normalizedMetadataPlan as 'trial' | 'hub' | 'edge' | null) || null;
+  const plan =
+    subscription?.plan ||
+    (normalizedMetadataPlan as "trial" | "hub" | "edge" | null) ||
+    null;
   const isExpired = subscription ? subscription.plan_expired : false;
 
   // Determine which links to show based on subscription and role
@@ -35,7 +40,7 @@ export default function Navbar() {
   // 2. Dashboard link text: Changes based on plan (MyTrial, MyHub, MyEdge)
   // 3. Hide public Hub/Edge when user is logged in
 
-  const isPlayer = userRole === 'player';
+  const isPlayer = userRole === "player";
   const hasActivePlan = plan && !isExpired;
 
   // Public links: Only show for logged out users
@@ -47,14 +52,14 @@ export default function Navbar() {
     if (!isAuthenticated || !isPlayer || !hasActivePlan) return null;
 
     switch (plan) {
-      case 'trial':
-        return 'MyTrial';
-      case 'hub':
-        return 'MyHub';
-      case 'edge':
-        return 'MyEdge';
+      case "trial":
+        return "MyTrial";
+      case "hub":
+        return "MyHub";
+      case "edge":
+        return "MyEdge";
       default:
-        return 'Dashboard';
+        return "Dashboard";
     }
   };
 
@@ -62,28 +67,28 @@ export default function Navbar() {
   const showDashboard = isAuthenticated && isPlayer && hasActivePlan;
 
   return (
-    <nav className="sticky top-0 left-0 right-0 z-50 h-[150px] bg-black border-b border-gray-800">
-      <div className="max-w-[1280px] mx-auto h-full px-6 flex items-center justify-between">
+    <motion.nav className="fixed top-0 left-0 right-0 z-50 h-37.5 bg-(--primary)">
+      <div className="px-20 flex">
         {/* Logo */}
-        <div className="flex items-center gap-3">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="flex items-center justify-center p-1.5 ml-1">
-              <Image
-                src={SiteLogo}
-                alt="ProBuilt Logo"
-                width={36}
-                height={36}
-                className="object-contain"
-              />
-            </div>
-            <span className="text-white text-lg md:text-3xl font-semibold relative">
-              ProBuilt Football
-            </span>
+        <motion.div
+          className="hidden md:flex md:items-center"
+          whileHover={{ scale: 1.2 }}
+          whileTap={{ scale: 0.98 }}
+          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        >
+          <Link href="/">
+            <Image src={SiteLogo} alt="ProBuilt Logo" width={147} height={147} />
           </Link>
-        </div>
+        </motion.div>
 
         {/* Nav Links */}
-        <div className="hidden md:flex items-center gap-6 flex-1 justify-center">
+        <motion.div
+          className="hidden md:flex items-center gap-4 flex-1 ml-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ margin: "-100px" }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
+        >
           {showPublicHub && (
             <Link
               href="/hub"
@@ -135,41 +140,49 @@ export default function Navbar() {
           >
             PB Points
           </Link>
-        </div>
+        </motion.div>
 
-        <div className="flex items-center gap-4 min-w-[200px] justify-end">
+        <motion.div
+          className="flex gap-4 justify-center items-center flex-1"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ margin: "-100px" }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
+        >
           {/* Auth State */}
           {isAuthenticated ? (
             <UserMenu />
           ) : (
             <>
-              <Link
-                href="/signup"
-                className="px-4 md:px-6 py-2 rounded-full bg-[#00FFC2] text-black text-sm md:text-base font-medium hover:bg-[#00E0AA] transition-colors"
-              >
-                Register
-              </Link>
-              <Link
-                href="/login"
-                className="px-4 md:px-6 py-2 rounded-full border border-white bg-black text-white text-sm md:text-base font-medium hover:bg-white/10 transition-colors"
-              >
-                Log In
-              </Link>
+              <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+                <Link href="/signup">
+                  <Button variant="primary" size="md">
+                    Register
+                  </Button>
+                </Link>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+                <Link href="/login">
+                  <Button variant="secondary" size="md">
+                    Log In
+                  </Button>
+                </Link>
+              </motion.div>
             </>
           )}
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
-            <button className="text-white" onClick={() => setIsOpen(!isOpen)}>
+          <div className="md:hidden">
+            <button className="" onClick={() => setIsOpen(!isOpen)}>
               {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
             </button>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {isOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-black border-b border-gray-800 p-4 z-40 shadow-lg">
-          <div className="max-w-[1280px] mx-auto">
+          <div className="max-w-7xl mx-auto">
             <nav className="flex flex-col gap-2">
               {showPublicHub && (
                 <Link
@@ -243,6 +256,6 @@ export default function Navbar() {
           </div>
         </div>
       )}
-    </nav>
+    </motion.nav>
   );
 }

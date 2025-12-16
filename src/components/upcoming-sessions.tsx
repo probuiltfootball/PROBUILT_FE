@@ -27,7 +27,7 @@ export default function UpcomingSessions() {
       </motion.div>
 
       {/* Card */}
-      <div className="flex flex-row items-center gap-15 bg-[#27272E] rounded-[30px] p-[85px]">
+      <div className="flex flex-row items-center gap-15 bg-[#27272E] rounded-[30px] p-21.25">
         <div>
           <Image
             src={session_image}
@@ -39,7 +39,7 @@ export default function UpcomingSessions() {
           <motion.img
             src={tag.src}
             alt="most popular tag"
-            className="w-[178px]"
+            className="w-44.5"
             animate={{ scale: [1, 1.05, 1] }} // zoom in → zoom out → repeat
             transition={{
               duration: 1.6, // speed of the pulse

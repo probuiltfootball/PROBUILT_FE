@@ -103,9 +103,9 @@ export default function TestimonialCarousel({
   const next = items[wrap(index + 1)];
 
   return (
-    <section className="mt-12 mb-16 mx-20 text-(--secondary) bg-[#27272E] rounded-[30px] px-[70px] py-[92px]">
+    <section className="mt-12 mb-16 mx-20 text-(--secondary) bg-[#27272E] rounded-[30px] px-17.5 py-23">
       <motion.div
-        className="text-center mb-[67px]"
+        className="text-center mb-16.75"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ margin: "-100px" }}
@@ -128,7 +128,7 @@ export default function TestimonialCarousel({
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.45 }}
-              className="text-[28px] leading-[130%] text-(--accent) mb-[121px] line-clamp-3 min-h-[108px]"
+              className="text-[28px] leading-[130%] text-(--accent) mb-30.25 line-clamp-3 min-h-27"
               aria-live="polite"
             >
               “{current.quote}”
@@ -138,12 +138,12 @@ export default function TestimonialCarousel({
 
         {/* NAMES LINE: prev - current - next */}
 
-        <div className="relative flex items-center justify-center gap-[171px] pt-[38px] border-t border-(--border-forms)">
+        <div className="relative flex items-center justify-center gap-42.75 pt-9.5 border-t border-(--border-forms)">
           {/* previous name (clickable) */}
           <button
             onClick={goPrev}
             aria-label={`Previous testimonial: ${prev.name}`}
-            className="flex gap-5 items-center text-sm md:text-base text-gray-400 hover:text-gray-200 transition-colors w-[248px]"
+            className="flex gap-5 items-center text-sm md:text-base text-gray-400 hover:text-gray-200 transition-colors w-62"
           >
             <Image
               src={prev.avatar}
@@ -159,8 +159,8 @@ export default function TestimonialCarousel({
           </button>
 
           {/* current name (prominent) */}
-          <div className="-top-0.5 left-1/2 absolute h-[3px] w-[331px] -translate-x-1/2 bg-(--accent) rounded-full" />
-          <div className="flex gap-5 items-center w-[248px]">
+          <div className="-top-0.5 left-1/2 absolute h-0.75 w-82.75 -translate-x-1/2 bg-(--accent) rounded-full" />
+          <div className="flex gap-5 items-center w-62">
             <Image
               src={prev.avatar}
               alt={prev.name}
@@ -180,7 +180,7 @@ export default function TestimonialCarousel({
           <button
             onClick={goNext}
             aria-label={`Next testimonial: ${next.name}`}
-            className="flex gap-5 items-center text-sm md:text-base text-gray-400 hover:text-gray-200 transition-colors w-[248px]"
+            className="flex gap-5 items-center text-sm md:text-base text-gray-400 hover:text-gray-200 transition-colors w-62"
           >
             <Image
               src={next.avatar}
