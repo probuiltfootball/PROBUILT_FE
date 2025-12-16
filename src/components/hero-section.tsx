@@ -7,7 +7,7 @@ import { Button } from "./ui/button";
 
 export default function HeroSection() {
   return (
-    <motion.div className="relative flex justify-center text-center rounded-4xl mt-36 mb-16 mx-20 h-180">
+    <motion.div className="relative flex justify-center text-center rounded-4xl mt-38 mb-16 mx-20 h-180">
       <Image
         src={herobg}
         alt="Football background"

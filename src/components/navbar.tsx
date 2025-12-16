@@ -67,8 +67,8 @@ export default function Navbar() {
   const showDashboard = isAuthenticated && isPlayer && hasActivePlan;
 
   return (
-    <motion.nav className="fixed top-0 left-0 right-0 z-50 h-37.5 bg-(--primary)">
-      <div className="px-20 flex">
+    <motion.nav className="fixed top-0 left-0 right-0 z-50 h-37.5 bg-(--primary) px-20">
+      <div className="flex">
         {/* Logo */}
         <motion.div
           className="hidden md:flex md:items-center"
@@ -143,7 +143,7 @@ export default function Navbar() {
         </motion.div>
 
         <motion.div
-          className="flex gap-4 justify-center items-center flex-1"
+          className="flex gap-4 justify-end items-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ margin: "-100px" }}
@@ -172,8 +172,8 @@ export default function Navbar() {
           )}
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <button className="" onClick={() => setIsOpen(!isOpen)}>
+          <div className="md:hidden flex items-center">
+            <button onClick={() => setIsOpen(!isOpen)}>
               {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
             </button>
           </div>
