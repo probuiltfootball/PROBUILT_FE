@@ -28,7 +28,7 @@ export default function TeamSection() {
       {/* Grid */}
       <div className="flex flex-row gap-8 justify-center">
         <motion.div
-          className="flex flex-col justify-center items-center flex-1 max-w-[407px] gap-5"
+          className="flex flex-col justify-center items-center flex-1 max-w-101.75 gap-5"
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.98 }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -41,7 +41,7 @@ export default function TeamSection() {
           </p>
         </motion.div>
         <motion.div
-          className="flex flex-col justify-center items-center flex-1 max-w-[407px] gap-5"
+          className="flex flex-col justify-center items-center flex-1 max-w-101.75 gap-5"
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.98 }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}

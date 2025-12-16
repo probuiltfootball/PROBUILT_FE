@@ -8,7 +8,7 @@ import { Button } from "./ui/button";
 
 export default function HubSection() {
   return (
-    <motion.div className="mt-12 mb-16 mx-20 h-[647px]">
+    <motion.div className="mt-12 mb-16 mx-20 h-161.75 text-(--secondary)">
       <motion.div
         className="text-center mb-7"
         initial={{ opacity: 0, y: 30 }}
@@ -19,7 +19,7 @@ export default function HubSection() {
         <h2 className="text-4xl font-medium mb-3">
           Hub: Your Digital Football Training Hub
         </h2>
-        <h3 className="text-xl leading-tight">
+        <h3 className="text-xl leading-tight text-(--accent)">
           Flexible digital training with structured programs you can follow anywhere.
         </h3>
       </motion.div>
@@ -27,12 +27,12 @@ export default function HubSection() {
       {/* Card */}
       <motion.div className="flex flex-row justify-center items-center gap-10">
         <motion.div
-          className="border-2 rounded-3xl flex-1 bg-[#27272E] pt-[130px] pb-[139px] pl-[70px] pr-[103px]"
+          className="border-2 border-(--accent) rounded-3xl flex-1 bg-[#27272E] pt-32.5 pb-34.75 pl-17.5 pr-25.75"
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.98 }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
         >
-          <h2 className="text-4xl font-semibold mb-3 leading-[50px]">
+          <h2 className="text-4xl font-semibold mb-3 leading-12.5">
             Receive Expert Coaching, <br /> Get Real Results
           </h2>
           <p className="text-xl font-normal mb-10 line-clamp-2 min-h-16 leading-[1.36]">
@@ -50,12 +50,12 @@ export default function HubSection() {
           </motion.div>
         </motion.div>
         <motion.div
-          className="border-2 rounded-3xl flex-1 bg-[#27272E] pt-[130px] pb-[139px] pl-[70px] pr-[103px]"
+          className="border-2 border-(--accent) rounded-3xl flex-1 bg-[#27272E] pt-32.5 pb-34.75 pl-17.5 pr-25.75"
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.98 }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
         >
-          <h2 className="text-4xl font-semibold mb-3 leading-[50px]">
+          <h2 className="text-4xl font-semibold mb-3 leading-12.5">
             Then Take Those Lessons Onto The Pitch
           </h2>
           <p className="text-xl font-normal mb-10 line-clamp-2 min-h-16 leading-[1.36]">

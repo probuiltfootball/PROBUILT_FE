@@ -2,11 +2,12 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import herobg from "@/assets/football/horz4.avif";
+import herobg from "@/assets/football/horz0.jpg";
+import { Button } from "./ui/button";
 
 export default function HeroSection() {
   return (
-    <motion.div className="relative flex justify-center text-center rounded-4xl mt-36 mb-16 mx-20 h-[720px]">
+    <motion.div className="relative flex justify-center text-center rounded-4xl mt-38 mb-16 mx-20 h-180">
       <Image
         src={herobg}
         alt="Football background"
@@ -52,13 +53,17 @@ export default function HeroSection() {
           transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
         >
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Link href="/membership" className="px-16 py-3 rounded-full bg-[#00FFC2] text-black font-semibold hover:bg-[#00E0AA] transition-colors inline-block">
-              View Plans
+            <Link href="/hub">
+              <Button variant="primary" size="lg">
+                Explore Hub
+              </Button>
             </Link>
           </motion.div>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Link href="/membership" className="px-16 py-3 rounded-full border border-gray-500 text-white font-medium hover:border-white transition-colors inline-block">
-              Get Started
+            <Link href="/edge">
+              <Button variant="secondary" size="lg">
+                Explore Edge
+              </Button>
             </Link>
           </motion.div>
         </motion.div>

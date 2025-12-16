@@ -7,7 +7,7 @@ import FaceBook from "@/assets/figma/Social Media Icon Square/Facebook.png";
 import YouTube from "@/assets/figma/Social Media Icon Square/YouTube.png";
 import Instagram from "@/assets/figma/Social Media Icon Square/Instagram.png";
 import LinkedIn from "@/assets/figma/Social Media Icon Square/LinkedIn.png";
-import { useAppSelector } from '@/lib/store/hooks';
+import { useAppSelector } from "@/lib/store/hooks";
 import { Divider } from "./divider";
 import { motion } from "framer-motion";
 
@@ -57,7 +57,7 @@ export function Footer() {
   const { isAuthenticated } = useAppSelector((state) => state.auth);
 
   return (
-    <footer className="bg-black mt-9 text-white flex flex-col gap-8 items-center pt-[70px] pb-8 px-[68px]">
+    <footer className="bg-(--primary) mt-9 text-(--secondary) flex flex-col gap-8 items-center pb-8">
       {/* Main Footer Content */}
       <div className="flex gap-40">
         {/* Brand Section */}
@@ -73,7 +73,7 @@ export function Footer() {
             </Link>
           </motion.div>
 
-          <p className="text-xl leading-[136%] w-[340px] mb-[46px]">
+          <p className="text-xl leading-[136%] w-85 mb-11.5">
             Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam
           </p>
           <motion.div className="flex gap-4">
@@ -93,11 +93,11 @@ export function Footer() {
         </div>
         {/* Links Section */}
 
-        <div className="flex gap-[106px]">
+        <div className="flex space-x-20">
           {/* Products */}
           <div>
             <motion.h3
-              className="font-semibold text-[22px] mb-[30px] hover:text-2xl"
+              className="font-semibold text-[22px] text-(--accent) mb-7.5 hover:text-2xl"
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.98 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -121,7 +121,7 @@ export function Footer() {
           {/* Company */}
           <div>
             <motion.h3
-              className="font-semibold text-[22px] mb-[30px] hover:text-2xl"
+              className="font-semibold text-[22px] text-(--accent) mb-7.5 hover:text-2xl"
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.98 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -144,7 +144,7 @@ export function Footer() {
           {/* Support */}
           <div>
             <motion.h3
-              className="font-semibold text-[22px] mb-[30px] hover:text-2xl"
+              className="font-semibold text-[22px] text-(--accent) mb-7.5 hover:text-2xl"
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.98 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -168,7 +168,7 @@ export function Footer() {
           {/* Downloads */}
           <div>
             <motion.h3
-              className="font-semibold text-[22px] mb-[30px] hover:text-2xl"
+              className="font-semibold text-[22px] text-(--accent) mb-7.5 hover:text-2xl"
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.98 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
