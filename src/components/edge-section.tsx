@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import edge_image from "@/assets/figma/edge_landing_page.png";
 import tag from "@/assets/figma/Tags/most_popular.png";
@@ -74,14 +75,18 @@ export default function EdgeSection() {
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button variant="primary" size="lg" className="flex-1">
-                Start Edge
-              </Button>
+              <Link href="/edge">
+                <Button variant="primary" size="lg" className="flex-1">
+                  Start Edge
+                </Button>
+              </Link>
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button variant="secondary" size="lg" className="flex-1">
-                Learn More
-              </Button>
+              <Link href="/learn-more">
+                <Button variant="secondary" size="lg" className="flex-1">
+                  Learn More
+                </Button>
+              </Link>
             </motion.div>
           </motion.div>
         </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import NextLink from "next/link";
+import Link from "next/link";
 import { FaFacebook, FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa6";
 import SiteLogo from "@/assets/figma/logo1.png";
 import FaceBook from "@/assets/figma/Social Media Icon Square/Facebook.png";
@@ -9,8 +9,6 @@ import YouTube from "@/assets/figma/Social Media Icon Square/YouTube.png";
 import Instagram from "@/assets/figma/Social Media Icon Square/Instagram.png";
 import LinkedIn from "@/assets/figma/Social Media Icon Square/LinkedIn.png";
 import { motion } from "framer-motion";
-
-const Link = NextLink as any;
 
 const footerLinks = {
   product: [
