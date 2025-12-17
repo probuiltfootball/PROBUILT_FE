@@ -41,10 +41,10 @@ const footerLinks = {
 };
 
 const socialLinks = [
-  { label: "Facebook", src: FaceBook },
-  { label: "Instagram", src: Instagram },
-  { label: "LinkedIn", src: LinkedIn },
-  { label: "YouTube", src: YouTube },
+  { label: "Facebook", src: FaceBook, href: "https://facebook.com" },
+  { label: "Instagram", src: Instagram, href: "https://instagram.com" },
+  { label: "LinkedIn", src: LinkedIn, href: "https://linkedin.com" },
+  { label: "YouTube", src: YouTube, href: "https://youtube.com" },
 ];
 
 export function Footer() {
@@ -77,16 +77,17 @@ export function Footer() {
             <motion.div className="flex gap-4">
               {socialLinks.map((social) => {
                 return (
-                  <motion.img
-                    key={social.label}
-                    src={social.src.src}
-                    alt={`${social.label} Logo`}
-                    whileHover={{ scale: 1.4 }}
-                    whileTap={{ scale: 0.98 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    width={36}
-                    height={36}
-                  />
+                  <Link href={social.href} key={social.label}>
+                    <motion.img
+                      src={social.src.src}
+                      alt={`${social.label} Logo`}
+                      whileHover={{ scale: 1.4 }}
+                      whileTap={{ scale: 0.98 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                      width={36}
+                      height={36}
+                    />
+                  </Link>
                 );
               })}
             </motion.div>
