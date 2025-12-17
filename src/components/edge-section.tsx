@@ -18,7 +18,7 @@ export default function EdgeSection() {
         viewport={{ margin: "-100px" }}
         transition={{ duration: 0.5, ease: "easeOut" }}
       >
-        <h2 className="text-4xl font-medium mb-3">Edge: Individual coaching needs</h2>
+        <h2 className="text-4xl font-medium mb-3">Edge: Individual Coaching Needs</h2>
         <h3 className="text-xl leading-tight text-(--accent)">
           A personalised, UEFA-coach-built plan tailored to your position, strengths, and
           long-term ambition.
