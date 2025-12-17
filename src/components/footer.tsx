@@ -2,13 +2,13 @@
 
 import Image from "next/image";
 import NextLink from "next/link";
-import {
-  FaFacebook,
-  FaInstagram,
-  FaLinkedin,
-  FaYoutube,
-} from "react-icons/fa6";
-import SiteLogo from "@/assets/svg/site-logo.svg";
+import { FaFacebook, FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa6";
+import SiteLogo from "@/assets/figma/logo1.png";
+import FaceBook from "@/assets/figma/Social Media Icon Square/Facebook.png";
+import YouTube from "@/assets/figma/Social Media Icon Square/YouTube.png";
+import Instagram from "@/assets/figma/Social Media Icon Square/Instagram.png";
+import LinkedIn from "@/assets/figma/Social Media Icon Square/LinkedIn.png";
+import { motion } from "framer-motion";
 
 const Link = NextLink as any;
 
@@ -41,10 +41,10 @@ const footerLinks = {
 };
 
 const socialLinks = [
-  { icon: FaFacebook, href: "https://facebook.com", label: "Facebook" },
-  { icon: FaInstagram, href: "https://instagram.com", label: "Instagram" },
-  { icon: FaLinkedin, href: "https://linkedin.com", label: "LinkedIn" },
-  { icon: FaYoutube, href: "https://youtube.com", label: "YouTube" },
+  { label: "Facebook", src: FaceBook },
+  { label: "Instagram", src: Instagram },
+  { label: "LinkedIn", src: LinkedIn },
+  { label: "YouTube", src: YouTube },
 ];
 
 export function Footer() {
@@ -56,53 +56,52 @@ export function Footer() {
           {/* Left Section - Logo and Social Media */}
           <div className="lg:col-span-2 space-y-6">
             {/* Logo */}
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 border-2 border-[#00FFC2] rounded flex items-center justify-center p-2">
-                <Image
-                  src={SiteLogo}
-                  alt="ProBuilt Logo"
-                  width={32}
-                  height={32}
-                  className="object-contain"
-                />
-              </div>
-            </div>
+            <motion.div
+              className="flex gap-4"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
+              <Link href="/" className="mb-6 -ml-2">
+                <Image src={SiteLogo} alt="PROBUILT Logo" width={100} height={100} />
+              </Link>
+            </motion.div>
 
             {/* Placeholder Text */}
             <div className="space-y-1">
-              <p className="text-white text-sm">
-                Lorem ipsum dolor sit amet
-              </p>
-              <p className="text-white text-sm">
-                consectetur adipiscing elit aliquam
-              </p>
+              <p className="text-white text-sm">Lorem ipsum dolor sit amet</p>
+              <p className="text-white text-sm">consectetur adipiscing elit aliquam</p>
             </div>
 
             {/* Social Media Icons */}
-            <div className="flex gap-3">
+            <motion.div className="flex gap-4">
               {socialLinks.map((social) => {
-                const Icon = social.icon;
                 return (
-                  <a
+                  <motion.img
                     key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 bg-[#00FFC2] rounded flex items-center justify-center hover:bg-[#00E0AA] transition-colors"
-                    aria-label={social.label}
-                  >
-                    <Icon className="text-white text-lg" />
-                  </a>
+                    src={social.src.src}
+                    alt={`${social.label} Logo`}
+                    whileHover={{ scale: 1.4 }}
+                    whileTap={{ scale: 0.98 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    width={36}
+                    height={36}
+                  />
                 );
               })}
-            </div>
+            </motion.div>
           </div>
 
           {/* Product Column */}
           <div>
-            <h3 className="text-[#00FFC2] font-semibold mb-4 text-base">
-              Product
-            </h3>
+            <motion.h3
+              className="font-semibold text-[22px] text-(--accent) mb-7.5 hover:text-2xl"
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
+              Products
+            </motion.h3>
             <ul className="space-y-3">
               {footerLinks.product.map((link) => (
                 <li key={link.href}>
@@ -119,9 +118,14 @@ export function Footer() {
 
           {/* Company Column */}
           <div>
-            <h3 className="text-[#00FFC2] font-semibold mb-4 text-base">
+            <motion.h3
+              className="font-semibold text-[22px] text-(--accent) mb-7.5 hover:text-2xl"
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
               Company
-            </h3>
+            </motion.h3>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.href}>
@@ -138,9 +142,14 @@ export function Footer() {
 
           {/* Support Column */}
           <div>
-            <h3 className="text-[#00FFC2] font-semibold mb-4 text-base">
+            <motion.h3
+              className="font-semibold text-[22px] text-(--accent) mb-7.5 hover:text-2xl"
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
               Support
-            </h3>
+            </motion.h3>
             <ul className="space-y-3">
               {footerLinks.support.map((link) => (
                 <li key={link.href}>
@@ -157,9 +166,14 @@ export function Footer() {
 
           {/* Downloads Column */}
           <div>
-            <h3 className="text-[#00FFC2] font-semibold mb-4 text-base">
+            <motion.h3
+              className="font-semibold text-[22px] text-(--accent) mb-7.5 hover:text-2xl"
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
               Downloads
-            </h3>
+            </motion.h3>
             <ul className="space-y-3">
               {footerLinks.downloads.map((link) => (
                 <li key={link.href}>
@@ -183,14 +197,14 @@ export function Footer() {
               Copyright © 2025 | All Rights Reserved |{" "}
               <Link
                 href="/terms"
-                className="text-white hover:text-[#00FFC2] transition-colors"
+                className="text-white hover:text-[#00FFC2] transition-colors underline"
               >
                 Terms and Conditions
               </Link>
               {" | "}
               <Link
                 href="/privacy"
-                className="text-white hover:text-[#00FFC2] transition-colors"
+                className="text-white hover:text-[#00FFC2] transition-colors underline"
               >
                 Privacy Policy
               </Link>
