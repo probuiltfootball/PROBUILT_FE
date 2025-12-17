@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import edge_image from "@/assets/figma/edge_landing_page.png";
 import tag from "@/assets/figma/Tags/most_popular.png";
@@ -17,7 +18,7 @@ export default function EdgeSection() {
         viewport={{ margin: "-100px" }}
         transition={{ duration: 0.5, ease: "easeOut" }}
       >
-        <h2 className="text-4xl font-medium mb-3">Edge: Train 1:1 With Elite Coaches</h2>
+        <h2 className="text-4xl font-medium mb-3">Edge: Individual Coaching Needs</h2>
         <h3 className="text-xl leading-tight text-(--accent)">
           A personalised, UEFA-coach-built plan tailored to your position, strengths, and
           long-term ambition.
@@ -74,14 +75,18 @@ export default function EdgeSection() {
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button variant="primary" size="lg" className="flex-1">
-                Start Edge
-              </Button>
+              <Link href="/edge">
+                <Button variant="primary" size="lg" className="flex-1">
+                  Start Edge
+                </Button>
+              </Link>
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button variant="secondary" size="lg" className="flex-1">
-                Learn More
-              </Button>
+              <Link href="/learn-more">
+                <Button variant="secondary" size="lg" className="flex-1">
+                  Learn More
+                </Button>
+              </Link>
             </motion.div>
           </motion.div>
         </div>

@@ -7,6 +7,7 @@ import tag from "@/assets/figma/Tags/probuilt_plans.png";
 import checkmark from "@/assets/figma/Social Media Icon Square/Check_Circle.png";
 import { Button } from "./ui/button";
 import { s } from "framer-motion/client";
+import Link from "next/link";
 
 export default function UpcomingSessions() {
   return (
@@ -70,14 +71,18 @@ export default function UpcomingSessions() {
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button variant="primary" size="lg" className="flex-1">
-                Compare Plans
-              </Button>
+              <Link href="/membership">
+                <Button variant="primary" size="lg" className="flex-1">
+                  Compare Plans
+                </Button>
+              </Link>
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button variant="secondary" size="lg" className="flex-1">
-                Talk to a Coach
-              </Button>
+              <Link href="/talk-to-caoch">
+                <Button variant="secondary" size="lg" className="flex-1">
+                  Talk to a Coach
+                </Button>
+              </Link>
             </motion.div>
           </motion.div>
         </div>

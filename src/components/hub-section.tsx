@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Apple from "@/assets/figma/Social Media Icon Square/Apple.png";
 import Android from "@/assets/figma/Social Media Icon Square/Android.png";
 import { Button } from "./ui/button";
+import Link from "next/link";
 
 export default function HubSection() {
   return (
@@ -39,14 +40,16 @@ export default function HubSection() {
             Level up with structured sessions designed by top coaches.
           </p>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Button
-              variant="primary"
-              size="lg"
-              className="flex items-center justify-center"
-            >
-              <Image src={Apple} alt="Apple Icon" className="mr-2 w-5 h-5" />
-              Download for iOS
-            </Button>
+            <Link href="/download/ios">
+              <Button
+                variant="primary"
+                size="lg"
+                className="flex items-center justify-center"
+              >
+                <Image src={Apple} alt="Apple Icon" className="mr-2 w-5 h-5" />
+                Download for iOS
+              </Button>
+            </Link>
           </motion.div>
         </motion.div>
         <motion.div
@@ -63,14 +66,16 @@ export default function HubSection() {
             tempus enim.
           </p>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Button
-              variant="primary"
-              size="lg"
-              className="flex items-center justify-center text-nowrap"
-            >
-              <Image src={Android} alt="Android Icon" className="mr-2 w-5 h-5" />
-              Download for Android
-            </Button>
+            <Link href="/download/android">
+              <Button
+                variant="primary"
+                size="lg"
+                className="flex items-center justify-center text-nowrap"
+              >
+                <Image src={Android} alt="Android Icon" className="mr-2 w-5 h-5" />
+                Download for Android
+              </Button>
+            </Link>
           </motion.div>
         </motion.div>
       </motion.div>

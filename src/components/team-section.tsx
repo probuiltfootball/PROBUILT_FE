@@ -47,7 +47,7 @@ export default function TeamSection() {
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
         >
           <Image src={Coach2} alt="Coach 2" />
-          <h2 className="text-4xl">Rhys Williams</h2>
+          <h2 className="text-4xl">Rhys Barker</h2>
           <p className="text-xl text-(--accent) text-center">
             Brings 25+ years of UEFA-qualified coaching experience across grassroots to
             professional levels.

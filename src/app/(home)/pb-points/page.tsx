@@ -5,14 +5,15 @@ export default function PBPointsPage() {
   return (
     <main className="flex flex-col min-h-screen">
       <Navbar />
-      <div className="flex-1 bg-gradient-to-b from-[#1a1a1a] to-[#2E2E2E] pt-44 md:pt-48 pb-20 top-hero-section px-4 min-h-[700px]">
-        <div className="max-w-[1280px] mx-auto">
+      <div className="flex-1 bg-linear-to-b from-[#1a1a1a] to-[#2E2E2E] pt-44 md:pt-48 pb-20 top-hero-section px-4 min-h-175">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">
               ProBuilt Points
             </h1>
             <p className="text-xl text-gray-300">
-              Earn points by completing training, challenges, and engaging with the community
+              Earn points by completing training, challenges, and engaging with the
+              community
             </p>
           </div>
 
@@ -53,4 +54,3 @@ export default function PBPointsPage() {
     </main>
   );
 }
-
