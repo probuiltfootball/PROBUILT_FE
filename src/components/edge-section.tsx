@@ -68,7 +68,7 @@ export default function EdgeSection() {
             </li>
           </ul>
           <motion.div
-            className="flex flex-row md:flex-col sm:flex-row md:gap-4 gap-2"
+            className="flex flex-row md:gap-4 gap-2"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ margin: "-100px" }}
