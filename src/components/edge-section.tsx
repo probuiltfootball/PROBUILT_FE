@@ -10,7 +10,7 @@ import { Button } from "./ui/button";
 
 export default function EdgeSection() {
   return (
-    <section className="my-16 mx-20 text-(--secondary)">
+    <motion.div className="my-16 md:my-16 md:mx-20 sm:mx-10 mx-8 text-(--secondary)">
       <motion.div
         className="text-center mb-7"
         initial={{ opacity: 0, y: 30 }}
@@ -26,7 +26,7 @@ export default function EdgeSection() {
       </motion.div>
 
       {/* Card */}
-      <div className="flex flex-row items-center gap-15 bg-[#27272E] rounded-[30px] p-21.25">
+      <div className="flex flex-col md:flex-row items-center gap-15 bg-[#27272E] rounded-[30px] p-21.25">
         <div>
           <Image
             src={edge_image}
@@ -68,7 +68,7 @@ export default function EdgeSection() {
             </li>
           </ul>
           <motion.div
-            className="flex flex-col sm:flex-row gap-4"
+            className="flex flex-row md:flex-col sm:flex-row md:gap-4 gap-2"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ margin: "-100px" }}
@@ -91,6 +91,6 @@ export default function EdgeSection() {
           </motion.div>
         </div>
       </div>
-    </section>
+    </motion.div>
   );
 }

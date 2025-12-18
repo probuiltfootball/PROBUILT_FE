@@ -8,7 +8,7 @@ import Coach2 from "@/assets/figma/Rhys_profile.png";
 
 export default function TeamSection() {
   return (
-    <section className="mt-12 mb-16 mx-20 text-(--secondary)">
+    <section className="mt-12 mb-16 md:mx-20 sm:mx-10 mx-8 text-(--secondary)">
       {/* Header */}
       <motion.div
         className="text-center mb-7"
@@ -26,7 +26,7 @@ export default function TeamSection() {
       </motion.div>
 
       {/* Grid */}
-      <div className="flex flex-row gap-8 justify-center">
+      <div className="flex flex-col md:flex-row gap-8 justify-center items-center">
         <motion.div
           className="flex flex-col justify-center items-center flex-1 max-w-101.75 gap-5"
           whileHover={{ scale: 1.03 }}

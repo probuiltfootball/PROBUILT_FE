@@ -11,7 +11,7 @@ import Link from "next/link";
 
 export default function UpcomingSessions() {
   return (
-    <section className="my-16 mx-20 text-(--secondary)">
+    <section className="my-16 md:mx-20 sm:mx-10 mx-8 text-(--secondary)">
       <motion.div
         className="text-center mb-7"
         initial={{ opacity: 0, y: 30 }}
@@ -28,7 +28,7 @@ export default function UpcomingSessions() {
       </motion.div>
 
       {/* Card */}
-      <div className="flex flex-row items-center gap-15 bg-[#27272E] rounded-[30px] p-21.25">
+      <div className="flex flex-col md:flex-row items-center gap-15 bg-[#27272E] rounded-[30px] p-21.25">
         <div>
           <Image
             src={session_image}
@@ -64,7 +64,7 @@ export default function UpcomingSessions() {
             </li>
           </ul>
           <motion.div
-            className="flex flex-col sm:flex-row gap-4"
+            className="flex flex-row sm:flex-col md:gap-4 gap-2"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ margin: "-100px" }}

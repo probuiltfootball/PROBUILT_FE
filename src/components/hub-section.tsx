@@ -9,7 +9,7 @@ import Link from "next/link";
 
 export default function HubSection() {
   return (
-    <motion.div className="mt-12 mb-16 mx-20 h-161.75 text-(--secondary)">
+    <motion.div className="my-16 md:mx-20 sm:mx-10 mx-8 text-(--secondary)">
       <motion.div
         className="text-center mb-7"
         initial={{ opacity: 0, y: 30 }}
@@ -26,7 +26,7 @@ export default function HubSection() {
       </motion.div>
 
       {/* Card */}
-      <motion.div className="flex flex-row justify-center items-center gap-10">
+      <motion.div className="flex flex-col md:flex-row justify-center items-center md:gap-10 gap-4">
         <motion.div
           className="border-2 border-(--accent) rounded-3xl flex-1 bg-[#27272E] pt-32.5 pb-34.75 pl-17.5 pr-25.75"
           whileHover={{ scale: 1.03 }}
