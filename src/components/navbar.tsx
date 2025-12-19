@@ -83,7 +83,7 @@ export default function Navbar() {
 
         {/* Nav Links */}
         <motion.div
-          className="hidden md:flex items-center gap-4 flex-1 ml-8"
+          className="hidden md:flex md:items-center gap-4 flex-1 ml-8"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ margin: "-100px" }}
@@ -143,11 +143,11 @@ export default function Navbar() {
         </motion.div>
 
         <motion.div
-          className="flex gap-4 justify-end items-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ margin: "-100px" }}
-          transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
+          className="flex gap-4 justify-center items-center sm:justify-end flex-1 pt-10 "
+          // initial={{ opacity: 0, y: 20 }}
+          // whileInView={{ opacity: 1, y: 0 }}
+          // viewport={{ margin: "-100px" }}
+          // transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
         >
           {/* Auth State */}
           {isAuthenticated ? (
@@ -173,7 +173,10 @@ export default function Navbar() {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
-            <button onClick={() => setIsOpen(!isOpen)}>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-white focus:outline-none"
+            >
               {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
             </button>
           </div>

@@ -103,7 +103,7 @@ export default function TestimonialCarousel({
   const next = items[wrap(index + 1)];
 
   return (
-    <section className="mt-12 mb-16 mx-20 text-(--secondary) bg-[#27272E] rounded-[30px] px-17.5 py-23">
+    <section className="mt-12 mb-16 md:mx-20 sm:mx-10 mx-8 text-(--secondary) bg-[#27272E] rounded-[30px] px-17.5 py-23">
       <motion.div
         className="text-center mb-16.75"
         initial={{ opacity: 0, y: 30 }}
@@ -138,12 +138,12 @@ export default function TestimonialCarousel({
 
         {/* NAMES LINE: prev - current - next */}
 
-        <div className="relative flex items-center justify-center gap-42.75 pt-9.5 border-t border-(--border-forms)">
+        <div className="relative flex items-center justify-center md:gap-42.75 gap-4 pt-9.5 border-t border-(--border-forms)">
           {/* previous name (clickable) */}
           <button
             onClick={goPrev}
             aria-label={`Previous testimonial: ${prev.name}`}
-            className="flex gap-5 items-center text-sm md:text-base text-gray-400 hover:text-gray-200 transition-colors w-62"
+            className="flex gap-5 items-center text-sm md:text-base text-gray-400 hover:text-gray-200 transition-colors md:w-62"
           >
             <Image
               src={prev.avatar}
@@ -153,14 +153,14 @@ export default function TestimonialCarousel({
               className="rounded-full"
             />
             <div className="flex flex-col items-start">
-              <span className="truncate max-w-36">{prev.name}</span>
+              <span className="truncate md:max-w-36">{prev.name}</span>
               <div className="text-xs text-(--accent)">{prev.role}</div>
             </div>
           </button>
 
           {/* current name (prominent) */}
-          <div className="-top-0.5 left-1/2 absolute h-0.75 w-82.75 -translate-x-1/2 bg-(--accent) rounded-full" />
-          <div className="flex gap-5 items-center w-62">
+          <div className="-top-0.5 left-1/2 absolute h-0.75 md:w-82.75 -translate-x-1/2 bg-(--accent) rounded-full" />
+          <div className="flex gap-5 items-center md:w-62">
             <Image
               src={prev.avatar}
               alt={prev.name}
@@ -180,7 +180,7 @@ export default function TestimonialCarousel({
           <button
             onClick={goNext}
             aria-label={`Next testimonial: ${next.name}`}
-            className="flex gap-5 items-center text-sm md:text-base text-gray-400 hover:text-gray-200 transition-colors w-62"
+            className="flex gap-5 items-center text-sm md:text-base text-gray-400 hover:text-gray-200 transition-colors md:w-62"
           >
             <Image
               src={next.avatar}
@@ -190,7 +190,7 @@ export default function TestimonialCarousel({
               className="rounded-full"
             />
             <div className="flex flex-col items-start">
-              <span className="truncate max-w-36">{next.name}</span>
+              <span className="truncate md:max-w-36">{next.name}</span>
               <div className="text-xs text-(--accent)">{next.role}</div>
             </div>
           </button>

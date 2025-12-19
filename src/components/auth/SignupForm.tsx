@@ -1,25 +1,25 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
-import { useAppDispatch } from '@/lib/store/hooks';
-import { signUp } from '@/lib/store/slices/auth.slice';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { useAppDispatch } from "@/lib/store/hooks";
+import { signUp } from "@/lib/store/slices/auth.slice";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const signupSchema = z
   .object({
-    email: z.string().email('Invalid email address'),
-    password: z.string().min(6, 'Password must be at least 6 characters'),
+    email: z.string().email("Invalid email address"),
+    password: z.string().min(6, "Password must be at least 6 characters"),
     confirmPassword: z.string(),
-    full_name: z.string().min(2, 'Name must be at least 2 characters'),
-    role: z.enum(['player', 'coach'] as const),
+    full_name: z.string().min(2, "Name must be at least 2 characters"),
+    role: z.enum(["player", "coach"] as const),
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: "Passwords don't match",
-    path: ['confirmPassword'],
+    path: ["confirmPassword"],
   });
 
 type SignupFormData = z.infer<typeof signupSchema>;
@@ -27,7 +27,7 @@ type SignupFormData = z.infer<typeof signupSchema>;
 export default function SignupForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [selectedRole, setSelectedRole] = useState<'player' | 'coach' | null>(null);
+  const [selectedRole, setSelectedRole] = useState<"player" | "coach" | null>(null);
   const dispatch = useAppDispatch();
   const router = useRouter();
 
@@ -40,11 +40,11 @@ export default function SignupForm() {
   } = useForm<SignupFormData>({
     resolver: zodResolver(signupSchema),
     defaultValues: {
-      role: 'player',
+      role: undefined,
     },
   });
 
-  const role = watch('role');
+  const role = watch("role");
 
   const onSubmit = async (data: SignupFormData) => {
     setIsLoading(true);
@@ -55,15 +55,15 @@ export default function SignupForm() {
       // Redirect to verify-email page with email parameter
       router.push(`/verify-email?email=${encodeURIComponent(data.email)}`);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Sign up failed');
+      setError(err instanceof Error ? err.message : "Sign up failed");
     } finally {
       setIsLoading(false);
     }
   };
 
-  const handleRoleSelect = (role: 'player' | 'coach') => {
+  const handleRoleSelect = (role: "player" | "coach") => {
     setSelectedRole(role);
-    setValue('role', role);
+    setValue("role", role);
   };
 
   return (
@@ -76,45 +76,39 @@ export default function SignupForm() {
 
       {/* Role Selection */}
       <div>
-        <label className="block text-sm font-medium text-gray-300 mb-3">
-          I am a...
-        </label>
+        <label className="block text-sm font-medium text-gray-300 mb-3">I am a...</label>
         <div className="grid grid-cols-2 gap-4">
           <button
             type="button"
-            onClick={() => handleRoleSelect('player')}
+            onClick={() => handleRoleSelect("player")}
             className={`p-4 rounded-lg border-2 transition-all ${
-              selectedRole === 'player' || role === 'player'
-                ? 'border-[#00FFC2] bg-[#00FFC2]/10'
-                : 'border-gray-600 bg-[#1A1A1A] hover:border-gray-500'
+              selectedRole === "player" || role === "player"
+                ? "border-[#00FFC2] bg-[#00FFC2]/10"
+                : "border-gray-600 bg-[#1A1A1A] hover:border-gray-500"
             }`}
           >
             <div className="text-center">
               <div className="text-lg font-bold text-white mb-1">Player</div>
-              <div className="text-xs text-gray-400">
-                Develop your skills
-              </div>
+              <div className="text-xs text-gray-400">Develop your skills</div>
             </div>
           </button>
           <button
             type="button"
-            onClick={() => handleRoleSelect('coach')}
+            onClick={() => handleRoleSelect("coach")}
             disabled={true}
             className={`p-4 rounded-lg border-2 transition-all cursor-not-allowed opacity-50 ${
-              selectedRole === 'coach' || role === 'coach'
-                ? 'border-gray-600 bg-gray-700/50'
-                : 'border-gray-700 bg-[#1A1A1A]'
+              selectedRole === "coach" || role === "coach"
+                ? "border-gray-600 bg-gray-700/50"
+                : "border-gray-700 bg-[#1A1A1A]"
             }`}
           >
             <div className="text-center">
               <div className="text-lg font-bold text-gray-500 mb-1">Coach</div>
-              <div className="text-xs text-gray-500">
-                Coming soon
-              </div>
+              <div className="text-xs text-gray-500">Coming soon</div>
             </div>
           </button>
         </div>
-        <input type="hidden" {...register('role')} />
+        <input type="hidden" {...register("role")} />
         {errors.role && (
           <span className="mt-1 text-sm text-red-400">{errors.role.message}</span>
         )}
@@ -123,7 +117,9 @@ export default function SignupForm() {
       {/* Info message about free trial - always visible */}
       <div className="p-4 bg-[#00FFC2]/10 border border-[#00FFC2]/30 rounded-lg">
         <p className="text-sm text-gray-300">
-          <span className="text-[#00FFC2] font-semibold">🎉 Free 14-Day Trial!</span> You'll automatically get 14 days of free access to Hub Starter content after registration.
+          <span className="text-[#00FFC2] font-semibold">🎉 Free 14-Day Trial!</span>{" "}
+          You'll automatically get 14 days of free access to Hub Starter content after
+          registration.
         </p>
       </div>
 
@@ -137,10 +133,10 @@ export default function SignupForm() {
         <input
           id="full_name"
           type="text"
-          {...register('full_name')}
+          {...register("full_name")}
           className="w-full px-4 py-3 bg-[#1A1A1A] border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-[#00FFC2] focus:outline-none transition-colors"
           placeholder="John Doe"
-          aria-invalid={errors.full_name ? 'true' : 'false'}
+          aria-invalid={errors.full_name ? "true" : "false"}
         />
         {errors.full_name && (
           <span className="mt-1 text-sm text-red-400">{errors.full_name.message}</span>
@@ -148,19 +144,16 @@ export default function SignupForm() {
       </div>
 
       <div>
-        <label
-          htmlFor="email"
-          className="block text-sm font-medium text-gray-300 mb-2"
-        >
+        <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
           Email
         </label>
         <input
           id="email"
           type="email"
-          {...register('email')}
+          {...register("email")}
           className="w-full px-4 py-3 bg-[#1A1A1A] border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-[#00FFC2] focus:outline-none transition-colors"
           placeholder="your@email.com"
-          aria-invalid={errors.email ? 'true' : 'false'}
+          aria-invalid={errors.email ? "true" : "false"}
         />
         {errors.email && (
           <span className="mt-1 text-sm text-red-400">{errors.email.message}</span>
@@ -177,10 +170,10 @@ export default function SignupForm() {
         <input
           id="password"
           type="password"
-          {...register('password')}
+          {...register("password")}
           className="w-full px-4 py-3 bg-[#1A1A1A] border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-[#00FFC2] focus:outline-none transition-colors"
           placeholder="••••••••"
-          aria-invalid={errors.password ? 'true' : 'false'}
+          aria-invalid={errors.password ? "true" : "false"}
         />
         {errors.password && (
           <span className="mt-1 text-sm text-red-400">{errors.password.message}</span>
@@ -197,10 +190,10 @@ export default function SignupForm() {
         <input
           id="confirmPassword"
           type="password"
-          {...register('confirmPassword')}
+          {...register("confirmPassword")}
           className="w-full px-4 py-3 bg-[#1A1A1A] border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-[#00FFC2] focus:outline-none transition-colors"
           placeholder="••••••••"
-          aria-invalid={errors.confirmPassword ? 'true' : 'false'}
+          aria-invalid={errors.confirmPassword ? "true" : "false"}
         />
         {errors.confirmPassword && (
           <span className="mt-1 text-sm text-red-400">
@@ -214,11 +207,11 @@ export default function SignupForm() {
         disabled={isLoading || !selectedRole}
         className="w-full px-6 py-3 rounded-full bg-[#00FFC2] text-black font-bold hover:bg-[#00E0AA] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        {isLoading ? 'Creating account...' : 'Sign Up'}
+        {isLoading ? "Creating account..." : "Sign Up"}
       </button>
 
       <div className="text-center text-sm text-gray-400">
-        Already have an account?{' '}
+        Already have an account?{" "}
         <Link
           href="/login"
           className="text-[#00FFC2] hover:text-[#00E0AA] transition-colors font-medium"
@@ -229,4 +222,3 @@ export default function SignupForm() {
     </form>
   );
 }
-
