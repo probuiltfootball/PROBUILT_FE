@@ -6,7 +6,7 @@ function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-type ButtonVariant = "primary" | "secondary";
+type ButtonVariant = "primary" | "secondary" | "tag";
 type ButtonSize = "sm" | "md" | "lg";
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -31,6 +31,7 @@ export const Button: React.FC<ButtonProps> = ({
       "bg-(--accent) text-(--primary) border-(--primary) hover:bg-(--hover) focus:bg-(--active) disabled:bg-(--disabled)",
     secondary:
       "bg-transparent text-(--borders-forms) border(--borders-forms) hover:bg-(--borders-forms) hover:text-(--primary)",
+    tag: "bg-[#FFD100] text-(--primary) border-(--primary) hover:bg-(--hover) focus:bg-(--active) disabled:bg-(--disabled)",
   };
   const sizeStyles: Record<ButtonSize, string> = {
     sm: "px-3 py-1.5 text-sm ",
