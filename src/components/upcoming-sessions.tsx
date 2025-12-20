@@ -11,7 +11,7 @@ import Link from "next/link";
 
 export default function UpcomingSessions() {
   return (
-    <section className="my-16 md:mx-20 sm:mx-10 mx-8 text-(--secondary)">
+    <section className="mt-16 md:mx-20 sm:mx-10 mx-8 text-(--secondary)">
       <motion.div
         className="text-center mb-7"
         initial={{ opacity: 0, y: 30 }}
@@ -37,17 +37,14 @@ export default function UpcomingSessions() {
           />
         </div>
         <div className="flex flex-col gap-7">
-          <motion.img
-            src={tag.src}
-            alt="most popular tag"
-            className="w-44.5"
-            animate={{ scale: [1, 1.05, 1] }} // zoom in → zoom out → repeat
-            transition={{
-              duration: 1.6, // speed of the pulse
-              repeat: Infinity, // loop forever
-              ease: "easeInOut",
-            }}
-          />
+          <motion.div
+            animate={{ scale: [1, 1.03, 1] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <Button variant="tag" size="lg">
+              ProBuilt Plans
+            </Button>
+          </motion.div>
           <h2 className="text-4xl">Compare in-person coaching and digital training.</h2>
           <ul className="space-y-5 flex flex-col">
             <li className="flex items-center">

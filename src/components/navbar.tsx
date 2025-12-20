@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import NextLink from "next/link";
 import { useAppSelector } from "@/lib/store/hooks";
@@ -15,6 +16,7 @@ const Link = NextLink;
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const { isAuthenticated, user, profile } = useAppSelector((state) => state.auth);
+  const pathname = usePathname();
 
   // Get subscription plan from profile (preferred) or fallback to user_metadata
   // Profile subscription is available from user-profile Edge Function
@@ -92,7 +94,7 @@ export default function Navbar() {
           {showPublicHub && (
             <Link
               href="/hub"
-              className="text-white font-medium text-[20px] md:text-base hover:text-[#00FFC2] transition-colors"
+              className={`font-medium text-[20px] md:text-base transition-colors ${pathname === "/hub" ? "text-(--accent)" : "text-white hover:text-[#00FFC2]"}`}
             >
               Hub
             </Link>
@@ -101,7 +103,7 @@ export default function Navbar() {
           {showPublicEdge && (
             <Link
               href="/edge"
-              className="text-white font-medium text-[20px] md:text-base hover:text-[#00FFC2] transition-colors"
+              className={`font-medium text-[20px] md:text-base transition-colors ${pathname === "/edge" ? "text-(--accent)" : "text-white hover:text-[#00FFC2]"}`}
             >
               Edge
             </Link>
@@ -111,7 +113,7 @@ export default function Navbar() {
           {!isAuthenticated && (
             <Link
               href="/membership"
-              className="text-white font-medium text-[20px] md:text-base hover:text-[#00FFC2] transition-colors"
+              className={`font-medium text-[20px] md:text-base transition-colors ${pathname === "/membership" ? "text-(--accent)" : "text-white hover:text-[#00FFC2]"}`}
             >
               Plans
             </Link>
@@ -121,7 +123,7 @@ export default function Navbar() {
           {showDashboard && dashboardLinkText && (
             <Link
               href="/dashboard"
-              className="text-white font-medium text-[20px] md:text-base hover:text-[#00FFC2] transition-colors"
+              className={`font-medium text-[20px] md:text-base transition-colors ${pathname.startsWith("/dashboard") ? "text-(--accent)" : "text-white hover:text-[#00FFC2]"}`}
             >
               {dashboardLinkText}
             </Link>
@@ -129,14 +131,14 @@ export default function Navbar() {
 
           <Link
             href="/community"
-            className="text-white font-medium text-[20px] md:text-base hover:text-[#00FFC2] transition-colors"
+            className={`font-medium text-[20px] md:text-base transition-colors ${pathname === "/community" ? "text-(--accent)" : "text-white hover:text-[#00FFC2]"}`}
           >
             Community
           </Link>
 
           <Link
             href="/pb-points"
-            className="text-white font-medium text-[20px] md:text-base hover:text-[#00FFC2] transition-colors"
+            className={`font-medium text-[20px] md:text-base transition-colors ${pathname === "/pb-points" ? "text-(--accent)" : "text-white hover:text-[#00FFC2]"}`}
           >
             PB Points
           </Link>

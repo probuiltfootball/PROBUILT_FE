@@ -10,7 +10,7 @@ import { Button } from "./ui/button";
 
 export default function EdgeSection() {
   return (
-    <motion.div className="my-16 md:my-16 md:mx-20 sm:mx-10 mx-8 text-(--secondary)">
+    <motion.div className="my-16 md:mx-20 sm:mx-10 mx-8 text-(--secondary)">
       <motion.div
         className="text-center mb-7"
         initial={{ opacity: 0, y: 30 }}
@@ -35,37 +35,38 @@ export default function EdgeSection() {
           />
         </div>
         <div className="flex flex-col gap-7">
-          <motion.img
-            src={tag.src}
-            alt="most popular tag"
-            className="w-44.5"
-            animate={{ scale: [1, 1.05, 1] }}
-            transition={{
-              duration: 1.6,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
+          <motion.div
+            animate={{ scale: [1, 1.03, 1] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <Button variant="tag" size="lg">
+              Most Popular
+            </Button>
+          </motion.div>
           <h2 className="text-4xl">
             Train Smarter With Expert Coaching & Match Insights
           </h2>
-          <ul className="space-y-5 grid grid-cols-2">
-            <li className="flex">
-              <Image src={checkmark} alt="checkmark" className="w-5 h-5 mr-2" />
-              <span>UEFA-Level Coaching</span>
-            </li>
-            <li className="flex">
-              <Image src={checkmark} alt="checkmark" className="w-5 h-5 mr-2" />
-              <span>Match Analysis</span>
-            </li>
-            <li className="flex">
-              <Image src={checkmark} alt="checkmark" className="w-5 h-5 mr-2" />
-              <span>Personal Plans</span>
-            </li>
-            <li className="flex">
-              <Image src={checkmark} alt="checkmark" className="w-5 h-5 mr-2" />
-              <span>Fits Your Schedule</span>
-            </li>
+          <ul className="grid grid-cols-2 gap-y-5 gap-x-8">
+            <div className="flex flex-col gap-5">
+              <li className="flex">
+                <Image src={checkmark} alt="checkmark" className="w-5 h-5 mr-2" />
+                <span>UEFA-Level Coaching</span>
+              </li>
+              <li className="flex">
+                <Image src={checkmark} alt="checkmark" className="w-5 h-5 mr-2" />
+                <span>Match Analysis</span>
+              </li>
+              <li className="flex">
+                <Image src={checkmark} alt="checkmark" className="w-5 h-5 mr-2" />
+                <span>Personal Plans</span>
+              </li>
+            </div>
+            <div className="flex flex-col gap-5">
+              <li className="flex">
+                <Image src={checkmark} alt="checkmark" className="w-5 h-5 mr-2" />
+                <span>Fits Your Schedule</span>
+              </li>
+            </div>
           </ul>
           <motion.div
             className="flex flex-row md:gap-4 gap-2"
