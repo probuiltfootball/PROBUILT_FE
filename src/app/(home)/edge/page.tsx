@@ -72,7 +72,7 @@ export default function EdgePage() {
 
       {/* Hero Section */}
       <section className="top-hero-section flex items-center justify-between mt-42 mb-16 lg:mx-22 md:mx-20 sm:mx-10 mx-8">
-        <div className="">
+        <div>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -322,7 +322,7 @@ export default function EdgePage() {
             </Link>
           </div>
           <div className="flex flex-col items-center gap-7.75 bg-[#27272E] rounded-3xl px-8.25 py-14 border-(--accent) border-2">
-            <Image src={BG1} alt="BG1" />
+            <Image src={BG3} alt="BG3" />
             <h3 className="text-[28px] font-semibold">Trial Access</h3>
             <p className="text-[20px] text-center text-(--accent)">
               Positional and tactical modules for personal player development.
