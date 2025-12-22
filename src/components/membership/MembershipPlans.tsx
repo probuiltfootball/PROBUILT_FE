@@ -18,29 +18,42 @@ export default function MembershipPlans() {
   const router = useRouter();
   const { isAuthenticated, user } = useAppSelector((state) => state.auth);
   const [plans, setPlans] = useState<SubscriptionPlan[]>([]);
-  const [currentSubscription, setCurrentSubscription] = useState<UserSubscription | null>(null);
+  const [currentSubscription, setCurrentSubscription] = useState<UserSubscription | null>(
+    null,
+  );
   const [activePlan, setActivePlan] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadPlans = async () => {
       try {
-        const { SubscriptionEdgeService } = await import('@/lib/services/subscription-edge.service');
+        const { SubscriptionEdgeService } =
+          await import("@/lib/services/subscription-edge.service");
         const [allPlans, planData] = await Promise.all([
           SubscriptionService.getPlans(),
-          isAuthenticated && user ? SubscriptionEdgeService.getActivePlan() : Promise.resolve(null),
+          isAuthenticated && user
+            ? SubscriptionEdgeService.getActivePlan()
+            : Promise.resolve(null),
         ]);
         // Filter out hub_starter and hub_elite plans - only show hub and edge
-        const filteredPlans = allPlans.filter(plan =>
-          plan.name === 'hub' || plan.name === 'edge'
+        const filteredPlans = allPlans.filter(
+          (plan) => plan.name === "hub" || plan.name === "edge",
         );
         setPlans(filteredPlans);
         setActivePlan(planData);
         // Map ActivePlan to UserSubscription format for backward compatibility
-        setCurrentSubscription(planData ? {
-          plan: planData.plan ? { name: planData.plan } : null,
-          status: planData.plan_expired ? 'expired' : (planData.plan === 'trial' ? 'trial' : 'active'),
-        } as any : null);
+        setCurrentSubscription(
+          planData
+            ? ({
+                plan: planData.plan ? { name: planData.plan } : null,
+                status: planData.plan_expired
+                  ? "expired"
+                  : planData.plan === "trial"
+                    ? "trial"
+                    : "active",
+              } as any)
+            : null,
+        );
       } catch (error) {
         console.error("Failed to load plans:", error);
       } finally {
@@ -54,31 +67,32 @@ export default function MembershipPlans() {
   const handleSubscribe = (planName: string) => {
     if (!isAuthenticated) {
       // For trial, just redirect to signup (trial is auto-assigned on registration)
-      if (planName === 'trial') {
-        router.push('/signup');
+      if (planName === "trial") {
+        router.push("/signup");
       } else {
         router.push(`/signup?plan=${planName}&redirect=/checkout`);
       }
       return;
     }
     // For authenticated users, trial is already assigned, so redirect to checkout for paid plans
-    if (planName === 'trial') {
+    if (planName === "trial") {
       // If user clicks trial but is authenticated, they might want to sign up again
       // Or we could just redirect to dashboard
-      router.push('/dashboard');
+      router.push("/dashboard");
     } else {
       router.push(`/checkout?plan=${planName}`);
     }
   };
 
   // Determine current plan and next available plan
-  const currentPlan = isAuthenticated && activePlan?.plan && !activePlan?.plan_expired
-    ? activePlan.plan
-    : null;
+  const currentPlan =
+    isAuthenticated && activePlan?.plan && !activePlan?.plan_expired
+      ? activePlan.plan
+      : null;
 
-  const hasActiveTrial = currentPlan === 'trial';
-  const hasActiveHub = currentPlan === 'hub';
-  const hasActiveEdge = currentPlan === 'edge';
+  const hasActiveTrial = currentPlan === "trial";
+  const hasActiveHub = currentPlan === "hub";
+  const hasActiveEdge = currentPlan === "edge";
 
   // Get plans to display - PUBLIC PAGE: Always show all 3 plans for non-logged-in users
   const getPlansToDisplay = () => {
@@ -90,7 +104,7 @@ export default function MembershipPlans() {
           label: "Start Free Trial",
           isCurrent: false,
         },
-        plans: plans.filter(p => p.name === 'hub' || p.name === 'edge'),
+        plans: plans.filter((p) => p.name === "hub" || p.name === "edge"),
       };
     }
 
@@ -102,7 +116,7 @@ export default function MembershipPlans() {
         label: "Start Free Trial",
         isCurrent: false,
       },
-      plans: plans.filter(p => p.name === 'hub' || p.name === 'edge'),
+      plans: plans.filter((p) => p.name === "hub" || p.name === "edge"),
     };
   };
 
@@ -110,8 +124,12 @@ export default function MembershipPlans() {
 
   // Sort plans so current plan always appears first
   const sortedPlans = [...plansToDisplay].sort((a, b) => {
-    const aIsCurrent = (activePlan?.plan === a.name && !activePlan?.plan_expired) || (currentPlan === a.name);
-    const bIsCurrent = (activePlan?.plan === b.name && !activePlan?.plan_expired) || (currentPlan === b.name);
+    const aIsCurrent =
+      (activePlan?.plan === a.name && !activePlan?.plan_expired) ||
+      currentPlan === a.name;
+    const bIsCurrent =
+      (activePlan?.plan === b.name && !activePlan?.plan_expired) ||
+      currentPlan === b.name;
     if (aIsCurrent && !bIsCurrent) return -1; // a is current, put it first
     if (!aIsCurrent && bIsCurrent) return 1; // b is current, put it first
     return 0; // maintain original order if neither or both are current
@@ -120,8 +138,9 @@ export default function MembershipPlans() {
   const getPlanDisplayInfo = (plan: SubscriptionPlan) => {
     // Check if this plan is the current active plan
     // Use both activePlan and currentPlan for reliability
-    const isCurrentPlan = (activePlan?.plan === plan.name && !activePlan?.plan_expired) ||
-      (currentPlan === plan.name);
+    const isCurrentPlan =
+      (activePlan?.plan === plan.name && !activePlan?.plan_expired) ||
+      currentPlan === plan.name;
 
     // Determine if this is an upgrade path
     const planTiers: Record<string, number> = { trial: 1, hub: 2, edge: 3 };
@@ -137,7 +156,7 @@ export default function MembershipPlans() {
         : isUpgrade
           ? `Upgrade to ${plan.display_name}`
           : `Subscribe to ${plan.display_name}`,
-      price: `$${plan.price_monthly}/mo`,
+      price: `$£{plan.price_monthly}/week`,
       features: getPlanFeatures(plan.name),
       description: plan.description || getPlanDescription(plan.name),
     };
@@ -157,7 +176,6 @@ export default function MembershipPlans() {
       case "edge":
         return [
           "Everything in Hub Elite",
-          "1:1 UEFA-Level Coaching",
           "Deep Match Insights",
           "Personalised Development Plan",
           "Dedicated Support",
@@ -174,7 +192,7 @@ export default function MembershipPlans() {
       case "hub":
         return "Access to all Hub content including Starter and Elite levels. A comprehensive training program built to elevate your game through expert digital coaching.";
       case "edge":
-        return "Elite 1:1 coaching paired with advanced tools to accelerate your development.";
+        return "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
       default:
         return "";
     }
@@ -205,14 +223,17 @@ export default function MembershipPlans() {
       </motion.div>
       {/* Plans Display - Dynamic grid based on number of plans */}
       {/* Render order: Current plan first, then others */}
-      <div className={`grid grid-cols-1 ${trial.show && sortedPlans.length === 2
-        ? 'md:grid-cols-3' // Trial + Hub + Edge = 3 columns
-        : trial.show && sortedPlans.length === 1
-          ? 'md:grid-cols-2' // Trial + Hub = 2 columns
-          : !trial.show && sortedPlans.length === 2
-            ? 'md:grid-cols-2' // Hub + Edge = 2 columns
-            : 'md:grid-cols-1' // Single plan = 1 column
-        } gap-8 max-w-7xl w-full px-4`}>
+      <div
+        className={`grid grid-cols-1 ${
+          trial.show && sortedPlans.length === 2
+            ? "md:grid-cols-3" // Trial + Hub + Edge = 3 columns
+            : trial.show && sortedPlans.length === 1
+              ? "md:grid-cols-2" // Trial + Hub = 2 columns
+              : !trial.show && sortedPlans.length === 2
+                ? "md:grid-cols-2" // Hub + Edge = 2 columns
+                : "md:grid-cols-1" // Single plan = 1 column
+        } gap-8 max-w-7xl w-full px-4`}
+      >
         {/* Free Trial - Show first if it's current, otherwise show after paid plans */}
         {trial.show && trial.isCurrent && (
           <motion.div
@@ -223,16 +244,19 @@ export default function MembershipPlans() {
           >
             {trial.isCurrent && (
               <div className="absolute -top-4 left-4 z-10">
-                <span className="bg-gradient-to-r from-[#00FFC2] to-[#00E0AA] text-black px-4 py-1 rounded-full text-sm font-bold shadow-lg flex items-center gap-1">
+                <span className="bg-linear-to-r from-[#00FFC2] to-[#00E0AA] text-black px-4 py-1 rounded-full text-sm font-bold shadow-lg flex items-center gap-1">
                   <FaCrown />
                   Current Plan
                 </span>
               </div>
             )}
-            <div className={`relative bg-gradient-to-br from-[#2E2E2E] to-[#1a1a1a] rounded-2xl p-8 border-2 ${trial.isCurrent
-              ? "border-[#00FFC2] shadow-2xl shadow-[#00FFC2]/20"
-              : "border-[#00FFC230]"
-              } hover:border-[#00FFC2] transition-all h-full flex flex-col`}>
+            <div
+              className={`relative bg-linear-to-br from-[#2E2E2E] to-[#1a1a1a] rounded-2xl p-8 border-2 ${
+                trial.isCurrent
+                  ? "border-[#00FFC2] shadow-2xl shadow-[#00FFC2]/20"
+                  : "border-[#00FFC230]"
+              } hover:border-[#00FFC2] transition-all h-full flex flex-col`}
+            >
               {/* Icon */}
               <div className="w-16 h-16 rounded-full bg-gradient-to-r from-green-500 to-green-600 flex items-center justify-center text-white mb-6">
                 <FaFootball className="w-8 h-8" />
@@ -247,7 +271,9 @@ export default function MembershipPlans() {
               </div>
 
               {/* Description */}
-              <p className="text-gray-300 mb-6 text-lg">Start your journey with 14 days of free access to Hub Starter content.</p>
+              <p className="text-gray-300 mb-6 text-lg">
+                Start your journey with 14 days of free access to Hub Starter content.
+              </p>
 
               {/* Features */}
               <div className="flex-1 mb-8">
@@ -270,10 +296,11 @@ export default function MembershipPlans() {
               <button
                 onClick={() => !trial.isCurrent && handleSubscribe("trial")}
                 disabled={trial.isCurrent}
-                className={`w-full py-4 rounded-lg font-semibold text-lg transition-all duration-300 ${trial.isCurrent
-                  ? "bg-gray-600 text-gray-300 cursor-not-allowed"
-                  : "bg-gradient-to-r from-green-500 to-green-600 text-white hover:from-green-600 hover:to-green-700 shadow-lg shadow-green-500/30 hover:scale-105 active:scale-95"
-                  }`}
+                className={`w-full py-4 rounded-lg font-semibold text-lg transition-all duration-300 ${
+                  trial.isCurrent
+                    ? "bg-gray-600 text-gray-300 cursor-not-allowed"
+                    : "bg-linear-to-r from-green-500 to-green-600 text-white hover:from-green-600 hover:to-green-700 shadow-lg shadow-green-500/30 hover:scale-105 active:scale-95"
+                }`}
               >
                 {trial.isCurrent ? "Current Plan" : trial.label}
               </button>
@@ -297,7 +324,7 @@ export default function MembershipPlans() {
             >
               {isPopular && !isCurrent && (
                 <div className="absolute -top-4 right-4 z-10">
-                  <span className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-black px-4 py-1 rounded-full text-sm font-bold shadow-lg">
+                  <span className="bg-linear-to-r from-yellow-400 to-yellow-500 text-black px-4 py-1 rounded-full text-sm font-bold shadow-lg">
                     Most Popular
                   </span>
                 </div>
@@ -305,7 +332,7 @@ export default function MembershipPlans() {
 
               {isCurrent && (
                 <div className="absolute -top-4 left-4 z-10">
-                  <span className="bg-gradient-to-r from-[#00FFC2] to-[#00E0AA] text-black px-4 py-1 rounded-full text-sm font-bold shadow-lg flex items-center gap-1">
+                  <span className="bg-linear-to-r from-[#00FFC2] to-[#00E0AA] text-black px-4 py-1 rounded-full text-sm font-bold shadow-lg flex items-center gap-1">
                     <FaCrown />
                     Current Plan
                   </span>
@@ -313,21 +340,23 @@ export default function MembershipPlans() {
               )}
 
               <div
-                className={`relative bg-gradient-to-br from-[#2E2E2E] to-[#1a1a1a] rounded-2xl p-8 border-2 ${isCurrent
-                  ? "border-[#00FFC2] shadow-2xl shadow-[#00FFC2]/20"
-                  : isPopular
-                    ? "border-yellow-400 shadow-2xl shadow-yellow-400/20"
-                    : "border-[#00FFC230]"
-                  } hover:border-[#00FFC2] transition-all duration-300 h-full flex flex-col`}
+                className={`relative bg-linear-to-br from-[#2E2E2E] to-[#1a1a1a] rounded-2xl p-8 border-2 ${
+                  isCurrent
+                    ? "border-[#00FFC2] shadow-2xl shadow-[#00FFC2]/20"
+                    : isPopular
+                      ? "border-yellow-400 shadow-2xl shadow-yellow-400/20"
+                      : "border-[#00FFC230]"
+                } hover:border-[#00FFC2] transition-all duration-300 h-full flex flex-col`}
               >
                 {/* Icon */}
                 <div
-                  className={`w-16 h-16 rounded-full bg-gradient-to-r ${plan.name === "edge"
-                    ? "from-yellow-400 to-yellow-500"
-                    : plan.name === "hub"
-                      ? "from-[#00FFC2] to-[#00E0AA]"
-                      : "from-green-500 to-green-600"
-                    } flex items-center justify-center text-white mb-6`}
+                  className={`w-16 h-16 rounded-full bg-linear-to-r ${
+                    plan.name === "edge"
+                      ? "from-yellow-400 to-yellow-500"
+                      : plan.name === "hub"
+                        ? "from-[#00FFC2] to-[#00E0AA]"
+                        : "from-green-500 to-green-600"
+                  } flex items-center justify-center text-white mb-6`}
                 >
                   {plan.name === "edge" ? (
                     <FaRocket className="w-8 h-8" />
@@ -337,7 +366,9 @@ export default function MembershipPlans() {
                 </div>
 
                 {/* Plan Name */}
-                <h2 className="text-2xl font-bold text-white mb-2">{plan.display_name}</h2>
+                <h2 className="text-2xl font-bold text-white mb-2">
+                  {plan.display_name}
+                </h2>
 
                 {/* Price */}
                 <div className="mb-4">
@@ -363,12 +394,13 @@ export default function MembershipPlans() {
                 <button
                   onClick={() => !isCurrent && handleSubscribe(plan.name)}
                   disabled={isCurrent}
-                  className={`w-full py-4 rounded-lg font-semibold text-lg transition-all duration-300 ${isCurrent
-                    ? "bg-gray-600 text-gray-300 cursor-not-allowed"
-                    : isPopular
-                      ? "bg-gradient-to-r from-yellow-400 to-yellow-500 text-black hover:from-yellow-500 hover:to-yellow-600 shadow-lg shadow-yellow-400/30 hover:scale-105 active:scale-95"
-                      : "bg-gradient-to-r from-green-500 to-green-600 text-white hover:from-green-600 hover:to-green-700 shadow-lg shadow-green-500/30 hover:scale-105 active:scale-95"
-                    }`}
+                  className={`w-full py-4 rounded-lg font-semibold text-lg transition-all duration-300 ${
+                    isCurrent
+                      ? "bg-gray-600 text-gray-300 cursor-not-allowed"
+                      : isPopular
+                        ? "bg-gradient-to-r from-yellow-400 to-yellow-500 text-black hover:from-yellow-500 hover:to-yellow-600 shadow-lg shadow-yellow-400/30 hover:scale-105 active:scale-95"
+                        : "bg-gradient-to-r from-green-500 to-green-600 text-white hover:from-green-600 hover:to-green-700 shadow-lg shadow-green-500/30 hover:scale-105 active:scale-95"
+                  }`}
                 >
                   {isCurrent ? "Current Plan" : planInfo.ctaText}
                 </button>
@@ -385,10 +417,13 @@ export default function MembershipPlans() {
             transition={{ duration: 0.6, delay: sortedPlans.length * 0.2 }}
             className="relative"
           >
-            <div className={`relative bg-gradient-to-br from-[#2E2E2E] to-[#1a1a1a] rounded-2xl p-8 border-2 ${trial.isCurrent
-              ? "border-[#00FFC2] shadow-2xl shadow-[#00FFC2]/20"
-              : "border-[#00FFC230]"
-              } hover:border-[#00FFC2] transition-all h-full flex flex-col`}>
+            <div
+              className={`relative bg-gradient-to-br from-[#2E2E2E] to-[#1a1a1a] rounded-2xl p-8 border-2 ${
+                trial.isCurrent
+                  ? "border-[#00FFC2] shadow-2xl shadow-[#00FFC2]/20"
+                  : "border-[#00FFC230]"
+              } hover:border-[#00FFC2] transition-all h-full flex flex-col`}
+            >
               {/* Icon */}
               <div className="w-16 h-16 rounded-full bg-gradient-to-r from-green-500 to-green-600 flex items-center justify-center text-white mb-6">
                 <FaFootball className="w-8 h-8" />
@@ -403,7 +438,9 @@ export default function MembershipPlans() {
               </div>
 
               {/* Description */}
-              <p className="text-gray-300 mb-6 text-lg">Start your journey with 14 days of free access to Hub Starter content.</p>
+              <p className="text-gray-300 mb-6 text-lg">
+                Start your journey with 14 days of free access to Hub Starter content.
+              </p>
 
               {/* Features */}
               <div className="flex-1 mb-8">
@@ -426,18 +463,17 @@ export default function MembershipPlans() {
               <button
                 onClick={() => !trial.isCurrent && handleSubscribe("trial")}
                 disabled={trial.isCurrent}
-                className={`w-full py-4 rounded-lg font-semibold text-lg transition-all duration-300 ${trial.isCurrent
-                  ? "bg-gray-600 text-gray-300 cursor-not-allowed"
-                  : "bg-gradient-to-r from-green-500 to-green-600 text-white hover:from-green-600 hover:to-green-700 shadow-lg shadow-green-500/30 hover:scale-105 active:scale-95"
-                  }`}
+                className={`w-full py-4 rounded-lg font-semibold text-lg transition-all duration-300 ${
+                  trial.isCurrent
+                    ? "bg-gray-600 text-gray-300 cursor-not-allowed"
+                    : "bg-gradient-to-r from-green-500 to-green-600 text-white hover:from-green-600 hover:to-green-700 shadow-lg shadow-green-500/30 hover:scale-105 active:scale-95"
+                }`}
               >
                 {trial.isCurrent ? "Current Plan" : trial.label}
               </button>
             </div>
           </motion.div>
         )}
-
-
       </div>
 
       {/* Additional Info */}
@@ -448,8 +484,8 @@ export default function MembershipPlans() {
         className="mt-12 text-center text-gray-400 max-w-2xl mx-auto px-4"
       >
         <p className="text-sm">
-          All plans include access to our community platform and can be cancelled
-          anytime. Start your free trial today!
+          All plans include access to our community platform and can be cancelled anytime.
+          Start your free trial today!
         </p>
       </motion.div>
     </div>
