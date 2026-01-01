@@ -8,6 +8,8 @@ import CtaSection from "@/components/cta-section";
 import { Footer } from "@/components/footer";
 import { Divider } from "@/components/divider";
 import UpcomingSessions from "@/components/upcoming-sessions";
+import TrainingSection from "@/components/training-section";
+import PathSelection from "@/components/path-selection";
 
 export default function Home() {
   return (
@@ -15,11 +17,9 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <Divider />
-      <HubSection />
+      <PathSelection />
       <Divider />
-      <EdgeSection />
-      <Divider />
-      <TeamSection />
+      <TrainingSection />
       <Divider />
       <TestimonialsSection />
       <Divider />

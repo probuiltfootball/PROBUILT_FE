@@ -29,7 +29,7 @@ export default function HeroSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ margin: "-100px" }}
           transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
-          className="text-16 md:text-7xl font-bold text-white tracking-tight mb-3"
+          className="text-4xl md:text-7xl font-bold text-white tracking-tight mb-3"
         >
           Refine Your Game With Precision
         </motion.h1>
@@ -41,8 +41,7 @@ export default function HeroSection() {
           viewport={{ margin: "-100px" }}
           transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
         >
-          Elite coaching and digital training tools to develop smarter, faster
-          footballers.
+          Structured digital football training with optional coach support.
         </motion.p>
 
         <motion.div
@@ -53,16 +52,16 @@ export default function HeroSection() {
           transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
         >
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Link href="/hub">
+            <Link href="/lite">
               <Button variant="primary" size="lg">
-                Explore Hub
+                Start Free
               </Button>
             </Link>
           </motion.div>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Link href="/edge">
+            <Link href="/membership">
               <Button variant="secondary" size="lg">
-                Explore Edge
+                Compare Plans
               </Button>
             </Link>
           </motion.div>
