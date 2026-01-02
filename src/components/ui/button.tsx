@@ -6,7 +6,7 @@ function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-type ButtonVariant = "primary" | "secondary" | "tag";
+type ButtonVariant = "primary" | "secondary" | "tag" | "lite";
 type ButtonSize = "sm" | "md" | "lg";
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -28,10 +28,11 @@ export const Button: React.FC<ButtonProps> = ({
     "font-semibold rounded-3xl border-2 focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors";
   const variantStyles: Record<ButtonVariant, string> = {
     primary:
-      "bg-(--accent) text-(--primary) border-(--primary) hover:bg-(--hover) focus:bg-(--active) disabled:bg-(--disabled)",
+      "bg-(--accent) text-(--primary) border-(--primary) hover:bg-(--accent) focus:bg-(--active) disabled:bg-(--disabled)",
     secondary:
       "bg-transparent text-(--borders-forms) border(--borders-forms) hover:bg-(--borders-forms) hover:text-(--primary)",
-    tag: "bg-[#FFD100] text-(--primary) border-(--primary) hover:bg-(--hover) focus:bg-(--active) disabled:bg-(--disabled)",
+    lite: "bg-(--secondary) text-(--primary) hover:bg-(--primary) hover:text-(--secondary) focus:bg-(--primary) disabled:bg-(--disabled)",
+    tag: "bg-[#FFD100] text-(--primary) border-(--primary)",
   };
   const sizeStyles: Record<ButtonSize, string> = {
     sm: "px-3 py-1.5 text-sm ",
