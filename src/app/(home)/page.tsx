@@ -10,6 +10,9 @@ import { Divider } from "@/components/divider";
 import UpcomingSessions from "@/components/upcoming-sessions";
 import TrainingSection from "@/components/training-section";
 import PathSelection from "@/components/path-selection";
+import WhyProbuilt from "@/components/why-probuilt";
+import GuidedSession from "@/components/guided-session";
+import Feedback from "@/components/feedback";
 
 export default function Home() {
   return (
@@ -17,13 +20,13 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <Divider />
+      <WhyProbuilt />
+      <Divider />
+      <GuidedSession />
+      <Divider />
+      <Feedback />
+      <Divider />
       <PathSelection />
-      <Divider />
-      <TrainingSection />
-      <Divider />
-      <TestimonialsSection />
-      <Divider />
-      <UpcomingSessions />
       <Footer />
     </main>
   );

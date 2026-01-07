@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import herobg from "@/assets/football/horz0.jpg";
+import herobg from "@/assets/figma/Hero_image.png";
 import { Button } from "./ui/button";
 
 export default function HeroSection() {
@@ -12,7 +12,7 @@ export default function HeroSection() {
         src={herobg}
         alt="Football background"
         fill
-        className="object-cover object-bottom rounded-4xl"
+        className="object-cover object-bottom rounded-4xl opacity-50"
       />
 
       {/* Content */}
@@ -31,7 +31,7 @@ export default function HeroSection() {
           transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
           className="text-4xl md:text-7xl font-bold text-white tracking-tight mb-3"
         >
-          Refine Your Game With Precision
+          Where Footballers Train Smarter
         </motion.h1>
 
         <motion.p
@@ -41,7 +41,8 @@ export default function HeroSection() {
           viewport={{ margin: "-100px" }}
           transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
         >
-          Structured digital football training with optional coach support.
+          Join ProBuilt to track training, build habits, and grow inside a driven football
+          community.
         </motion.p>
 
         <motion.div
