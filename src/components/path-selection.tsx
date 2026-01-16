@@ -14,7 +14,7 @@ import { hu } from "zod/locales";
 
 export default function PathSelection() {
   return (
-    <section className="my-16 md:mx-20 sm:mx-10 mx-8 text-(--secondary)">
+    <section className="mt-16 md:mx-20 sm:mx-10 mx-8 text-(--secondary)">
       <motion.div
         className="text-center mb-7"
         initial={{ opacity: 0, y: 30 }}
@@ -23,10 +23,10 @@ export default function PathSelection() {
         transition={{ duration: 0.5, ease: "easeOut" }}
       >
         <h2 className="text-(--secondary) text-4xl font-medium mb-3">
-          Choose Your Own Path
+          Your Path to Better Performance
         </h2>
         <h3 className="text-(--accent) text-xl leading-tight">
-          Everyone starts free on Lite. Upgrade when you’re ready.
+          Choose a plan designed to elevate how you train and perform.
         </h3>
       </motion.div>
 
@@ -41,7 +41,7 @@ export default function PathSelection() {
           </h2>
           <p>Limited access.</p>
           <span>Free</span>
-          <ul className="space-y-5 flex flex-col">
+          <ul className="space-y-5 flex flex-col mt-3">
             <li className="flex items-center">
               <Image src={white_checkmark} alt="checkmark" className="w-5 h-5 mr-2" />
               Player discussion threads
@@ -80,7 +80,7 @@ export default function PathSelection() {
           </h2>
           <p>Structured digital training.</p>
           <span>£8,00/wk</span>
-          <ul className="space-y-5 flex flex-col">
+          <ul className="space-y-5 flex flex-col mt-3">
             <li className="flex items-center">
               <Image src={checkmark} alt="checkmark" className="w-5 h-5 mr-2" />
               Full training library
@@ -102,9 +102,9 @@ export default function PathSelection() {
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
           >
             <motion.div>
-              <Link href="/membership">
+              <Link href="/hub">
                 <Button variant="primary" size="lg">
-                  Compare Plans
+                  Unlock Hub
                 </Button>
               </Link>
             </motion.div>
@@ -119,7 +119,7 @@ export default function PathSelection() {
           </h2>
           <p>Best for progression.</p>
           <span>£15,00/wk</span>
-          <ul className="space-y-5 flex flex-col">
+          <ul className="space-y-5 flex flex-col mt-3">
             <li className="flex items-center">
               <Image src={orange_checkmark} alt="checkmark" className="w-5 h-5 mr-2" />
               Coach Q&A and feedback
@@ -141,9 +141,9 @@ export default function PathSelection() {
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
           >
             <motion.div>
-              <Link href="/membership">
+              <Link href="/edge">
                 <Button variant="tag" size="lg">
-                  Compare Plans
+                  Unlock Edge
                 </Button>
               </Link>
             </motion.div>

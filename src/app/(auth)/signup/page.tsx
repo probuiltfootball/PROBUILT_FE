@@ -3,8 +3,13 @@ import SignupForm from "@/components/auth/SignupForm";
 import Navbar from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import Image from "next/image";
-import SiteLogo from "@/assets/svg/site-logo.svg";
 import { Suspense } from "react";
+import signup_image from "@/assets/figma/placeholder.png";
+import checkmark from "@/assets/figma/Social Media Icon Square/Check_Circle.png";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { sign } from "crypto";
+import LiteSignupForm from "@/components/auth/LiteSignupForm";
 
 export const metadata: Metadata = {
   title: "Sign Up - ProBuilt",
@@ -13,32 +18,9 @@ export const metadata: Metadata = {
 
 function SignupPageContent() {
   return (
-    <div className="min-h-screen flex flex-col bg-[#1A1A1A]">
+    <div>
       <Navbar />
-      <div className="flex-1 flex items-center justify-center px-4 py-12 mt-28">
-        <div className="w-full max-w-195">
-          <div className="bg-[#2E2E2E] backdrop-blur-[10px] border border-[#00FFC230] rounded-xl p-8 shadow-2xl">
-            {/* Logo */}
-            <div className="flex items-center justify-center gap-3 mb-8">
-              <Image src={SiteLogo} alt="ProBuilt Logo" width={40} height={40} />
-              <h1 className="text-2xl font-bold text-white">
-                ProBuilt <span className="text-[#00FFC2]">Football</span>
-              </h1>
-            </div>
-
-            {/* Title */}
-            <h2 className="text-2xl font-bold text-white mb-2 text-center">
-              Create Account
-            </h2>
-            <p className="text-gray-400 text-center mb-8">
-              Join ProBuilt and start your development journey
-            </p>
-
-            {/* Signup Form */}
-            <SignupForm />
-          </div>
-        </div>
-      </div>
+      <LiteSignupForm />
       <Footer />
     </div>
   );
