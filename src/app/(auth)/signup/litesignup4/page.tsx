@@ -16,7 +16,7 @@ const LiteStep4 = () => {
   return (
     <div>
       <Navbar />
-      <div className="mt-38 mb-16 md:mx-20 sm:mx-10 mx-8 text-(--secondary) bg-[#27272E] rounded-[30px] flex flex-col items-center p-20 gap-2.5">
+      <div className="mt-38 mb-16 md:mx-20 sm:mx-10 mx-8 text-(--secondary) bg-[#27272E] rounded-[30px] flex flex-col md:items-center p-8 md:p-12 lg:p-20 gap-6 text-center">
         <h2 className="text-4xl font-medium">You’re all set, John 👋</h2>
         <h3 className="text-xl leading-tight text-(--accent) mb-5">
           Your personalised ProBuilt experience is ready.

@@ -22,6 +22,11 @@ import edge_community_image from "@/assets/figma/Edge_dashboard/Edge_community.p
 import ImageIcon from "@/assets/figma/Hub_Dashboard/Image icon.png";
 import LeftArrowIcon from "@/assets/figma/Hub_Dashboard/Chevron Left.png";
 import RightArrowIcon from "@/assets/figma/Hub_Dashboard/Chevron Right.svg";
+import PathSelection from "@/components/path-selection";
+import GuidedSession from "@/components/guided-session";
+import WhyProbuilt from "@/components/why-probuilt";
+import HeroSection from "@/components/hero-section";
+import Feedback from "@/components/feedback";
 
 export default function HubPage() {
   const { isAuthenticated } = useAppSelector((state) => state.auth);
@@ -93,9 +98,19 @@ export default function HubPage() {
   return (
     <main className="flex flex-col min-h-screen text-(--secondary)">
       <Navbar />
+      <HeroSection />
+      <Divider />
+      <WhyProbuilt />
+      <Divider />
+      <GuidedSession />
+      <Divider />
+      <Feedback />
+      <Divider />
+      <PathSelection />
+      <Footer />
 
       {/* Hero Section */}
-      <section className="top-hero-section flex items-center justify-between mt-42 mb-16 lg:mx-22 md:mx-20 sm:mx-10 mx-8">
+      {/* <section className="top-hero-section flex items-center justify-between mt-42 mb-16 lg:mx-22 md:mx-20 sm:mx-10 mx-8">
         <div>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -143,11 +158,11 @@ export default function HubPage() {
         </div>
       </section>
 
-      <Divider />
+      <Divider /> */}
 
       {/* Sessions Section */}
 
-      <motion.div className="my-14 md:mx-20 sm:mx-10 mx-8 text-(--secondary)">
+      {/* <motion.div className="my-14 md:mx-20 sm:mx-10 mx-8 text-(--secondary)">
         <motion.div
           className="text-center mb-7"
           initial={{ opacity: 0, y: 30 }}
@@ -159,10 +174,10 @@ export default function HubPage() {
           <h3 className="text-xl leading-tight text-(--accent)">
             Complete this to maintain your streak and earn PB Points.
           </h3>
-        </motion.div>
+        </motion.div> */}
 
-        {/* Card */}
-        <div className="flex flex-col md:flex-row items-center gap-15 bg-[#27272E] rounded-[30px] p-21.25">
+      {/* Card */}
+      {/* <div className="flex flex-col md:flex-row items-center gap-15 bg-[#27272E] rounded-[30px] p-21.25">
           <div>
             <Image
               src={session_image}
@@ -218,13 +233,13 @@ export default function HubPage() {
             </motion.div>
           </div>
         </div>
-      </motion.div>
+      </motion.div> */}
 
-      <Divider />
+      {/* <Divider /> */}
 
       {/* Performance Section */}
 
-      <motion.div className="my-16 md:mx-20 sm:mx-10 mx-8 text-(--secondary)">
+      {/* <motion.div className="my-16 md:mx-20 sm:mx-10 mx-8 text-(--secondary)">
         <motion.div
           className="text-center mb-7"
           initial={{ opacity: 0, y: 30 }}
@@ -236,10 +251,10 @@ export default function HubPage() {
           <h3 className="text-xl leading-tight text-(--accent)">
             See how your consistency is building momentum.
           </h3>
-        </motion.div>
+        </motion.div> */}
 
-        {/* Card */}
-        <div className="flex flex-col items-start gap-15 bg-[#27272E] rounded-[30px] p-21.25">
+      {/* Card */}
+      {/* <div className="flex flex-col items-start gap-15 bg-[#27272E] rounded-[30px] p-21.25">
           <div className="flex justify-between w-full">
             <div className="flex-1 gap-7 flex flex-col">
               <h3 className="text-[28px]">Performance Progress</h3>
@@ -285,10 +300,10 @@ export default function HubPage() {
         </div>
       </motion.div>
 
-      <Divider />
+      <Divider /> */}
 
       {/* Training Library */}
-      <motion.div className="my-14 md:mx-20 sm:mx-10 mx-8 text-(--secondary)">
+      {/* <motion.div className="my-14 md:mx-20 sm:mx-10 mx-8 text-(--secondary)">
         <motion.div
           className="text-center mb-7"
           initial={{ opacity: 0, y: 30 }}
@@ -300,11 +315,11 @@ export default function HubPage() {
           <h3 className="text-xl leading-tight text-(--accent)">
             Choose how you want to develop your football skills.
           </h3>
-        </motion.div>
+        </motion.div> */}
 
-        {/* Card */}
+      {/* Card */}
 
-        <div className=" w-full">
+      {/* <div className=" w-full">
           <div
             ref={cardSliderRef}
             className="flex gap-8 overflow-x-auto no-scrollbar pb-7"
@@ -357,10 +372,10 @@ export default function HubPage() {
         </div>
       </motion.div>
 
-      <Divider />
+      <Divider /> */}
 
       {/* Community Section */}
-      <motion.div className="mt-14 md:mx-20 sm:mx-10 mx-8 text-(--secondary)">
+      {/* <motion.div className="mt-14 md:mx-20 sm:mx-10 mx-8 text-(--secondary)">
         <motion.div
           className="text-center mb-7"
           initial={{ opacity: 0, y: 30 }}
@@ -373,10 +388,10 @@ export default function HubPage() {
             Connect with driven players, share progress, and learn from coaches in a
             community built to support your development.
           </h3>
-        </motion.div>
+        </motion.div> */}
 
-        {/* Card */}
-        <div className="flex flex-col md:flex-row items-center gap-15 bg-[#27272E] rounded-[30px] p-21.25">
+      {/* Card */}
+      {/* <div className="flex flex-col md:flex-row items-center gap-15 bg-[#27272E] rounded-[30px] p-21.25">
           <div>
             <Image
               src={edge_community_image}
@@ -435,7 +450,7 @@ export default function HubPage() {
             </motion.div>
           </div>
         </div>
-      </motion.div>
+      </motion.div> */}
 
       {/* Features Section */}
       {/* <section className="py-20 px-6 bg-[#1a1a1a]">
@@ -625,8 +640,6 @@ export default function HubPage() {
           </motion.div>
         </div>
       </section> */}
-
-      <Footer />
     </main>
   );
 }

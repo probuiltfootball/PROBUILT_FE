@@ -27,7 +27,7 @@ const GuidedSession = () => {
       </motion.div>
 
       {/* Card */}
-      <div className="flex flex-col md:flex-row gap-15 bg-[#27272E] rounded-[30px] p-21.25">
+      <div className="flex flex-col md:flex-row gap-15 bg-[#27272E] rounded-[30px] p-8 md:p-12 lg:p-20">
         <div>
           <Image
             src={edge_image}

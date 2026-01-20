@@ -15,12 +15,12 @@ const LiteStep3 = () => {
   return (
     <div>
       <Navbar />
-      <div className="mt-38 mb-16 md:mx-20 sm:mx-10 mx-8 text-(--secondary) bg-[#27272E] rounded-[30px] flex flex-col items-center p-20 gap-2.5">
+      <div className="mt-38 mb-16 md:mx-20 sm:mx-10 mx-8 text-(--secondary) bg-[#27272E] rounded-[30px] flex flex-col md:items-center p-8 md:p-12 lg:p-20 gap-6 text-center">
         <h2 className="text-4xl font-medium">Create your ProBuilt Account</h2>
         <h3 className="text-xl leading-tight text-(--accent)">
           Step 3 of 4 — Training focus
         </h3>
-        <form className="space-y-6">
+        <form className="space-y-6 text-left">
           <div>
             <label
               htmlFor="choose_focus_areas"
@@ -105,7 +105,7 @@ const LiteStep3 = () => {
               You’ll start on ProBuilt Lite — upgrade anytime.
             </span>
           </div>
-          <div className="flex flex-row md:gap-4 gap-2">
+          <div className="flex flex-col md:flex-row gap-4 items-center">
             <div>
               <Link href="/signup/litesignup4">
                 <Button variant="primary" size="lg" className="flex-1">
