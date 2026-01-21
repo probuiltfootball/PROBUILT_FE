@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import edge_image from "@/assets/figma/edge_landing_page.png";
 import tag from "@/assets/figma/Tags/most_popular.png";
 import checkmark from "@/assets/figma/Social Media Icon Square/Check_Circle.png";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 
 export default function EdgeSection() {
   return (

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import Apple from "@/assets/figma/Social Media Icon Square/Apple.png";
 import Android from "@/assets/figma/Social Media Icon Square/Android.png";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 export default function HubSection() {

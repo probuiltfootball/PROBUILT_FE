@@ -9,7 +9,7 @@ import UserMenu from "@/components/shared/UserMenu";
 import SiteLogo from "@/assets/figma/logo2.png";
 import { FaTimes, FaBars } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 
 const Link = NextLink;
 
