@@ -20,13 +20,13 @@ export default function UpcomingSessions() {
         <h2 className="text-(--secondary) text-4xl font-medium mb-3">
           Ready to Start Your Development?
         </h2>
-        <h3 className="text-(--accent) text-xl leading-tight">
+        <h3 className="text-(--turquoise) text-xl leading-tight">
           Compare structured training and coach-supported development.
         </h3>
       </motion.div>
 
       {/* Card */}
-      <div className="flex flex-col md:flex-row items-center gap-15 bg-[#27272E] rounded-[30px] md:p-21.25 p-8">
+      <div className="flex flex-col md:flex-row items-center gap-15 bg-(--card-bg) rounded-[30px] md:p-21.25 p-8">
         <div>
           <Image
             src={session_image}

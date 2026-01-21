@@ -20,7 +20,7 @@ export default function HubSection() {
         <h2 className="text-4xl font-medium mb-3">
           Hub: Your Digital Football Training Hub
         </h2>
-        <h3 className="text-xl leading-tight text-(--accent)">
+        <h3 className="text-xl leading-tight text-(--turquoise)">
           Flexible digital training with structured programs you can follow anywhere.
         </h3>
       </motion.div>
@@ -28,7 +28,7 @@ export default function HubSection() {
       {/* Card */}
       <motion.div className="flex flex-col md:flex-row justify-center items-center md:gap-10 gap-4">
         <motion.div
-          className="border-2 border-(--accent) rounded-3xl flex-1 bg-[#27272E] pt-32.5 pb-34.75 pl-17.5 pr-25.75"
+          className="border-2 border-(--turquoise) rounded-3xl flex-1 bg-(--card-bg) pt-32.5 pb-34.75 pl-17.5 pr-25.75"
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.98 }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -53,7 +53,7 @@ export default function HubSection() {
           </motion.div>
         </motion.div>
         <motion.div
-          className="border-2 border-(--accent) rounded-3xl flex-1 bg-[#27272E] pt-32.5 pb-34.75 pl-17.5 pr-25.75"
+          className="border-2 border-(--turquoise) rounded-3xl flex-1 bg-(--card-bg) pt-32.5 pb-34.75 pl-17.5 pr-25.75"
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.98 }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}

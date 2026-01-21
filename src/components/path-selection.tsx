@@ -25,14 +25,14 @@ export default function PathSelection() {
         <h2 className="text-(--secondary) text-4xl font-medium mb-3">
           Your Path to Better Performance
         </h2>
-        <h3 className="text-(--accent) text-xl leading-tight">
+        <h3 className="text-(--turquoise) text-xl leading-tight">
           Choose a plan designed to elevate how you train and perform.
         </h3>
       </motion.div>
 
       {/* Card */}
       <div className="grid md:grid-cols-3 gap-8">
-        <div className="flex flex-col gap-2 bg-[#27272E] rounded-[20px] p-8 border-2 border-(--secondary)">
+        <div className="flex flex-col gap-2 bg-(--card-bg) rounded-[20px] p-8 border-2 border-(--secondary)">
           <h2 className="flex gap-2 items-center text-4xl font-semibold">
             <span>
               <Image src={person_icon} alt="person" />
@@ -71,7 +71,7 @@ export default function PathSelection() {
             </motion.div>
           </motion.div>
         </div>
-        <div className="flex flex-col gap-2 bg-[#27272E] rounded-[20px] p-8 border-2 border-(--accent)">
+        <div className="flex flex-col gap-2 bg-(--card-bg) rounded-[20px] p-8 border-2 border-(--turquoise)">
           <h2 className="flex gap-2 items-center text-4xl font-semibold">
             <span>
               <Image src={hub_icon} alt="hub icon" />
@@ -110,7 +110,7 @@ export default function PathSelection() {
             </motion.div>
           </motion.div>
         </div>
-        <div className="flex flex-col gap-2 bg-[#27272E] rounded-[20px] p-8 border-2 border-[#FFD100]">
+        <div className="flex flex-col gap-2 bg-(--card-bg) rounded-[20px] p-8 border-2 border-(--yellow)">
           <h2 className="flex gap-2 items-center text-4xl font-semibold">
             <span>
               <Image src={edge_icon} alt="edge icon" />

@@ -79,10 +79,10 @@ export default function EdgePage() {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-5xl md:text-6xl font-bold mb-3 leading-22 max-w-200">
-              <span className="text-(--accent)">Edge:</span> Your Personalised Training
+              <span className="text-(--turquoise)">Edge:</span> Your Personalised Training
               Experience
             </h1>
-            <p className="text-xl mb-15.75 text-(--accent) max-w-lg">
+            <p className="text-xl mb-15.75 text-(--turquoise) max-w-lg">
               A personalised, UEFA-coach-built plan tailored to your position, strengths,
               and long-term ambition.
             </p>
@@ -132,14 +132,14 @@ export default function EdgePage() {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 className="text-4xl font-medium mb-3">Edge: Individual Coaching Needs</h2>
-          <h3 className="text-xl leading-tight text-(--accent)">
+          <h3 className="text-xl leading-tight text-(--turquoise)">
             A personalised, UEFA-coach-built plan tailored to your position, strengths,
             and long-term ambition.
           </h3>
         </motion.div> */}
 
       {/* Card */}
-      {/* <div className="flex flex-col md:flex-row items-center gap-15 bg-[#27272E] rounded-[30px] p-21.25">
+      {/* <div className="flex flex-col md:flex-row items-center gap-15 bg-(--card-bg) rounded-[30px] p-21.25">
           <div>
             <Image
               src={edge_image}
@@ -220,14 +220,14 @@ export default function EdgePage() {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 className="text-4xl font-medium mb-3">Individual Player Plan</h2>
-          <h3 className="text-xl leading-tight text-(--accent)">
+          <h3 className="text-xl leading-tight text-(--turquoise)">
             A weekly updated, personalised pathway built around your role, ability, and
             goals.
           </h3>
         </motion.div> */}
 
       {/* Card */}
-      {/* <div className="flex flex-col md:flex-row items-center gap-15 bg-[#27272E] rounded-[30px] p-21.25">
+      {/* <div className="flex flex-col md:flex-row items-center gap-15 bg-(--card-bg) rounded-[30px] p-21.25">
           <div className="flex flex-col gap-7">
             <motion.div
               animate={{ scale: [1, 1.03, 1] }}
@@ -289,7 +289,7 @@ export default function EdgePage() {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 className="text-4xl font-medium mb-3">Exclusive Opportunities & Trials</h2>
-          <h3 className="text-xl leading-tight text-(--accent)">
+          <h3 className="text-xl leading-tight text-(--turquoise)">
             Edge athletes get exclusive access to growing opportunities as their PB Points
             increase.
           </h3>
@@ -297,10 +297,10 @@ export default function EdgePage() {
 
       {/* Card */}
       {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          <div className="flex flex-col justify-center items-center gap-7.75 bg-[#27272E] rounded-3xl px-8.25 py-14 border-(--accent) border-2">
+          <div className="flex flex-col justify-center items-center gap-7.75 bg-(--card-bg) rounded-3xl px-8.25 py-14 border-(--turquoise) border-2">
             <Image src={BG1} alt="BG1" />
             <h3 className="text-[28px] font-semibold">Trial Access</h3>
-            <p className="text-[20px] text-center text-(--accent)">
+            <p className="text-[20px] text-center text-(--turquoise)">
               Get priority invitations to partner clubs and scouting opportunities.
             </p>
             <Link href="/learn-more">
@@ -309,10 +309,10 @@ export default function EdgePage() {
               </Button>
             </Link>
           </div>
-          <div className="flex flex-col items-center gap-7.75 bg-[#27272E] rounded-3xl px-8.25 py-14 border-(--accent) border-2">
+          <div className="flex flex-col items-center gap-7.75 bg-(--card-bg) rounded-3xl px-8.25 py-14 border-(--turquoise) border-2">
             <Image src={BG2} alt="BG2" />
             <h3 className="text-[28px] font-semibold">Mentor Sessions</h3>
-            <p className="text-[20px] text-center text-(--accent)">
+            <p className="text-[20px] text-center text-(--turquoise)">
               Join targeted small-group sessions led by ProBuilt coaches.
             </p>
             <Link href="/learn-more">
@@ -321,10 +321,10 @@ export default function EdgePage() {
               </Button>
             </Link>
           </div>
-          <div className="flex flex-col items-center gap-7.75 bg-[#27272E] rounded-3xl px-8.25 py-14 border-(--accent) border-2">
+          <div className="flex flex-col items-center gap-7.75 bg-(--card-bg) rounded-3xl px-8.25 py-14 border-(--turquoise) border-2">
             <Image src={BG3} alt="BG3" />
             <h3 className="text-[28px] font-semibold">Trial Access</h3>
-            <p className="text-[20px] text-center text-(--accent)">
+            <p className="text-[20px] text-center text-(--turquoise)">
               Positional and tactical modules for personal player development.
             </p>
             <Link href="/learn-more">
@@ -348,14 +348,14 @@ export default function EdgePage() {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 className="text-4xl font-medium mb-3">Join The ProBuilt Community</h2>
-          <h3 className="text-xl leading-tight text-(--accent)">
+          <h3 className="text-xl leading-tight text-(--turquoise)">
             Connect with driven players, share progress, and learn from coaches in a
             community built to support your development.
           </h3>
         </motion.div>
 
         {/* Card */}
-      {/* <div className="flex flex-col md:flex-row items-center gap-15 bg-[#27272E] rounded-[30px] p-21.25">
+      {/* <div className="flex flex-col md:flex-row items-center gap-15 bg-(--card-bg) rounded-[30px] p-21.25">
           <div>
             <Image
               src={edge_community_image}

@@ -94,7 +94,7 @@ export function Footer() {
           {/* Product Column */}
           <div>
             <motion.h3
-              className="font-semibold text-[22px] text-(--accent) mb-7.5 hover:text-2xl"
+              className="font-semibold text-[22px] text-(--turquoise) mb-7.5 hover:text-2xl"
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.98 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -118,7 +118,7 @@ export function Footer() {
           {/* Company Column */}
           <div>
             <motion.h3
-              className="font-semibold text-[22px] text-(--accent) mb-7.5 hover:text-2xl"
+              className="font-semibold text-[22px] text-(--turquoise) mb-7.5 hover:text-2xl"
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.98 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -142,7 +142,7 @@ export function Footer() {
           {/* Support Column */}
           <div>
             <motion.h3
-              className="font-semibold text-[22px] text-(--accent) mb-7.5 hover:text-2xl"
+              className="font-semibold text-[22px] text-(--turquoise) mb-7.5 hover:text-2xl"
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.98 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -166,7 +166,7 @@ export function Footer() {
           {/* Downloads Column */}
           <div>
             <motion.h3
-              className="font-semibold text-[22px] text-(--accent) mb-7.5 hover:text-2xl"
+              className="font-semibold text-[22px] text-(--turquoise) mb-7.5 hover:text-2xl"
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.98 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}

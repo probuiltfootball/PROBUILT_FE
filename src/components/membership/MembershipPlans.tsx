@@ -200,14 +200,14 @@ export default function MembershipPlans() {
 
   if (loading) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-[#1a1a1a] to-[#2E2E2E]">
+      <div className="flex flex-col items-center justify-center min-h-screen bg-linear-to-b from-[#1a1a1a] to-[#2E2E2E]">
         <LoadingSpinner size="lg" />
       </div>
     );
   }
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-[#1a1a1a] to-[#2E2E2E] py-20 px-4">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-linear-to-b from-[#1a1a1a] to-[#2E2E2E] py-20 px-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -258,7 +258,7 @@ export default function MembershipPlans() {
               } hover:border-[#00FFC2] transition-all h-full flex flex-col`}
             >
               {/* Icon */}
-              <div className="w-16 h-16 rounded-full bg-gradient-to-r from-green-500 to-green-600 flex items-center justify-center text-white mb-6">
+              <div className="w-16 h-16 rounded-full bg-linear-to-r from-green-500 to-green-600 flex items-center justify-center text-white mb-6">
                 <FaFootball className="w-8 h-8" />
               </div>
 
@@ -285,7 +285,7 @@ export default function MembershipPlans() {
                     "Cancel Anytime",
                   ].map((feature, idx) => (
                     <li key={idx} className="flex items-start">
-                      <FaCheck className="text-green-500 mr-3 mt-1 flex-shrink-0" />
+                      <FaCheck className="text-green-500 mr-3 mt-1 shrink-0" />
                       <span className="text-gray-200">{feature}</span>
                     </li>
                   ))}
@@ -398,8 +398,8 @@ export default function MembershipPlans() {
                     isCurrent
                       ? "bg-gray-600 text-gray-300 cursor-not-allowed"
                       : isPopular
-                        ? "bg-gradient-to-r from-yellow-400 to-yellow-500 text-black hover:from-yellow-500 hover:to-yellow-600 shadow-lg shadow-yellow-400/30 hover:scale-105 active:scale-95"
-                        : "bg-gradient-to-r from-green-500 to-green-600 text-white hover:from-green-600 hover:to-green-700 shadow-lg shadow-green-500/30 hover:scale-105 active:scale-95"
+                        ? "bg-linear-to-r from-yellow-400 to-yellow-500 text-black hover:from-yellow-500 hover:to-yellow-600 shadow-lg shadow-yellow-400/30 hover:scale-105 active:scale-95"
+                        : "bg-linear-to-r from-green-500 to-green-600 text-white hover:from-green-600 hover:to-green-700 shadow-lg shadow-green-500/30 hover:scale-105 active:scale-95"
                   }`}
                 >
                   {isCurrent ? "Current Plan" : planInfo.ctaText}
@@ -418,14 +418,14 @@ export default function MembershipPlans() {
             className="relative"
           >
             <div
-              className={`relative bg-gradient-to-br from-[#2E2E2E] to-[#1a1a1a] rounded-2xl p-8 border-2 ${
+              className={`relative bg-linear-to-br from-[#2E2E2E] to-[#1a1a1a] rounded-2xl p-8 border-2 ${
                 trial.isCurrent
                   ? "border-[#00FFC2] shadow-2xl shadow-[#00FFC2]/20"
                   : "border-[#00FFC230]"
               } hover:border-[#00FFC2] transition-all h-full flex flex-col`}
             >
               {/* Icon */}
-              <div className="w-16 h-16 rounded-full bg-gradient-to-r from-green-500 to-green-600 flex items-center justify-center text-white mb-6">
+              <div className="w-16 h-16 rounded-full bg-linear-to-r from-green-500 to-green-600 flex items-center justify-center text-white mb-6">
                 <FaFootball className="w-8 h-8" />
               </div>
 
@@ -452,7 +452,7 @@ export default function MembershipPlans() {
                     "Cancel Anytime",
                   ].map((feature, idx) => (
                     <li key={idx} className="flex items-start">
-                      <FaCheck className="text-green-500 mr-3 mt-1 flex-shrink-0" />
+                      <FaCheck className="text-green-500 mr-3 mt-1 shrink-0" />
                       <span className="text-gray-200">{feature}</span>
                     </li>
                   ))}
@@ -466,7 +466,7 @@ export default function MembershipPlans() {
                 className={`w-full py-4 rounded-lg font-semibold text-lg transition-all duration-300 ${
                   trial.isCurrent
                     ? "bg-gray-600 text-gray-300 cursor-not-allowed"
-                    : "bg-gradient-to-r from-green-500 to-green-600 text-white hover:from-green-600 hover:to-green-700 shadow-lg shadow-green-500/30 hover:scale-105 active:scale-95"
+                    : "bg-linear-to-r from-green-500 to-green-600 text-white hover:from-green-600 hover:to-green-700 shadow-lg shadow-green-500/30 hover:scale-105 active:scale-95"
                 }`}
               >
                 {trial.isCurrent ? "Current Plan" : trial.label}

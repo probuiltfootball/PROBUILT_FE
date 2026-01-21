@@ -24,12 +24,12 @@ const Feedback = () => {
   return (
     <div className="my-16 md:mx-20 sm:mx-10 mx-8 text-(--secondary)">
       <h2 className="text-4xl font-medium">Results That Speak</h2>
-      <h3 className="text-xl leading-tight text-(--accent)">
+      <h3 className="text-xl leading-tight text-(--turquoise)">
         Real feedback from players training for their position.
       </h3>
       <div className="flex flex-col md:flex-row gap-10 mt-7">
         {playerdata.map((player, index) => (
-          <div key={index} className="flex flex-row gap-7 bg-[#27272E] rounded-[20px]">
+          <div key={index} className="flex flex-row gap-7 bg-(--card-bg) rounded-[20px]">
             <div className="shrink-0">
               <Image src={player.image} alt={player.name} />
             </div>
@@ -37,7 +37,7 @@ const Feedback = () => {
               <h2 className="md:text-[22px] text-[20px] font-semibold mb-2">
                 {player.name}
               </h2>
-              <h3 className="md:text-xl text-lg leading-tight text-(--accent) mb-7">
+              <h3 className="md:text-xl text-lg leading-tight text-(--turquoise) mb-7">
                 {player.club}
               </h3>
               <p className="md:text-xl text-mdfont-regular leading-[136%] md:line-clamp-3 line-clamp-5 overflow-auto">

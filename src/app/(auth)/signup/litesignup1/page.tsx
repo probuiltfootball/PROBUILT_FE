@@ -64,9 +64,9 @@ const LiteStep1 = () => {
   return (
     <div>
       <Navbar />
-      <div className="mt-38 mb-16 md:mx-20 sm:mx-10 mx-8 text-(--secondary) bg-[#27272E] rounded-[30px] flex flex-col items-center p-8 md:p-12 lg:p-20 gap-6">
+      <div className="mt-38 mb-16 md:mx-20 sm:mx-10 mx-8 text-(--secondary) bg-(--card-bg) rounded-[30px] flex flex-col items-center p-8 md:p-12 lg:p-20 gap-6">
         <h2 className="text-4xl font-medium text-center">Create your ProBuilt Account</h2>
-        <h3 className="text-xl leading-tight text-(--accent)">
+        <h3 className="text-xl leading-tight text-(--turquoise)">
           Step 1 of 4 — Getting started
         </h3>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -165,9 +165,9 @@ const LiteStep1 = () => {
               You’ll start on ProBuilt Lite — upgrade anytime.
             </span>
             <div className="flex items-center w-full gap-2">
-              <hr className="grow border-t-2 border-(--accent)" />
-              <span className="text-[--accent] font-medium">OR</span>
-              <hr className="grow border-t-2 border-(--accent)" />
+              <hr className="grow border-t-2 border-(--turquoise)" />
+              <span className="text-[--turquoise] font-medium">OR</span>
+              <hr className="grow border-t-2 border-(--turquoise)" />
             </div>
             <div className="flex gap-4">
               <Link href="/apple_signup" className="hover:opacity-80 transition-opacity">

@@ -13,9 +13,9 @@ const LiteStep2 = () => {
   return (
     <div>
       <Navbar />
-      <div className="mt-38 mb-16 md:mx-20 sm:mx-10 mx-8 text-(--secondary) bg-[#27272E] rounded-[30px] flex flex-col md:items-center p-8 md:p-12 lg:p-20 gap-6 text-center">
+      <div className="mt-38 mb-16 md:mx-20 sm:mx-10 mx-8 text-(--secondary) bg-(--card-bg) rounded-[30px] flex flex-col md:items-center p-8 md:p-12 lg:p-20 gap-6 text-center">
         <h2 className="text-4xl font-medium">Create your ProBuilt Account</h2>
-        <h3 className="text-xl leading-tight text-(--accent)">
+        <h3 className="text-xl leading-tight text-(--turquoise)">
           Step 2 of 4 — Playing profile
         </h3>
         <form className="space-y-6 text-left">

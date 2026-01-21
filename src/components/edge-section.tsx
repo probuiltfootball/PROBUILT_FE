@@ -19,14 +19,14 @@ export default function EdgeSection() {
         transition={{ duration: 0.5, ease: "easeOut" }}
       >
         <h2 className="text-4xl font-medium mb-3">Edge: Individual Coaching Needs</h2>
-        <h3 className="text-xl leading-tight text-(--accent)">
+        <h3 className="text-xl leading-tight text-(--turquoise)">
           A personalised, UEFA-coach-built plan tailored to your position, strengths, and
           long-term ambition.
         </h3>
       </motion.div>
 
       {/* Card */}
-      <div className="flex flex-col md:flex-row items-center gap-15 bg-[#27272E] rounded-[30px] p-21.25">
+      <div className="flex flex-col md:flex-row items-center gap-15 bg-(--card-bg) rounded-[30px] p-21.25">
         <div>
           <Image
             src={edge_image}

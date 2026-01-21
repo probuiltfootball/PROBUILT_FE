@@ -20,13 +20,13 @@ export default function TrainingSection() {
         <h2 className="text-(--secondary) text-4xl font-medium mb-3">
           Train, Apply, & Improve.
         </h2>
-        <h3 className="text-(--accent) text-xl leading-tight">
+        <h3 className="text-(--turquoise) text-xl leading-tight">
           A simple, repeatable development process.
         </h3>
       </motion.div>
 
       {/* Card */}
-      <div className="flex flex-col md:flex-row gap-15 bg-[#27272E] rounded-[30px] md:p-21.25 p-8">
+      <div className="flex flex-col md:flex-row gap-15 bg-(--card-bg) rounded-[30px] md:p-21.25 p-8">
         <div>
           <Image
             src={training_section}
@@ -36,7 +36,7 @@ export default function TrainingSection() {
         </div>
         <div className="flex flex-col gap-7">
           <h2 className="text-4xl">How ProBuilt Training Works</h2>
-          <h3 className="text-(--accent) text-xl leading-tight">
+          <h3 className="text-(--turquoise) text-xl leading-tight">
             A simple process designed to improve your game.
           </h3>
           <ul className="space-y-5 flex flex-col">

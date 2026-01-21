@@ -118,9 +118,9 @@ export default function HubPage() {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-5xl md:text-6xl font-bold mb-3 leading-22 max-w-200">
-              <span className="text-(--accent)">Hub:</span> Your Digital Performance Hub
+              <span className="text-(--turquoise)">Hub:</span> Your Digital Performance Hub
             </h1>
-            <p className="text-xl mb-15.75 text-(--accent) max-w-lg">
+            <p className="text-xl mb-15.75 text-(--turquoise) max-w-lg">
               A personalised, UEFA-coach-built plan tailored to your position, strengths,
               and long-term ambition.
             </p>
@@ -171,13 +171,13 @@ export default function HubPage() {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 className="text-4xl font-medium mb-3">Today’s Session</h2>
-          <h3 className="text-xl leading-tight text-(--accent)">
+          <h3 className="text-xl leading-tight text-(--turquoise)">
             Complete this to maintain your streak and earn PB Points.
           </h3>
         </motion.div> */}
 
       {/* Card */}
-      {/* <div className="flex flex-col md:flex-row items-center gap-15 bg-[#27272E] rounded-[30px] p-21.25">
+      {/* <div className="flex flex-col md:flex-row items-center gap-15 bg-(--card-bg) rounded-[30px] p-21.25">
           <div>
             <Image
               src={session_image}
@@ -248,23 +248,23 @@ export default function HubPage() {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 className="text-4xl font-medium mb-3">Your Performance Progress</h2>
-          <h3 className="text-xl leading-tight text-(--accent)">
+          <h3 className="text-xl leading-tight text-(--turquoise)">
             See how your consistency is building momentum.
           </h3>
         </motion.div> */}
 
       {/* Card */}
-      {/* <div className="flex flex-col items-start gap-15 bg-[#27272E] rounded-[30px] p-21.25">
+      {/* <div className="flex flex-col items-start gap-15 bg-(--card-bg) rounded-[30px] p-21.25">
           <div className="flex justify-between w-full">
             <div className="flex-1 gap-7 flex flex-col">
               <h3 className="text-[28px]">Performance Progress</h3>
               <ul className="space-y-7">
                 <li>
-                  <span className="text-(--accent)">1,200 </span>
+                  <span className="text-(--turquoise)">1,200 </span>
                   PB Points
                 </li>
                 <li>
-                  <span className="text-(--accent)">+85 </span>Earned This Week
+                  <span className="text-(--turquoise)">+85 </span>Earned This Week
                 </li>
               </ul>
             </div>
@@ -285,7 +285,7 @@ export default function HubPage() {
           <div className="flex flex-col gap-[23.25px]">
             <h3 className="text-[28px]">
               Next reward:
-              <span className="text-(--accent)"> Group Mentor Session</span>{" "}
+              <span className="text-(--turquoise)"> Group Mentor Session</span>{" "}
             </h3>
             <div>PROGRESS BAR</div>
             <div>
@@ -312,7 +312,7 @@ export default function HubPage() {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 className="text-4xl font-medium mb-3">Training Library</h2>
-          <h3 className="text-xl leading-tight text-(--accent)">
+          <h3 className="text-xl leading-tight text-(--turquoise)">
             Choose how you want to develop your football skills.
           </h3>
         </motion.div> */}
@@ -332,7 +332,7 @@ export default function HubPage() {
             {trainingLibraryCards.map((card, idx) => (
               <div
                 key={idx}
-                className="bg-[#27272E] h-162.5 w-[515.35px] relative flex items-center justify-center rounded-[20px] flex-shrink-0"
+                className="bg-(--card-bg) h-162.5 w-[515.35px] relative flex items-center justify-center rounded-[20px] flex-shrink-0"
                 style={{ scrollSnapAlign: "start" }}
               >
                 <div className="flex items-center justify-center w-full h-full">
@@ -345,7 +345,7 @@ export default function HubPage() {
           <div className="flex justify-between ">
             <div>
               <h4 className="text-[36px]">Choose Your Focus Area</h4>
-              <p className="text-(--accent)">
+              <p className="text-(--turquoise)">
                 Select a skill or position to explore targeted sessions that support your
                 overall development.
               </p>
@@ -356,7 +356,7 @@ export default function HubPage() {
                   src={LeftArrowIcon}
                   alt="Left"
                   width={50}
-                  className="rounded-full bg-(--accent) p-2 cursor-pointer"
+                  className="rounded-full bg-(--turquoise) p-2 cursor-pointer"
                 />
               </button>
               <button onClick={() => handleScroll("right")}>
@@ -364,7 +364,7 @@ export default function HubPage() {
                   src={RightArrowIcon}
                   alt="Right"
                   width={50}
-                  className="rounded-full bg-(--accent) p-2 cursor-pointer"
+                  className="rounded-full bg-(--turquoise) p-2 cursor-pointer"
                 />
               </button>
             </div>
@@ -384,14 +384,14 @@ export default function HubPage() {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 className="text-4xl font-medium mb-3">Join The ProBuilt Community</h2>
-          <h3 className="text-xl leading-tight text-(--accent)">
+          <h3 className="text-xl leading-tight text-(--turquoise)">
             Connect with driven players, share progress, and learn from coaches in a
             community built to support your development.
           </h3>
         </motion.div> */}
 
       {/* Card */}
-      {/* <div className="flex flex-col md:flex-row items-center gap-15 bg-[#27272E] rounded-[30px] p-21.25">
+      {/* <div className="flex flex-col md:flex-row items-center gap-15 bg-(--card-bg) rounded-[30px] p-21.25">
           <div>
             <Image
               src={edge_community_image}

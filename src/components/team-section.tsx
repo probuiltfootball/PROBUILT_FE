@@ -20,7 +20,7 @@ export default function TeamSection() {
         <h2 className="text-(--secondary) text-4xl font-medium mb-3">
           Meet Your Future Coaches
         </h2>
-        <h3 className="text-(--accent) text-xl leading-tight">
+        <h3 className="text-(--turquoise) text-xl leading-tight">
           Train with qualified coaches who know how to develop winning players.
         </h3>
       </motion.div>
@@ -35,7 +35,7 @@ export default function TeamSection() {
         >
           <Image src={Coach1} alt="Coach 1" />
           <h2 className="text-4xl">Ben Eldridge</h2>
-          <p className="text-xl text-(--accent) text-center">
+          <p className="text-xl text-(--turquoise) text-center">
             Oversees training education and supports players through structured
             development pathways.
           </p>
@@ -48,7 +48,7 @@ export default function TeamSection() {
         >
           <Image src={Coach2} alt="Coach 2" />
           <h2 className="text-4xl">Rhys Barker</h2>
-          <p className="text-xl text-(--accent) text-center">
+          <p className="text-xl text-(--turquoise) text-center">
             Brings 25+ years of UEFA-qualified coaching experience across grassroots to
             professional levels.
           </p>
