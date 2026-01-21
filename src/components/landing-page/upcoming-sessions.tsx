@@ -2,14 +2,14 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import training_section from "@/assets/figma/Edge_dashboard/Edge_community.png";
+import session_image from "@/assets/figma/placeholder.png";
 import checkmark from "@/assets/figma/Social Media Icon Square/Check_Circle.png";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
-export default function TrainingSection() {
+export default function UpcomingSessions() {
   return (
-    <section className="my-16 md:mx-20 sm:mx-10 mx-8 text-(--secondary)">
+    <section className="mt-16 md:mx-20 sm:mx-10 mx-8 text-(--secondary)">
       <motion.div
         className="text-center mb-7"
         initial={{ opacity: 0, y: 30 }}
@@ -18,58 +18,57 @@ export default function TrainingSection() {
         transition={{ duration: 0.5, ease: "easeOut" }}
       >
         <h2 className="text-(--secondary) text-4xl font-medium mb-3">
-          Train, Apply, & Improve.
+          Ready to Start Your Development?
         </h2>
-        <h3 className="text-(--accent) text-xl leading-tight">
-          A simple, repeatable development process.
+        <h3 className="text-(--turquoise) text-xl leading-tight">
+          Compare structured training and coach-supported development.
         </h3>
       </motion.div>
 
       {/* Card */}
-      <div className="flex flex-col md:flex-row gap-15 bg-[#27272E] rounded-[30px] md:p-21.25 p-8">
+      <div className="flex flex-col md:flex-row items-center gap-15 bg-(--card-bg) rounded-[30px] md:p-21.25 p-8">
         <div>
           <Image
-            src={training_section}
+            src={session_image}
             alt="Session Image"
             className="rounded-xl object-fill"
           />
         </div>
         <div className="flex flex-col gap-7">
-          <h2 className="text-4xl">How ProBuilt Training Works</h2>
-          <h3 className="text-(--accent) text-xl leading-tight">
-            A simple process designed to improve your game.
-          </h3>
+          <motion.div
+            className="flex justify-center md:justify-start"
+            animate={{ scale: [1, 1.03, 1] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <Button variant="tag" size="lg">
+              Hub & Edge
+            </Button>
+          </motion.div>
+          <h2 className="text-4xl">Structured training or coaching support.</h2>
           <ul className="space-y-5 flex flex-col">
             <li className="flex items-center">
               <Image src={checkmark} alt="checkmark" className="w-5 h-5 mr-2" />
-              <span>Train with structured programmes</span>
+              <span>Structured training programmes</span>
             </li>
             <li className="flex items-center">
               <Image src={checkmark} alt="checkmark" className="w-5 h-5 mr-2" />
-              <span>Apply sessions on the pitch</span>
+              <span>Coach Q&A and feedback</span>
             </li>
             <li className="flex items-center">
               <Image src={checkmark} alt="checkmark" className="w-5 h-5 mr-2" />
-              <span>Track progress over time</span>
+              <span>Weekly online mentoring (Edge)</span>
             </li>
           </ul>
           <motion.div
-            className="flex flex-col sm:flex-row items-center gap-4"
+            className="flex justify-center md:justify-start"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ margin: "-100px" }}
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Link href="/lite">
-                <Button variant="primary" size="lg">
-                  Start Free
-                </Button>
-              </Link>
-            </motion.div>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link href="/membership">
-                <Button variant="secondary" size="lg">
+                <Button variant="primary" size="lg">
                   Compare Plans
                 </Button>
               </Link>

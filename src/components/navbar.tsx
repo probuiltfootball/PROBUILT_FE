@@ -9,7 +9,7 @@ import UserMenu from "@/components/shared/UserMenu";
 import SiteLogo from "@/assets/figma/logo2.png";
 import { FaTimes, FaBars } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 
 const Link = NextLink;
 
@@ -94,7 +94,7 @@ export default function Navbar() {
           {showPublicHub && (
             <Link
               href="/hub"
-              className={`font-medium text-[20px] md:text-base transition-colors ${pathname === "/hub" ? "text-(--accent)" : "text-white hover:text-[#00FFC2]"}`}
+              className={`font-medium text-[20px] md:text-base transition-colors ${pathname === "/hub" ? "text-(--turquoise)" : "text-white hover:text-(--turquoise)"}`}
             >
               Hub
             </Link>
@@ -103,7 +103,7 @@ export default function Navbar() {
           {showPublicEdge && (
             <Link
               href="/edge"
-              className={`font-medium text-[20px] md:text-base transition-colors ${pathname === "/edge" ? "text-(--accent)" : "text-white hover:text-[#00FFC2]"}`}
+              className={`font-medium text-[20px] md:text-base transition-colors ${pathname === "/edge" ? "text-(--turquoise)" : "text-white hover:text-(--turquoise)"}`}
             >
               Edge
             </Link>
@@ -113,7 +113,7 @@ export default function Navbar() {
           {!isAuthenticated && (
             <Link
               href="/membership"
-              className={`font-medium text-[20px] md:text-base transition-colors ${pathname === "/membership" ? "text-(--accent)" : "text-white hover:text-[#00FFC2]"}`}
+              className={`font-medium text-[20px] md:text-base transition-colors ${pathname === "/membership" ? "text-(--turquoise)" : "text-white hover:text-(--turquoise)"}`}
             >
               Plans
             </Link>
@@ -123,7 +123,7 @@ export default function Navbar() {
           {showDashboard && dashboardLinkText && (
             <Link
               href="/dashboard"
-              className={`font-medium text-[20px] md:text-base transition-colors ${pathname.startsWith("/dashboard") ? "text-(--accent)" : "text-white hover:text-[#00FFC2]"}`}
+              className={`font-medium text-[20px] md:text-base transition-colors ${pathname.startsWith("/dashboard") ? "text-(--turquoise)" : "text-white hover:text-(--turquoise)"}`}
             >
               {dashboardLinkText}
             </Link>
@@ -131,14 +131,14 @@ export default function Navbar() {
 
           <Link
             href="/community"
-            className={`font-medium text-[20px] md:text-base transition-colors ${pathname === "/community" ? "text-(--accent)" : "text-white hover:text-[#00FFC2]"}`}
+            className={`font-medium text-[20px] md:text-base transition-colors ${pathname === "/community" ? "text-(--turquoise)" : "text-white hover:text-(--turquoise)"}`}
           >
             Community
           </Link>
 
           <Link
             href="/pb-points"
-            className={`font-medium text-[20px] md:text-base transition-colors ${pathname === "/pb-points" ? "text-(--accent)" : "text-white hover:text-[#00FFC2]"}`}
+            className={`font-medium text-[20px] md:text-base transition-colors ${pathname === "/pb-points" ? "text-(--turquoise)" : "text-white hover:text-(--turquoise)"}`}
           >
             PB Points
           </Link>

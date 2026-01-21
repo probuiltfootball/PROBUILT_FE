@@ -2,28 +2,18 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
 import Navbar from "@/components/navbar";
 import { Footer } from "@/components/footer";
-import EdgeSection from "@/components/edge-section";
-import { motion } from "framer-motion";
-import Link from "next/link";
-import { FaCheck, FaRocket, FaUserTie, FaChartBar, FaUsers } from "react-icons/fa6";
 import { useAppSelector } from "@/lib/store/hooks";
 import { SubscriptionEdgeService } from "@/lib/services/subscription-edge.service";
 import type { ActivePlan } from "@/types/subscription.types";
 import LoadingSpinner from "@/components/shared/LoadingSpinner";
-import edge_hero_image from "@/assets/figma/Edge_dashboard/Edge_hero.png";
-import { Button } from "@/components/ui/button";
-import { Divider } from "@/components/divider";
-import tag from "@/assets/figma/Tags/most_popular.png";
-import checkmark from "@/assets/figma/Social Media Icon Square/Check_Circle.png";
-import edge_image from "@/assets/figma/edge_landing_page.png";
-import edge_exclusive_image from "@/assets/figma/Edge_dashboard/Edge_exclusive.png";
-import edge_community_image from "@/assets/figma/Edge_dashboard/Edge_community.png";
-import BG1 from "@/assets/figma/Edge_dashboard/BG1.png";
-import BG2 from "@/assets/figma/Edge_dashboard/BG2.png";
-import BG3 from "@/assets/figma/Edge_dashboard/BG3.png";
+import { Divider } from "@/components/ui/divider";
+import PathSelection from "@/components/landing-page/path-selection";
+import GuidedSession from "@/components/landing-page/guided-session";
+import WhyProbuilt from "@/components/landing-page/why-probuilt";
+import HeroSection from "@/components/landing-page/hero-section";
+import Feedback from "@/components/landing-page/feedback";
 
 export default function EdgePage() {
   const { isAuthenticated } = useAppSelector((state) => state.auth);
@@ -69,9 +59,19 @@ export default function EdgePage() {
   return (
     <main className="flex flex-col min-h-screen text-(--secondary)">
       <Navbar />
+      <HeroSection />
+      <Divider />
+      <WhyProbuilt />
+      <Divider />
+      <GuidedSession />
+      <Divider />
+      <Feedback />
+      <Divider />
+      <PathSelection />
+      <Footer />
 
       {/* Hero Section */}
-      <section className="top-hero-section flex items-center justify-between mt-42 mb-16 lg:mx-22 md:mx-20 sm:mx-10 mx-8">
+      {/* <section className="top-hero-section flex items-center justify-between mt-42 mb-16 lg:mx-22 md:mx-20 sm:mx-10 mx-8">
         <div>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -79,10 +79,10 @@ export default function EdgePage() {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-5xl md:text-6xl font-bold mb-3 leading-22 max-w-200">
-              <span className="text-(--accent)">Edge:</span> Your Personalised Training
+              <span className="text-(--turquoise)">Edge:</span> Your Personalised Training
               Experience
             </h1>
-            <p className="text-xl mb-15.75 text-(--accent) max-w-lg">
+            <p className="text-xl mb-15.75 text-(--turquoise) max-w-lg">
               A personalised, UEFA-coach-built plan tailored to your position, strengths,
               and long-term ambition.
             </p>
@@ -120,10 +120,10 @@ export default function EdgePage() {
         </div>
       </section>
 
-      <Divider />
+      <Divider /> */}
 
       {/* Upcoming Session */}
-      <motion.div className="my-14 md:mx-20 sm:mx-10 mx-8 text-(--secondary)">
+      {/* <motion.div className="my-14 md:mx-20 sm:mx-10 mx-8 text-(--secondary)">
         <motion.div
           className="text-center mb-7"
           initial={{ opacity: 0, y: 30 }}
@@ -132,14 +132,14 @@ export default function EdgePage() {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 className="text-4xl font-medium mb-3">Edge: Individual Coaching Needs</h2>
-          <h3 className="text-xl leading-tight text-(--accent)">
+          <h3 className="text-xl leading-tight text-(--turquoise)">
             A personalised, UEFA-coach-built plan tailored to your position, strengths,
             and long-term ambition.
           </h3>
-        </motion.div>
+        </motion.div> */}
 
-        {/* Card */}
-        <div className="flex flex-col md:flex-row items-center gap-15 bg-[#27272E] rounded-[30px] p-21.25">
+      {/* Card */}
+      {/* <div className="flex flex-col md:flex-row items-center gap-15 bg-(--card-bg) rounded-[30px] p-21.25">
           <div>
             <Image
               src={edge_image}
@@ -207,11 +207,11 @@ export default function EdgePage() {
         </div>
       </motion.div>
 
-      <Divider />
+      <Divider /> */}
 
       {/* Edge Exclusive */}
 
-      <motion.div className="my-14 md:mx-20 sm:mx-10 mx-8 text-(--secondary)">
+      {/* <motion.div className="my-14 md:mx-20 sm:mx-10 mx-8 text-(--secondary)">
         <motion.div
           className="text-center mb-7"
           initial={{ opacity: 0, y: 30 }}
@@ -220,14 +220,14 @@ export default function EdgePage() {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 className="text-4xl font-medium mb-3">Individual Player Plan</h2>
-          <h3 className="text-xl leading-tight text-(--accent)">
+          <h3 className="text-xl leading-tight text-(--turquoise)">
             A weekly updated, personalised pathway built around your role, ability, and
             goals.
           </h3>
-        </motion.div>
+        </motion.div> */}
 
-        {/* Card */}
-        <div className="flex flex-col md:flex-row items-center gap-15 bg-[#27272E] rounded-[30px] p-21.25">
+      {/* Card */}
+      {/* <div className="flex flex-col md:flex-row items-center gap-15 bg-(--card-bg) rounded-[30px] p-21.25">
           <div className="flex flex-col gap-7">
             <motion.div
               animate={{ scale: [1, 1.03, 1] }}
@@ -278,9 +278,9 @@ export default function EdgePage() {
         </div>
       </motion.div>
 
-      <Divider />
+      <Divider /> */}
       {/* Opportunities and Trials */}
-      <motion.div className="my-14 md:mx-20 sm:mx-10 mx-8 text-(--secondary)">
+      {/* <motion.div className="my-14 md:mx-20 sm:mx-10 mx-8 text-(--secondary)">
         <motion.div
           className="text-center mb-7"
           initial={{ opacity: 0, y: 30 }}
@@ -289,18 +289,18 @@ export default function EdgePage() {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 className="text-4xl font-medium mb-3">Exclusive Opportunities & Trials</h2>
-          <h3 className="text-xl leading-tight text-(--accent)">
+          <h3 className="text-xl leading-tight text-(--turquoise)">
             Edge athletes get exclusive access to growing opportunities as their PB Points
             increase.
           </h3>
-        </motion.div>
+        </motion.div> */}
 
-        {/* Card */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          <div className="flex flex-col justify-center items-center gap-7.75 bg-[#27272E] rounded-3xl px-8.25 py-14 border-(--accent) border-2">
+      {/* Card */}
+      {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div className="flex flex-col justify-center items-center gap-7.75 bg-(--card-bg) rounded-3xl px-8.25 py-14 border-(--turquoise) border-2">
             <Image src={BG1} alt="BG1" />
             <h3 className="text-[28px] font-semibold">Trial Access</h3>
-            <p className="text-[20px] text-center text-(--accent)">
+            <p className="text-[20px] text-center text-(--turquoise)">
               Get priority invitations to partner clubs and scouting opportunities.
             </p>
             <Link href="/learn-more">
@@ -309,10 +309,10 @@ export default function EdgePage() {
               </Button>
             </Link>
           </div>
-          <div className="flex flex-col items-center gap-7.75 bg-[#27272E] rounded-3xl px-8.25 py-14 border-(--accent) border-2">
+          <div className="flex flex-col items-center gap-7.75 bg-(--card-bg) rounded-3xl px-8.25 py-14 border-(--turquoise) border-2">
             <Image src={BG2} alt="BG2" />
             <h3 className="text-[28px] font-semibold">Mentor Sessions</h3>
-            <p className="text-[20px] text-center text-(--accent)">
+            <p className="text-[20px] text-center text-(--turquoise)">
               Join targeted small-group sessions led by ProBuilt coaches.
             </p>
             <Link href="/learn-more">
@@ -321,10 +321,10 @@ export default function EdgePage() {
               </Button>
             </Link>
           </div>
-          <div className="flex flex-col items-center gap-7.75 bg-[#27272E] rounded-3xl px-8.25 py-14 border-(--accent) border-2">
+          <div className="flex flex-col items-center gap-7.75 bg-(--card-bg) rounded-3xl px-8.25 py-14 border-(--turquoise) border-2">
             <Image src={BG3} alt="BG3" />
             <h3 className="text-[28px] font-semibold">Trial Access</h3>
-            <p className="text-[20px] text-center text-(--accent)">
+            <p className="text-[20px] text-center text-(--turquoise)">
               Positional and tactical modules for personal player development.
             </p>
             <Link href="/learn-more">
@@ -336,10 +336,10 @@ export default function EdgePage() {
         </div>
       </motion.div>
 
-      <Divider />
+      <Divider /> */}
 
       {/* Community Section */}
-      <motion.div className="mt-14 md:mx-20 sm:mx-10 mx-8 text-(--secondary)">
+      {/* <motion.div className="mt-14 md:mx-20 sm:mx-10 mx-8 text-(--secondary)">
         <motion.div
           className="text-center mb-7"
           initial={{ opacity: 0, y: 30 }}
@@ -348,14 +348,14 @@ export default function EdgePage() {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 className="text-4xl font-medium mb-3">Join The ProBuilt Community</h2>
-          <h3 className="text-xl leading-tight text-(--accent)">
+          <h3 className="text-xl leading-tight text-(--turquoise)">
             Connect with driven players, share progress, and learn from coaches in a
             community built to support your development.
           </h3>
         </motion.div>
 
         {/* Card */}
-        <div className="flex flex-col md:flex-row items-center gap-15 bg-[#27272E] rounded-[30px] p-21.25">
+      {/* <div className="flex flex-col md:flex-row items-center gap-15 bg-(--card-bg) rounded-[30px] p-21.25">
           <div>
             <Image
               src={edge_community_image}
@@ -414,7 +414,7 @@ export default function EdgePage() {
             </motion.div>
           </div>
         </div>
-      </motion.div>
+      </motion.div> */}
 
       {/* Features Section */}
       {/* <section className="py-20 px-6 bg-[#1a1a1a]">
@@ -580,8 +580,6 @@ export default function EdgePage() {
           </motion.div>
         </div>
       </section> */}
-
-      <Footer />
     </main>
   );
 }

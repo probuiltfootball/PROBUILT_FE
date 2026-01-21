@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import edge_image from "@/assets/figma/edge_landing_page.png";
@@ -21,13 +21,13 @@ const GuidedSession = () => {
         transition={{ duration: 0.5, ease: "easeOut" }}
       >
         <h2 className="text-4xl font-medium mb-3">Guided Sessions for Every Position</h2>
-        <h3 className="text-xl leading-tight text-(--accent)">
+        <h3 className="text-xl leading-tight text-(--turquoise)">
           Every session built around what your position demands.
         </h3>
       </motion.div>
 
       {/* Card */}
-      <div className="flex flex-col md:flex-row gap-15 bg-[#27272E] rounded-[30px] p-21.25">
+      <div className="flex flex-col md:flex-row gap-15 bg-(--card-bg) rounded-[30px] p-8 md:p-12 lg:p-20">
         <div>
           <Image
             src={edge_image}
@@ -36,11 +36,11 @@ const GuidedSession = () => {
           />
         </div>
         <div className="flex flex-col gap-3">
-          <h3 className="text-xl leading-tight text-(--accent)">
+          <h3 className="text-xl leading-tight text-(--turquoise)">
             Example Session · Attacking Midfielder
           </h3>
           <h2 className="text-4xl">Positional Awareness</h2>
-          <h3 className="text-xl leading-tight text-[#FFD100] flex gap-2">
+          <h3 className="text-xl leading-tight text-(--yellow) flex gap-2">
             50 PB Points
             <span>
               <Image src={star} alt="star" className="w-5 h-5 mr-2" />

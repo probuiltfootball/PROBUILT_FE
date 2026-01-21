@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import edge_image from "@/assets/figma/edge_landing_page.png";
 import tag from "@/assets/figma/Tags/most_popular.png";
 import checkmark from "@/assets/figma/Social Media Icon Square/Check_Circle.png";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 
 export default function EdgeSection() {
   return (
@@ -19,14 +19,14 @@ export default function EdgeSection() {
         transition={{ duration: 0.5, ease: "easeOut" }}
       >
         <h2 className="text-4xl font-medium mb-3">Edge: Individual Coaching Needs</h2>
-        <h3 className="text-xl leading-tight text-(--accent)">
+        <h3 className="text-xl leading-tight text-(--turquoise)">
           A personalised, UEFA-coach-built plan tailored to your position, strengths, and
           long-term ambition.
         </h3>
       </motion.div>
 
       {/* Card */}
-      <div className="flex flex-col md:flex-row items-center gap-15 bg-[#27272E] rounded-[30px] p-21.25">
+      <div className="flex flex-col md:flex-row items-center gap-15 bg-(--card-bg) rounded-[30px] p-21.25">
         <div>
           <Image
             src={edge_image}

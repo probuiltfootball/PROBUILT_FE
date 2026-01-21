@@ -10,13 +10,13 @@ const LiteSignupForm = () => {
     <div className="mt-38 mb-16 md:mx-20 sm:mx-10 mx-8 text-(--secondary)">
       <div className="text-center mb-7">
         <h2 className="text-4xl font-medium mb-3">Set up your ProBuilt Experience</h2>
-        <h3 className="text-xl leading-tight text-(--accent)">
+        <h3 className="text-xl leading-tight text-(--turquoise)">
           We’ll use this to recommend the most relevant training and features for you.
         </h3>
       </div>
 
       {/* Card */}
-      <div className="flex flex-col md:flex-row gap-15 bg-[#27272E] rounded-[30px] p-21.25">
+      <div className="flex flex-col md:flex-row gap-15 bg-(--card-bg) rounded-[30px] p-8 md:p-12 lg:p-20">
         <div>
           <Image
             src={signup_image}
@@ -31,7 +31,7 @@ const LiteSignupForm = () => {
             </Button>
           </div>
           <h2 className="text-4xl">Set Up Your Experience</h2>
-          <h3 className="text-xl leading-tight text-(--accent)">
+          <h3 className="text-xl leading-tight text-(--turquoise)">
             Everyone starts free. You can upgrade anytime.
           </h3>
           <ul className="flex flex-col gap-5 my-3">

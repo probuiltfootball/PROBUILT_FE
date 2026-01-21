@@ -103,7 +103,7 @@ export default function TestimonialCarousel({
   const next = items[wrap(index + 1)];
 
   return (
-    <section className="mt-12 mb-16 md:mx-20 sm:mx-10 mx-8 text-(--secondary) bg-[#27272E] rounded-[30px] px-17.5 py-23">
+    <section className="mt-12 mb-16 md:mx-20 sm:mx-10 mx-8 text-(--secondary) bg-(--card-bg) rounded-[30px] px-17.5 py-23">
       <motion.div
         className="text-center mb-16.75"
         initial={{ opacity: 0, y: 30 }}
@@ -128,7 +128,7 @@ export default function TestimonialCarousel({
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.45 }}
-              className="text-[28px] leading-[130%] text-(--accent) mb-30.25 line-clamp-3 min-h-27"
+              className="text-[28px] leading-[130%] text-(--turquoise) mb-30.25 line-clamp-3 min-h-27"
               aria-live="polite"
             >
               “{current.quote}”
@@ -154,12 +154,12 @@ export default function TestimonialCarousel({
             />
             <div className="flex flex-col items-start">
               <span className="truncate md:max-w-36">{prev.name}</span>
-              <div className="text-xs text-(--accent)">{prev.role}</div>
+              <div className="text-xs text-(--turquoise)">{prev.role}</div>
             </div>
           </button>
 
           {/* current name (prominent) */}
-          <div className="-top-0.5 left-1/2 absolute h-0.75 md:w-82.75 -translate-x-1/2 bg-(--accent) rounded-full" />
+          <div className="-top-0.5 left-1/2 absolute h-0.75 md:w-82.75 -translate-x-1/2 bg-(--turquoise) rounded-full" />
           <div className="flex gap-5 items-center md:w-62">
             <Image
               src={prev.avatar}
@@ -172,7 +172,7 @@ export default function TestimonialCarousel({
               <div className="text-lg md:text-xl font-semibold text-white">
                 {current.name}
               </div>
-              <div className="text-sm text-(--accent)">{current.role}</div>
+              <div className="text-sm text-(--turquoise)">{current.role}</div>
             </div>
           </div>
 
@@ -191,7 +191,7 @@ export default function TestimonialCarousel({
             />
             <div className="flex flex-col items-start">
               <span className="truncate md:max-w-36">{next.name}</span>
-              <div className="text-xs text-(--accent)">{next.role}</div>
+              <div className="text-xs text-(--turquoise)">{next.role}</div>
             </div>
           </button>
         </div>

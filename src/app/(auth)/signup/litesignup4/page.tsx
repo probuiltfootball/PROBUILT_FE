@@ -16,12 +16,12 @@ const LiteStep4 = () => {
   return (
     <div>
       <Navbar />
-      <div className="mt-38 mb-16 md:mx-20 sm:mx-10 mx-8 text-(--secondary) bg-[#27272E] rounded-[30px] flex flex-col items-center p-20 gap-2.5">
+      <div className="mt-38 mb-16 md:mx-20 sm:mx-10 mx-8 text-(--secondary) bg-(--card-bg) rounded-[30px] flex flex-col md:items-center p-8 md:p-12 lg:p-20 gap-6 text-center">
         <h2 className="text-4xl font-medium">You’re all set, John 👋</h2>
-        <h3 className="text-xl leading-tight text-(--accent) mb-5">
+        <h3 className="text-xl leading-tight text-(--turquoise) mb-5">
           Your personalised ProBuilt experience is ready.
         </h3>
-        <div className="flex flex-col border-2 border-(--accent) rounded-[20px] p-12.5 gap-6">
+        <div className="flex flex-col border-2 border-(--turquoise) rounded-[20px] p-12.5 gap-6">
           <div className="flex flex-row items-center gap-6 mb-3">
             <Image src={checkmark} alt="checkmark" className="w-6" />
             Your Training Profile
@@ -33,14 +33,14 @@ const LiteStep4 = () => {
                   <Image src={profile_icon} alt="profile icon" className="w-6" />
                 </td>
                 <td className="w-33.5">Position</td>
-                <td className="text-(--accent)">Attacking Midfield</td>
+                <td className="text-(--turquoise)">Attacking Midfield</td>
               </tr>
               <tr className="flex flex-row items-center space-x-6">
                 <td>
                   <Image src={tactic_icon} alt="tactic icon" className="w-6" />
                 </td>
                 <td className="w-33.5">Training Focus</td>
-                <td className="text-(--accent)">Improve Match Performance</td>
+                <td className="text-(--turquoise)">Improve Match Performance</td>
               </tr>
               <tr className="flex flex-row items-center space-x-6">
                 <td>
@@ -51,19 +51,19 @@ const LiteStep4 = () => {
                   />
                 </td>
                 <td className="w-33.5">Training Frequency</td>
-                <td className="text-(--accent)">1-2 Sessions Per Week</td>
+                <td className="text-(--turquoise)">1-2 Sessions Per Week</td>
               </tr>
               <tr className="flex flex-row items-center space-x-6">
                 <td>
                   <Image src={star_icon} alt="star icon" className="w-6" />
                 </td>
                 <td className="w-33.5">Current Plan</td>
-                <td className="text-(--accent)">
+                <td className="text-(--turquoise)">
                   Lite <span className="text-gray-50"> (Upgrade Anytime)</span>
                 </td>
               </tr>
             </table>
-            <hr className="border-(--accent) my-7" />
+            <hr className="border-(--turquoise) my-7" />
             <Link href="/sessions" className="flex justify-center">
               <Button variant="primary" size="lg">
                 Start First Session

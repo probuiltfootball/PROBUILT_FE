@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 import checkmark from "@/assets/figma/Social Media Icon Square/Check_Circle.png";
 import mediaPlayer_placeholder from "@/assets/figma/Media Player.png";
 
@@ -11,7 +11,7 @@ const WhyProbuilt = () => {
     <div className="flex flex-col md:flex-row gap-15 justify-between rounded-[30px] md:p-21.25 p-8 text-(--secondary)">
       <div className="flex flex-col gap-4">
         <h2 className="text-4xl font-medium">Why Footballers Choose ProBuilt</h2>
-        <h3 className="text-xl leading-tight text-(--accent)">
+        <h3 className="text-xl leading-tight text-(--turquoise)">
           Train with structure, track real progress, and improve with purpose.
         </h3>
         <ul className="space-y-5 flex flex-col mt-1">

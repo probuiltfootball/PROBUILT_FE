@@ -18,7 +18,9 @@
 :root {
   --primary: #000000;
   --secondary: #ffffff;
-  --accent: #00ffd1;
+  --turquoise: #00ffd1;
+  --yellow: #ffd100;
+  --card-bg: #27272e;
   --borders-forms: #e6e6e6;
   --success: #66cb9f;
   --warning: #f7936f;
