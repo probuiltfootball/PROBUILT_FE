@@ -1,5 +1,5 @@
 import Image from "next/image";
-import DividerSvg from "../assets/figma/Divider.svg";
+import DividerSvg from "@/assets/figma/Divider.svg";
 
 export function Divider() {
   return (

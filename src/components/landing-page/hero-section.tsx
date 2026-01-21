@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import herobg from "@/assets/figma/Hero_image.png";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 
 export default function HeroSection() {
   return (

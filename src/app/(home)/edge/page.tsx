@@ -8,12 +8,12 @@ import { useAppSelector } from "@/lib/store/hooks";
 import { SubscriptionEdgeService } from "@/lib/services/subscription-edge.service";
 import type { ActivePlan } from "@/types/subscription.types";
 import LoadingSpinner from "@/components/shared/LoadingSpinner";
-import { Divider } from "@/components/divider";
-import PathSelection from "@/components/path-selection";
-import GuidedSession from "@/components/guided-session";
-import WhyProbuilt from "@/components/why-probuilt";
-import HeroSection from "@/components/hero-section";
-import Feedback from "@/components/feedback";
+import { Divider } from "@/components/ui/divider";
+import PathSelection from "@/components/landing-page/path-selection";
+import GuidedSession from "@/components/landing-page/guided-session";
+import WhyProbuilt from "@/components/landing-page/why-probuilt";
+import HeroSection from "@/components/landing-page/hero-section";
+import Feedback from "@/components/landing-page/feedback";
 
 export default function EdgePage() {
   const { isAuthenticated } = useAppSelector((state) => state.auth);

@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 import checkmark from "@/assets/figma/Social Media Icon Square/Check_Circle.png";
 import mediaPlayer_placeholder from "@/assets/figma/Media Player.png";
 

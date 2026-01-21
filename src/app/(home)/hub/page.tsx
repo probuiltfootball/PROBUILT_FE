@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Navbar from "@/components/navbar";
 import { Footer } from "@/components/footer";
-import HubSection from "@/components/hub-section";
+import HubSection from "@/components/landing-page/hub-section";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { FaCheck, FaPlay, FaBook, FaChartLine } from "react-icons/fa6";
@@ -14,7 +14,7 @@ import { SubscriptionEdgeService } from "@/lib/services/subscription-edge.servic
 import type { ActivePlan } from "@/types/subscription.types";
 import LoadingSpinner from "@/components/shared/LoadingSpinner";
 import { Button } from "@/components/ui/button";
-import { Divider } from "@/components/divider";
+import { Divider } from "@/components/ui/divider";
 import hub_hero_image from "@/assets/figma/Hub_Dashboard/HeroImage.png";
 import checkmark from "@/assets/figma/Social Media Icon Square/Check_Circle.png";
 import session_image from "@/assets/figma/Hub_Dashboard/SessionImage.png";
@@ -22,11 +22,11 @@ import edge_community_image from "@/assets/figma/Edge_dashboard/Edge_community.p
 import ImageIcon from "@/assets/figma/Hub_Dashboard/Image icon.png";
 import LeftArrowIcon from "@/assets/figma/Hub_Dashboard/Chevron Left.png";
 import RightArrowIcon from "@/assets/figma/Hub_Dashboard/Chevron Right.svg";
-import PathSelection from "@/components/path-selection";
-import GuidedSession from "@/components/guided-session";
-import WhyProbuilt from "@/components/why-probuilt";
-import HeroSection from "@/components/hero-section";
-import Feedback from "@/components/feedback";
+import PathSelection from "@/components/landing-page/path-selection";
+import GuidedSession from "@/components/landing-page/guided-session";
+import WhyProbuilt from "@/components/landing-page/why-probuilt";
+import HeroSection from "@/components/landing-page/hero-section";
+import Feedback from "@/components/landing-page/feedback";
 
 export default function HubPage() {
   const { isAuthenticated } = useAppSelector((state) => state.auth);

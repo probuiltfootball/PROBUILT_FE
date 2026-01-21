@@ -8,7 +8,7 @@ import orange_checkmark from "@/assets/figma/Social Media Icon Square/orange_che
 import person_icon from "@/assets/figma/Social Media Icon Square/person.png";
 import hub_icon from "@/assets/figma/Social Media Icon Square/sports_soccer.png";
 import edge_icon from "@/assets/figma/Social Media Icon Square/rocket_launch.png";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { hu } from "zod/locales";
 
